@@ -1,0 +1,71 @@
+﻿@page "/books"
+@inherits BookStoreComponentBase
+@using BookStore.Books
+@using BookStore.Localization
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@using Polly
+@inject IStringLocalizer<BookStoreResource> Ml
+
+<h3>"@Ml["Books"]"</h3>
+
+
+@if ( Loading )
+{
+<span>Loading...</span>
+}
+else
+{
+    <SfButton OnClick="@OpenCreateBookModalAsync" IsPrimary="true">"@Ml["New Book"]"</SfButton>
+
+<Syncfusion.Blazor.Grids.SfGrid DataSource="@BookList" AllowPaging="true">
+    <GridPageSettings PageSizes="true" PageSize="10"></GridPageSettings>
+    <GridColumns>
+            <GridColumn Field="@nameof( BookDto.Name )" HeaderText="@Ml["Name"]" />
+            <GridColumn Field="@nameof( BookDto.Price )" HeaderText="@Ml["Price"]" />
+            <GridColumn Field="@nameof( BookDto.ReleaseDate )" HeaderText="@Ml["ReleaseDate"]" />
+        <GridColumn Width="200px">
+            <Template>
+                    <SfButton OnClick="@(()=>OpenEditingBookModalAsync(context as BookDto))">"@Ml["Edit"]"</SfButton>
+                        <SfButton OnClick="@(()=>DeleteBookAsync(context as BookDto))">"@Ml["Delete"]"</SfButton>
+            </Template>
+        </GridColumn>
+    </GridColumns>
+</Syncfusion.Blazor.Grids.SfGrid>
+
+<SfDialog Target="#target" @bind-Visible="@NewDialogOpen" AllowPrerender="true" IsModal="true" Width="500px">
+    <DialogTemplates>
+            <Header>"@Ml["New Book"]"</Header>
+        <Content>
+            <SfTextBox @bind-Value="@NewBookDto.Name" Placeholder="@Ml["Book Name"]" FloatLabelType='FloatLabelType.Auto' />
+                <SfNumericTextBox TValue="float" @bind-Value="@NewBookDto.Price" Placeholder="@Ml["Price"]" FloatLabelType="FloatLabelType.Auto" />
+            <SfDatePicker TValue="DateTime" @bind-Value="@NewBookDto.ReleaseDate" Placeholder="@Ml["Release Date"]" FloatLabelType="FloatLabelType.Auto" />
+        </Content>
+    </DialogTemplates>
+    <DialogButtons>
+            <DialogButton Content="@Ml["Cancel"]" OnClick="@(e => { NewDialogOpen = false; })" />
+            <DialogButton Content="@Ml["Create"]" OnClick="@CreateBookAsync" IsPrimary="true" />
+    </DialogButtons>
+</SfDialog>
+
+<SfDialog @bind-Visible="@EditingDialogOpen" Width="500px" IsModal="true">
+    <DialogTemplates>
+            <Header>@Ml["Edit Book"]</Header>
+        <Content>
+                <SfTextBox @bind-Value="@EditingBookDto.Name" Placeholder="@Ml["Book Name"]" FloatLabelType='FloatLabelType.Auto' />
+                <SfNumericTextBox TValue="float" @bind-Value="@EditingBookDto.Price" Placeholder="@Ml["Price"]" FloatLabelType="FloatLabelType.Auto" />
+                <SfDatePicker TValue="DateTime" @bind-Value="@EditingBookDto.ReleaseDate" Placeholder="@Ml["Release Date"]" FloatLabelType="FloatLabelType.Auto" />
+        </Content>
+    </DialogTemplates>
+    <DialogButtons>
+            <DialogButton Content="@Ml["Cancel"]" OnClick="@(e => { EditingDialogOpen = false; })" />
+            <DialogButton Content="@Ml["Update"]" OnClick="@UpdateBookAsync" IsPrimary="true" />
+    </DialogButtons>
+</SfDialog>
+}
+
+<style>
+    #target {
+        height: 500px;
+    }
+</style>

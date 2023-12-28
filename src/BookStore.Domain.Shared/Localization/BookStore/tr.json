@@ -1,0 +1,23 @@
+{
+  "culture": "tr",
+  "texts": {
+    "Menu:Home": "Ana sayfa",
+    "Welcome": "Hoşgeldiniz",
+    "LongWelcomeMessage": "Uygulamaya hoşgeldiniz. Bu, ABP framework'ü üzerine bina edilmiş bir başlangıç projesidir. Daha fazla bilgi için abp.io adresini ziyaret edebilirsiniz.",
+    "New Book": "Yeni Kitap",
+    "Delete": "Silmek",
+    "Edit": "Düzenlemek",
+    "Test2": "TestIki",
+    "Name": "Ad",
+    "Books": "Kitaplar",
+    "Book Name": "kitap Adı",
+    "Book": "Kitap",
+    "Price": "Fiyat",
+    "ReleaseDate": "Yayın tarihi",
+    "Cancel": "İptal etmek",
+    "Create": "Yaratmak",
+    "Edit Book": "Kitabı Düzenle",
+    "Update": "Güncelleme",
+    "BookDeletionConfirmationMessage": "KitapSilmeOnayMesajı"
+  }
+}
