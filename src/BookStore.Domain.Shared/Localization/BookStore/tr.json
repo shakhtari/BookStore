@@ -18,6 +18,8 @@
     "Create": "Yaratmak",
     "Edit Book": "Kitabı Düzenle",
     "Update": "Güncelleme",
-    "BookDeletionConfirmationMessage": "KitapSilmeOnayMesajı"
+    "BookDeletionConfirmationMessage": "KitapSilmeOnayMesajı",
+    "Add": "Eklemek",
+    "Edit": "Düzenlemek"
   }
 }
