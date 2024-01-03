@@ -30,6 +30,9 @@ namespace BookStore.Blazor.Pages.Books
         private bool EditingDialogOpen { get; set; }
         private readonly IStringLocalizer<BookStoreResource> _localizer;
         private List<Object> ToolbarItems;
+        public IEditorSettings DateEditParams = new DateEditCellParams { 
+        Params=new Syncfusion.Blazor.Calendars.DatePickerModel() { EnableRtl=true , ShowClearButton=false}
+        };
 
 
         public Books(IStringLocalizer<BookStoreResource> localizer)

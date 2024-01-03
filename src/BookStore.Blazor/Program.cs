@@ -33,8 +33,8 @@ public class Program
             builder.Host.AddAppSettingsSecretsJson()
                 .UseAutofac()
                 .UseSerilog();
-            
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDU1N0AzMTM4MmUzNDJlMzBmWXJMTnZQZ2EzUkdRWUprYWhuK3RTdFIrd2txWW0zR08ydUJHN3JPdXNZPQ==");
+
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MDAxQDMyMzQyZTMwMmUzMFJsa3FOSlpWOWdpL0lXaFFYMzVJWDdzbzRsV1VUTERCZ0RXNW5HbUtTaHc9");
             builder.Services.AddSyncfusionBlazor();
             await builder.AddApplicationAsync<BookStoreBlazorModule>();
             var app = builder.Build();

@@ -5,6 +5,7 @@
 @using System.Globalization
 @using Polly
 @using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Calendars
 @inject IStringLocalizer<BookStoreResource> Ml
 
 <h3>"@Ml["Books"]"</h3>
@@ -25,7 +26,7 @@ else
             <GridColumn Field="@nameof(BookDto.Id)" HeaderText="ID" IsPrimaryKey="true" AllowAdding="false" AllowEditing="false"></GridColumn>
             <GridColumn Field="@nameof(BookDto.Name)" HeaderText="@Ml["Name"]" />
             <GridColumn Field="@nameof(BookDto.Price)" HeaderText="@Ml["Price"]" />
-            <GridColumn Field="@nameof(BookDto.ReleaseDate)" HeaderText="@Ml["ReleaseDate"]" EditType="EditType.DatePickerEdit" Type="ColumnType.Date" Format="d"/>
+            <GridColumn Field="@nameof(BookDto.ReleaseDate)" HeaderText="@Ml["ReleaseDate"]" EditType="EditType.DatePickerEdit" Type="ColumnType.Date" Format="d" DefaultValue="@(DateTime.Now)"/>
          </GridColumns>
     </Syncfusion.Blazor.Grids.SfGrid>
 
@@ -33,5 +34,5 @@ else
 
 @code{
     
-
+    public DateTime? dateValue{get;set;} = DateTime.Today;
 }
