@@ -19,20 +19,48 @@ else
 {
 
     <Syncfusion.Blazor.Grids.SfGrid ID="Grid" @ref="Grid" DataSource="@BookList" AllowPaging="true" Toolbar="@ToolbarItems">
-        <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Normal"></GridEditSettings>
+        <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog">
+            <Template>
+                @{
+                    var book = (context as BookDto);
+                    <div>
+                        <div class="e-edit-form-row">
+                            <div class="e-form-group col-md-6">
+                                <label class="e-float-text e-label-top">@Ml["Book Name"]"</label>
+                                <SfTextBox @bind-Value="@NewBookDto.Name" Placeholder="@Ml["Name"]" FloatLabelType='FloatLabelType.Auto' />
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+
+                        <div class="e-edit-form-row">
+                            <div class="e-form-group col-md-12">
+                                <label class="e-float-text e-label-top">"@Ml["Price"]"</label>
+                                <SfNumericTextBox @bind-Value="@NewBookDto.Price"></SfNumericTextBox>
+                            </div>
+
+                            <div class="e-form-group col-md-12">
+                                <label class="e-float-text e-label-top">"@Ml["ReleaseDate"]"</label>
+                                <SfDatePicker @bind-Value="@NewBookDto.ReleaseDate"></SfDatePicker>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </Template>
+        </GridEditSettings>
         <GridPageSettings PageSizes="true" PageSize="10"></GridPageSettings>
         <GridEvents OnActionBegin="ActionBeginHandler" OnActionComplete="ActionCompleteHandler" TValue="BookDto"></GridEvents>
         <GridColumns>
             <GridColumn Field="@nameof(BookDto.Id)" HeaderText="ID" IsPrimaryKey="true" AllowAdding="false" AllowEditing="false"></GridColumn>
             <GridColumn Field="@nameof(BookDto.Name)" HeaderText="@Ml["Name"]" />
             <GridColumn Field="@nameof(BookDto.Price)" HeaderText="@Ml["Price"]" />
-            <GridColumn Field="@nameof(BookDto.ReleaseDate)" HeaderText="@Ml["ReleaseDate"]" EditType="EditType.DatePickerEdit" Type="ColumnType.Date" Format="d" DefaultValue="@(DateTime.Now)"/>
-         </GridColumns>
+            <GridColumn Field="@nameof(BookDto.ReleaseDate)" HeaderText="@Ml["ReleaseDate"]" EditType="EditType.DatePickerEdit" Type="ColumnType.Date" Format="d" DefaultValue="@(DateTime.Now)" />
+        </GridColumns>
     </Syncfusion.Blazor.Grids.SfGrid>
 
 }
 
-@code{
-    
-    public DateTime? dateValue{get;set;} = DateTime.Today;
+@code {
+
+    public DateTime? dateValue { get; set; } = DateTime.Today;
 }

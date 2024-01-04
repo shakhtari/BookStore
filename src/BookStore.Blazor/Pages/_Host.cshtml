@@ -1,6 +1,7 @@
 ﻿@page "/"
 @namespace BookStore.Blazor.Pages
 @using System.Globalization
+@using Microsoft.AspNetCore.Localization
 @using Volo.Abp.AspNetCore.Components.Web.LeptonXLiteTheme.Themes.LeptonXLite
 @using Volo.Abp.AspNetCore.Components.Server.LeptonXLiteTheme.Bundling
 @using Volo.Abp.Localization
@@ -12,6 +13,7 @@
 <!DOCTYPE html>
 <html lang="@CultureInfo.CurrentCulture.Name" dir="@rtl">
 <head>
+    @* <CultureSwitcher/> *@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BookStore.Blazor</title>
@@ -25,6 +27,15 @@
     <abp-style-bundle name="@BlazorLeptonXLiteThemeBundles.Styles.Global" />
 </head>
 <body class="abp-application-layout bg-light @rtl">
+    @{
+        Layout = "_Layout";
+        this.HttpContext.Response.Cookies.Append(
+        CookieRequestCultureProvider.DefaultCookieName,
+        CookieRequestCultureProvider.MakeCookieValue(
+        new RequestCulture(
+        CultureInfo.CurrentCulture,
+        CultureInfo.CurrentUICulture)));
+    }
 
     <component type="typeof(App)" render-mode="Server" />
 

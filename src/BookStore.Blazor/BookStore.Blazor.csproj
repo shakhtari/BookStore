@@ -56,4 +56,10 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="SyncfusionLocalizer.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
 </Project>

@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
@@ -36,9 +37,18 @@ public class Program
 
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MDAxQDMyMzQyZTMwMmUzMFJsa3FOSlpWOWdpL0lXaFFYMzVJWDdzbzRsV1VUTERCZ0RXNW5HbUtTaHc9");
             builder.Services.AddSyncfusionBlazor();
+
+            var supportedCultures = new[] { "en-US", "tr" };
+            var localizationOptions = new RequestLocalizationOptions()
+                .SetDefaultCulture("en-US")
+                .AddSupportedCultures(supportedCultures)
+                .AddSupportedUICultures(supportedCultures);
+
+            builder.Services.AddSingleton(typeof(ISyncfusionStringLocalizer), typeof(SyncfusionStringLocalizer));
             await builder.AddApplicationAsync<BookStoreBlazorModule>();
             var app = builder.Build();
-            app.UseRequestLocalization("tr");
+            app.UseRequestLocalization(localizationOptions);
+            app.MapControllers();
             await app.InitializeApplicationAsync();
             await app.RunAsync();
             return 0;
