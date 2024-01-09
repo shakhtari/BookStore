@@ -1,4 +1,5 @@
 ﻿using BookStore.Books;
+using BookStore.Publications;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -53,6 +54,7 @@ public class BookStoreDbContext :
 
     #endregion
     public DbSet<Book> Books { get; set; }
+    public DbSet<Publication> Publications { get; set; }
 
     public BookStoreDbContext(DbContextOptions<BookStoreDbContext> options)
         : base(options)
@@ -87,5 +89,6 @@ public class BookStoreDbContext :
         {
             b.ToTable("Books");
         });
+        builder.Entity<Publication>(b => { b.ToTable("Publications"); });
     }
 }

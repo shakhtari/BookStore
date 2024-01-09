@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BookStore.Resources {
+namespace BookStore.Blazor.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace BookStore.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BookStore.Resources.SfResources", typeof(SfResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BookStore.Blazor.Resources.SfResources", typeof(SfResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -84,69 +84,6 @@ namespace BookStore.Resources {
         public static string Calendar_Today {
             get {
                 return ResourceManager.GetString("Calendar_Today", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Next Slide.
-        /// </summary>
-        public static string Carousel_NextSlide {
-            get {
-                return ResourceManager.GetString("Carousel_NextSlide", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to of.
-        /// </summary>
-        public static string Carousel_Of {
-            get {
-                return ResourceManager.GetString("Carousel_Of", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Start auto animation.
-        /// </summary>
-        public static string Carousel_PauseSlide {
-            get {
-                return ResourceManager.GetString("Carousel_PauseSlide", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Stop auto animation.
-        /// </summary>
-        public static string Carousel_PlaySlide {
-            get {
-                return ResourceManager.GetString("Carousel_PlaySlide", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Previous Slide.
-        /// </summary>
-        public static string Carousel_PreviousSlide {
-            get {
-                return ResourceManager.GetString("Carousel_PreviousSlide", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Slide.
-        /// </summary>
-        public static string Carousel_Slide {
-            get {
-                return ResourceManager.GetString("Carousel_Slide", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Slide show.
-        /// </summary>
-        public static string Carousel_SlideShow {
-            get {
-                return ResourceManager.GetString("Carousel_SlideShow", resourceCulture);
             }
         }
         
@@ -1096,15 +1033,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number of columns must be between 1 and 63..
-        /// </summary>
-        public static string DocumentEditor_ColumnRange {
-            get {
-                return ResourceManager.GetString("DocumentEditor_ColumnRange", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Comments.
         /// </summary>
         public static string DocumentEditor_Comments {
@@ -1114,16 +1042,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You may only insert comments into this region..
-        /// </summary>
-        public static string DocumentEditor_CommentsOnly {
-            get {
-                return ResourceManager.GetString("DocumentEditor_CommentsOnly", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Don&apos;t add space between paragraphs of the same style.
+        ///   Looks up a localized string similar to Don&apos;t add space between the paragraphs of the same styles.
         /// </summary>
         public static string DocumentEditor_ContextualSpacing {
             get {
@@ -1191,60 +1110,6 @@ namespace BookStore.Resources {
         public static string DocumentEditor_Cut {
             get {
                 return ResourceManager.GetString("DocumentEditor_Cut", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to DashDot.
-        /// </summary>
-        public static string DocumentEditor_DashDot {
-            get {
-                return ResourceManager.GetString("DocumentEditor_DashDot", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to DashDotDot.
-        /// </summary>
-        public static string DocumentEditor_DashDotDot {
-            get {
-                return ResourceManager.GetString("DocumentEditor_DashDotDot", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to DashDotStroked.
-        /// </summary>
-        public static string DocumentEditor_DashDotStroked {
-            get {
-                return ResourceManager.GetString("DocumentEditor_DashDotStroked", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to DashLargeGap.
-        /// </summary>
-        public static string DocumentEditor_DashLargeGap {
-            get {
-                return ResourceManager.GetString("DocumentEditor_DashLargeGap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to DashSmallGap.
-        /// </summary>
-        public static string DocumentEditor_DashSmallGap {
-            get {
-                return ResourceManager.GetString("DocumentEditor_DashSmallGap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Date.
-        /// </summary>
-        public static string DocumentEditor_Date {
-            get {
-                return ResourceManager.GetString("DocumentEditor_Date", resourceCulture);
             }
         }
         
@@ -1366,15 +1231,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Match destination formatting.
-        /// </summary>
-        public static string DocumentEditor_DestinationFormat {
-            get {
-                return ResourceManager.GetString("DocumentEditor_DestinationFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Different first page.
         /// </summary>
         public static string DocumentEditor_DifferentFirstPage {
@@ -1411,29 +1267,11 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dot.
-        /// </summary>
-        public static string DocumentEditor_Dot {
-            get {
-                return ResourceManager.GetString("DocumentEditor_Dot", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Double strikethrough.
         /// </summary>
         public static string DocumentEditor_DoubleStrikethrough {
             get {
                 return ResourceManager.GetString("DocumentEditor_DoubleStrikethrough", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to DoubleWavy.
-        /// </summary>
-        public static string DocumentEditor_DoubleWavy {
-            get {
-                return ResourceManager.GetString("DocumentEditor_DoubleWavy", resourceCulture);
             }
         }
         
@@ -1510,29 +1348,11 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Emboss3D.
-        /// </summary>
-        public static string DocumentEditor_Emboss3D {
-            get {
-                return ResourceManager.GetString("DocumentEditor_Emboss3D", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Yes, Start Enforcing Protection.
         /// </summary>
         public static string DocumentEditor_EnforcingProtection {
             get {
                 return ResourceManager.GetString("DocumentEditor_EnforcingProtection", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Engrave3D.
-        /// </summary>
-        public static string DocumentEditor_Engrave3D {
-            get {
-                return ResourceManager.GetString("DocumentEditor_Engrave3D", resourceCulture);
             }
         }
         
@@ -1663,15 +1483,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FirstCapital.
-        /// </summary>
-        public static string DocumentEditor_FirstCapital {
-            get {
-                return ResourceManager.GetString("DocumentEditor_FirstCapital", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to First line.
         /// </summary>
         public static string DocumentEditor_FirstLine {
@@ -1780,7 +1591,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You may only fill in forms in this region..
+        ///   Looks up a localized string similar to This document is protected from unintentional editing. You may only fill in forms in this region..
         /// </summary>
         public static string DocumentEditor_FormFieldsOnly {
             get {
@@ -1978,15 +1789,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Information.
-        /// </summary>
-        public static string DocumentEditor_Information {
-            get {
-                return ResourceManager.GetString("DocumentEditor_Information", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Insert.
         /// </summary>
         public static string DocumentEditor_Insert {
@@ -2059,15 +1861,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Inset.
-        /// </summary>
-        public static string DocumentEditor_Inset {
-            get {
-                return ResourceManager.GetString("DocumentEditor_Inset", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to instances.
         /// </summary>
         public static string DocumentEditor_Instances {
@@ -2109,15 +1902,6 @@ namespace BookStore.Resources {
         public static string DocumentEditor_KeepLinesTogether {
             get {
                 return ResourceManager.GetString("DocumentEditor_KeepLinesTogether", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Keep source formatting.
-        /// </summary>
-        public static string DocumentEditor_KeepSource {
-            get {
-                return ResourceManager.GetString("DocumentEditor_KeepSource", resourceCulture);
             }
         }
         
@@ -2257,15 +2041,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lowercase.
-        /// </summary>
-        public static string DocumentEditor_Lowercase {
-            get {
-                return ResourceManager.GetString("DocumentEditor_Lowercase", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to LowLetter.
         /// </summary>
         public static string DocumentEditor_LowLetter {
@@ -2388,24 +2163,6 @@ namespace BookStore.Resources {
         public static string DocumentEditor_MoreUsers {
             get {
                 return ResourceManager.GetString("DocumentEditor_MoreUsers", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Move From.
-        /// </summary>
-        public static string DocumentEditor_MoveFrom {
-            get {
-                return ResourceManager.GetString("DocumentEditor_MoveFrom", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Move To.
-        /// </summary>
-        public static string DocumentEditor_MoveTo {
-            get {
-                return ResourceManager.GetString("DocumentEditor_MoveTo", resourceCulture);
             }
         }
         
@@ -2698,15 +2455,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Outset.
-        /// </summary>
-        public static string DocumentEditor_Outset {
-            get {
-                return ResourceManager.GetString("DocumentEditor_Outset", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Page Setup.
         /// </summary>
         public static string DocumentEditor_PageSetup {
@@ -2860,20 +2608,11 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This document is protected from unintentional editing..
+        ///   Looks up a localized string similar to This document is protected from unintentional editing.You may edit in this region..
         /// </summary>
         public static string DocumentEditor_ProtectedDocument {
             get {
                 return ResourceManager.GetString("DocumentEditor_ProtectedDocument", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to px.
-        /// </summary>
-        public static string DocumentEditor_Px {
-            get {
-                return ResourceManager.GetString("DocumentEditor_Px", resourceCulture);
             }
         }
         
@@ -2883,15 +2622,6 @@ namespace BookStore.Resources {
         public static string DocumentEditor_ReadOnly {
             get {
                 return ResourceManager.GetString("DocumentEditor_ReadOnly", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You may edit in this region..
-        /// </summary>
-        public static string DocumentEditor_ReadOnlyProtection {
-            get {
-                return ResourceManager.GetString("DocumentEditor_ReadOnlyProtection", resourceCulture);
             }
         }
         
@@ -2910,15 +2640,6 @@ namespace BookStore.Resources {
         public static string DocumentEditor_Regular {
             get {
                 return ResourceManager.GetString("DocumentEditor_Regular", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Regular text.
-        /// </summary>
-        public static string DocumentEditor_RegularText {
-            get {
-                return ResourceManager.GetString("DocumentEditor_RegularText", resourceCulture);
             }
         }
         
@@ -3085,15 +2806,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You may edit in this region, but all change will be tracked.
-        /// </summary>
-        public static string DocumentEditor_RevisionsOnly {
-            get {
-                return ResourceManager.GetString("DocumentEditor_RevisionsOnly", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Right.
         /// </summary>
         public static string DocumentEditor_Right {
@@ -3103,7 +2815,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Right align page numbers..
+        ///   Looks up a localized string similar to Right align page numbers.
         /// </summary>
         public static string DocumentEditor_RightAlignPageNumbers {
             get {
@@ -3139,15 +2851,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number of rows must be between 1 and 32767..
-        /// </summary>
-        public static string DocumentEditor_RowRange {
-            get {
-                return ResourceManager.GetString("DocumentEditor_RowRange", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Same as the whole table.
         /// </summary>
         public static string DocumentEditor_SameAsTheWholeTable {
@@ -3162,15 +2865,6 @@ namespace BookStore.Resources {
         public static string DocumentEditor_Save {
             get {
                 return ResourceManager.GetString("DocumentEditor_Save", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ScreenTip text.
-        /// </summary>
-        public static string DocumentEditor_ScreenTip {
-            get {
-                return ResourceManager.GetString("DocumentEditor_ScreenTip", resourceCulture);
             }
         }
         
@@ -3234,15 +2928,6 @@ namespace BookStore.Resources {
         public static string DocumentEditor_ShowPageNumbers {
             get {
                 return ResourceManager.GetString("DocumentEditor_ShowPageNumbers", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to SingleWavy.
-        /// </summary>
-        public static string DocumentEditor_SingleWavy {
-            get {
-                return ResourceManager.GetString("DocumentEditor_SingleWavy", resourceCulture);
             }
         }
         
@@ -3571,105 +3256,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thick.
-        /// </summary>
-        public static string DocumentEditor_Thick {
-            get {
-                return ResourceManager.GetString("DocumentEditor_Thick", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ThickThinLargeGap.
-        /// </summary>
-        public static string DocumentEditor_ThickThinLargeGap {
-            get {
-                return ResourceManager.GetString("DocumentEditor_ThickThinLargeGap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ThickThinMediumGap.
-        /// </summary>
-        public static string DocumentEditor_ThickThinMediumGap {
-            get {
-                return ResourceManager.GetString("DocumentEditor_ThickThinMediumGap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ThickThinSmallGap.
-        /// </summary>
-        public static string DocumentEditor_ThickThinSmallGap {
-            get {
-                return ResourceManager.GetString("DocumentEditor_ThickThinSmallGap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ThinThickLargeGap.
-        /// </summary>
-        public static string DocumentEditor_ThinThickLargeGap {
-            get {
-                return ResourceManager.GetString("DocumentEditor_ThinThickLargeGap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ThinThickMediumGap.
-        /// </summary>
-        public static string DocumentEditor_ThinThickMediumGap {
-            get {
-                return ResourceManager.GetString("DocumentEditor_ThinThickMediumGap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ThinThickSmallGap.
-        /// </summary>
-        public static string DocumentEditor_ThinThickSmallGap {
-            get {
-                return ResourceManager.GetString("DocumentEditor_ThinThickSmallGap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ThinThickThinLargeGap.
-        /// </summary>
-        public static string DocumentEditor_ThinThickThinLargeGap {
-            get {
-                return ResourceManager.GetString("DocumentEditor_ThinThickThinLargeGap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ThinThickThinMediumGap.
-        /// </summary>
-        public static string DocumentEditor_ThinThickThinMediumGap {
-            get {
-                return ResourceManager.GetString("DocumentEditor_ThinThickThinMediumGap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ThinThickThinSmallGap.
-        /// </summary>
-        public static string DocumentEditor_ThinThickThinSmallGap {
-            get {
-                return ResourceManager.GetString("DocumentEditor_ThinThickThinSmallGap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Titlecase.
-        /// </summary>
-        public static string DocumentEditor_Titlecase {
-            get {
-                return ResourceManager.GetString("DocumentEditor_Titlecase", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to TOC 1.
         /// </summary>
         public static string DocumentEditor_TOC1 {
@@ -3778,15 +3364,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Triple.
-        /// </summary>
-        public static string DocumentEditor_Triple {
-            get {
-                return ResourceManager.GetString("DocumentEditor_Triple", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Type.
         /// </summary>
         public static string DocumentEditor_Type {
@@ -3873,15 +3450,6 @@ namespace BookStore.Resources {
         public static string DocumentEditor_UpLetter {
             get {
                 return ResourceManager.GetString("DocumentEditor_UpLetter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Uppercase.
-        /// </summary>
-        public static string DocumentEditor_Uppercase {
-            get {
-                return ResourceManager.GetString("DocumentEditor_Uppercase", resourceCulture);
             }
         }
         
@@ -4102,7 +3670,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All caps.
+        ///   Looks up a localized string similar to AllCaps.
         /// </summary>
         public static string DocumentEditorContainer_AllCaps {
             get {
@@ -4116,15 +3684,6 @@ namespace BookStore.Resources {
         public static string DocumentEditorContainer_AspectRatio {
             get {
                 return ResourceManager.GetString("DocumentEditorContainer_AspectRatio", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to BoldItaic.
-        /// </summary>
-        public static string DocumentEditorContainer_BoldItalicTooltip {
-            get {
-                return ResourceManager.GetString("DocumentEditorContainer_BoldItalicTooltip", resourceCulture);
             }
         }
         
@@ -4444,15 +4003,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Filling in forms.
-        /// </summary>
-        public static string DocumentEditorContainer_FillingInForms {
-            get {
-                return ResourceManager.GetString("DocumentEditorContainer_FillingInForms", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Find.
         /// </summary>
         public static string DocumentEditorContainer_Find {
@@ -4687,7 +4237,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Insert a table into the document..
+        ///   Looks up a localized string similar to Insert a table into the document.
         /// </summary>
         public static string DocumentEditorContainer_InsertATableIntoTheDocument {
             get {
@@ -4849,7 +4399,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manage styles.
+        ///   Looks up a localized string similar to Manage Styles.
         /// </summary>
         public static string DocumentEditorContainer_ManageStyles {
             get {
@@ -4881,15 +4431,6 @@ namespace BookStore.Resources {
         public static string DocumentEditorContainer_NewComment {
             get {
                 return ResourceManager.GetString("DocumentEditorContainer_NewComment", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to No.
-        /// </summary>
-        public static string DocumentEditorContainer_No {
-            get {
-                return ResourceManager.GetString("DocumentEditorContainer_No", resourceCulture);
             }
         }
         
@@ -5083,33 +4624,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Regular.
-        /// </summary>
-        public static string DocumentEditorContainer_RegularTooltip {
-            get {
-                return ResourceManager.GetString("DocumentEditorContainer_RegularTooltip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Do you want to remove the ignored exceptions?.
-        /// </summary>
-        public static string DocumentEditorContainer_RemovedIgnore {
-            get {
-                return ResourceManager.GetString("DocumentEditorContainer_RemovedIgnore", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to If you make this change in document protection, Word will ignore all the exceptions in this document..
-        /// </summary>
-        public static string DocumentEditorContainer_RemovedIgnoreExceptions {
-            get {
-                return ResourceManager.GetString("DocumentEditorContainer_RemovedIgnoreExceptions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Restrict Editing.
         /// </summary>
         public static string DocumentEditorContainer_RestrictEditing {
@@ -5128,7 +4642,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Right align page numbers..
+        ///   Looks up a localized string similar to Right align page numbers.
         /// </summary>
         public static string DocumentEditorContainer_RightAlignPageNumbers {
             get {
@@ -5317,7 +4831,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keep track of the changes made in the document..
+        ///   Looks up a localized string similar to Keep track of the changes made in the document.
         /// </summary>
         public static string DocumentEditorContainer_Track_changes {
             get {
@@ -5331,15 +4845,6 @@ namespace BookStore.Resources {
         public static string DocumentEditorContainer_TrackChanges {
             get {
                 return ResourceManager.GetString("DocumentEditorContainer_TrackChanges", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tracked changes.
-        /// </summary>
-        public static string DocumentEditorContainer_Trackedchanges {
-            get {
-                return ResourceManager.GetString("DocumentEditorContainer_Trackedchanges", resourceCulture);
             }
         }
         
@@ -5389,7 +4894,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update cross reference fields..
+        ///   Looks up a localized string similar to Update cross reference fields.
         /// </summary>
         public static string DocumentEditorContainer_UpdateCrossReferenceFields {
             get {
@@ -5461,16 +4966,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yes.
-        /// </summary>
-        public static string DocumentEditorContainer_Yes {
-            get {
-                return ResourceManager.GetString("DocumentEditorContainer_Yes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Zoom level.
+        ///   Looks up a localized string similar to Zoom Level.
         /// </summary>
         public static string DocumentEditorContainer_ZoomLevel {
             get {
@@ -6343,33 +5839,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Duration.
-        /// </summary>
-        public static string Gantt_AutoDuration {
-            get {
-                return ResourceManager.GetString("Gantt_AutoDuration", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to AutoFit Column.
-        /// </summary>
-        public static string Gantt_AutoFit {
-            get {
-                return ResourceManager.GetString("Gantt_AutoFit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to AutoFit All Columns.
-        /// </summary>
-        public static string Gantt_AutoFitAll {
-            get {
-                return ResourceManager.GetString("Gantt_AutoFitAll", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Baseline End Date.
         /// </summary>
         public static string Gantt_BaselineEndDate {
@@ -6424,7 +5893,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to delete record?.
+        ///   Looks up a localized string similar to Are you sure you want to Delete Record?.
         /// </summary>
         public static string Gantt_ConfirmDelete {
             get {
@@ -6462,27 +5931,9 @@ namespace BookStore.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Custom Columns.
         /// </summary>
-        public static string Gantt_CustomColumn {
-            get {
-                return ResourceManager.GetString("Gantt_CustomColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Custom Columns.
-        /// </summary>
         public static string Gantt_CustomTab {
             get {
                 return ResourceManager.GetString("Gantt_CustomTab", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to D.
-        /// </summary>
-        public static string Gantt_D {
-            get {
-                return ResourceManager.GetString("Gantt_D", resourceCulture);
             }
         }
         
@@ -6649,15 +6100,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to H.
-        /// </summary>
-        public static string Gantt_H {
-            get {
-                return ResourceManager.GetString("Gantt_H", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Hour.
         /// </summary>
         public static string Gantt_Hour {
@@ -6712,29 +6154,11 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to M.
-        /// </summary>
-        public static string Gantt_M {
-            get {
-                return ResourceManager.GetString("Gantt_M", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Milestone.
         /// </summary>
         public static string Gantt_Milestone {
             get {
                 return ResourceManager.GetString("Gantt_Milestone", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Min.
-        /// </summary>
-        public static string Gantt_Min {
-            get {
-                return ResourceManager.GetString("Gantt_Min", resourceCulture);
             }
         }
         
@@ -6883,24 +6307,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sort Ascending.
-        /// </summary>
-        public static string Gantt_SortAscending {
-            get {
-                return ResourceManager.GetString("Gantt_SortAscending", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sort Descending.
-        /// </summary>
-        public static string Gantt_SortDescending {
-            get {
-                return ResourceManager.GetString("Gantt_SortDescending", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Start.
         /// </summary>
         public static string Gantt_Start {
@@ -6915,24 +6321,6 @@ namespace BookStore.Resources {
         public static string Gantt_StartDate {
             get {
                 return ResourceManager.GetString("Gantt_StartDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to SubTasks End Date.
-        /// </summary>
-        public static string Gantt_SubTaskEndDate {
-            get {
-                return ResourceManager.GetString("Gantt_SubTaskEndDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to SubTasks Start Date.
-        /// </summary>
-        public static string Gantt_SubTaskStartDate {
-            get {
-                return ResourceManager.GetString("Gantt_SubTaskStartDate", resourceCulture);
             }
         }
         
@@ -7036,47 +6424,11 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Task Mode.
-        /// </summary>
-        public static string Gantt_TaskMode {
-            get {
-                return ResourceManager.GetString("Gantt_TaskMode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Auto.
-        /// </summary>
-        public static string Gantt_TaskMode_Auto {
-            get {
-                return ResourceManager.GetString("Gantt_TaskMode_Auto", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Manual.
-        /// </summary>
-        public static string Gantt_TaskMode_Manual {
-            get {
-                return ResourceManager.GetString("Gantt_TaskMode_Manual", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to tasks.
         /// </summary>
         public static string Gantt_Tasks {
             get {
                 return ResourceManager.GetString("Gantt_Tasks", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Task Type.
-        /// </summary>
-        public static string Gantt_TaskType {
-            get {
-                return ResourceManager.GetString("Gantt_TaskType", resourceCulture);
             }
         }
         
@@ -7117,42 +6469,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose the another task.
-        /// </summary>
-        public static string Gantt_Touch_DialogTextOnClickingConnectorPoint {
-            get {
-                return ResourceManager.GetString("Gantt_Touch_DialogTextOnClickingConnectorPoint", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select the connector position.
-        /// </summary>
-        public static string Gantt_Touch_DialogTextOnSelectingTaskbar {
-            get {
-                return ResourceManager.GetString("Gantt_Touch_DialogTextOnSelectingTaskbar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Left.
-        /// </summary>
-        public static string Gantt_Touch_LeftButton {
-            get {
-                return ResourceManager.GetString("Gantt_Touch_LeftButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Right.
-        /// </summary>
-        public static string Gantt_Touch_RightButton {
-            get {
-                return ResourceManager.GetString("Gantt_Touch_RightButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Type.
         /// </summary>
         public static string Gantt_Type {
@@ -7167,15 +6483,6 @@ namespace BookStore.Resources {
         public static string Gantt_Update {
             get {
                 return ResourceManager.GetString("Gantt_Update", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Work.
-        /// </summary>
-        public static string Gantt_Work {
-            get {
-                return ResourceManager.GetString("Gantt_Work", resourceCulture);
             }
         }
         
@@ -7239,15 +6546,6 @@ namespace BookStore.Resources {
         public static string Grid_AND {
             get {
                 return ResourceManager.GetString("Grid_AND", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ascending.
-        /// </summary>
-        public static string Grid_Ascending {
-            get {
-                return ResourceManager.GetString("Grid_Ascending", resourceCulture);
             }
         }
         
@@ -7378,24 +6676,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Column Header.
-        /// </summary>
-        public static string Grid_ColumnHeaderARIA {
-            get {
-                return ResourceManager.GetString("Grid_ColumnHeaderARIA", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Column Menu Icon.
-        /// </summary>
-        public static string Grid_ColumnMenuIconARIA {
-            get {
-                return ResourceManager.GetString("Grid_ColumnMenuIconARIA", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to Delete Record?.
         /// </summary>
         public static string Grid_ConfirmDelete {
@@ -7500,15 +6780,6 @@ namespace BookStore.Resources {
         public static string Grid_DeleteRecord {
             get {
                 return ResourceManager.GetString("Grid_DeleteRecord", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Descending.
-        /// </summary>
-        public static string Grid_Descending {
-            get {
-                return ResourceManager.GetString("Grid_Descending", resourceCulture);
             }
         }
         
@@ -7639,15 +6910,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Filter checkbox.
-        /// </summary>
-        public static string Grid_FilterCheckboxARIA {
-            get {
-                return ResourceManager.GetString("Grid_FilterCheckboxARIA", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to False.
         /// </summary>
         public static string Grid_FilterFalse {
@@ -7662,15 +6924,6 @@ namespace BookStore.Resources {
         public static string Grid_FilterMenu {
             get {
                 return ResourceManager.GetString("Grid_FilterMenu", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Filter Icon.
-        /// </summary>
-        public static string Grid_FilterMenuIconARIA {
-            get {
-                return ResourceManager.GetString("Grid_FilterMenuIconARIA", resourceCulture);
             }
         }
         
@@ -7720,15 +6973,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Group Button.
-        /// </summary>
-        public static string Grid_GroupButtonARIA {
-            get {
-                return ResourceManager.GetString("Grid_GroupButtonARIA", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Grouping is disabled for this column.
         /// </summary>
         public static string Grid_GroupDisable {
@@ -7743,15 +6987,6 @@ namespace BookStore.Resources {
         public static string Grid_GroupDropArea {
             get {
                 return ResourceManager.GetString("Grid_GroupDropArea", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Header checkbox.
-        /// </summary>
-        public static string Grid_HeaderSelectionCheckBoxARIA {
-            get {
-                return ResourceManager.GetString("Grid_HeaderSelectionCheckBoxARIA", resourceCulture);
             }
         }
         
@@ -7837,15 +7072,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to None.
-        /// </summary>
-        public static string Grid_None {
-            get {
-                return ResourceManager.GetString("Grid_None", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to No Matches Found.
         /// </summary>
         public static string Grid_NoResult {
@@ -7918,15 +7144,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Row checkbox.
-        /// </summary>
-        public static string Grid_RowSelectionCheckBoxARIA {
-            get {
-                return ResourceManager.GetString("Grid_RowSelectionCheckBoxARIA", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string Grid_Save {
@@ -7977,15 +7194,6 @@ namespace BookStore.Resources {
         public static string Grid_ShowRowsWhere {
             get {
                 return ResourceManager.GetString("Grid_ShowRowsWhere", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sort.
-        /// </summary>
-        public static string Grid_Sort {
-            get {
-                return ResourceManager.GetString("Grid_Sort", resourceCulture);
             }
         }
         
@@ -8049,15 +7257,6 @@ namespace BookStore.Resources {
         public static string Grid_UnGroupButton {
             get {
                 return ResourceManager.GetString("Grid_UnGroupButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ungroup Button.
-        /// </summary>
-        public static string Grid_UnGroupButtonARIA {
-            get {
-                return ResourceManager.GetString("Grid_UnGroupButtonARIA", resourceCulture);
             }
         }
         
@@ -8503,15 +7702,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Goto Page.
-        /// </summary>
-        public static string Pager_GotoPageARIA {
-            get {
-                return ResourceManager.GetString("Pager_GotoPageARIA", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Go to last page.
         /// </summary>
         public static string Pager_LastPageTooltip {
@@ -8899,15 +8089,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Close.
-        /// </summary>
-        public static string PdfViewer_Close {
-            get {
-                return ResourceManager.GetString("PdfViewer_Close", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Closed.
         /// </summary>
         public static string PdfViewer_Closed {
@@ -9097,15 +8278,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Draw ink.
-        /// </summary>
-        public static string PdfViewer_DrawInk {
-            get {
-                return ResourceManager.GetString("PdfViewer_DrawInk", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Draw Signature.
         /// </summary>
         public static string PdfViewer_DrawSignature {
@@ -9160,7 +8332,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Export annotation to JSON file.
+        ///   Looks up a localized string similar to Export Annotations.
         /// </summary>
         public static string PdfViewer_ExportAnnotations {
             get {
@@ -9174,15 +8346,6 @@ namespace BookStore.Resources {
         public static string PdfViewer_ExportFailed {
             get {
                 return ResourceManager.GetString("PdfViewer_ExportFailed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Export annotation to XFDF file.
-        /// </summary>
-        public static string PdfViewer_ExportXFDF {
-            get {
-                return ResourceManager.GetString("PdfViewer_ExportXFDF", resourceCulture);
             }
         }
         
@@ -9349,15 +8512,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add signature.
-        /// </summary>
-        public static string PdfViewer_HandwrittenSignatureDialogHeaderText {
-            get {
-                return ResourceManager.GetString("PdfViewer_HandwrittenSignatureDialogHeaderText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Highlight Text.
         /// </summary>
         public static string PdfViewer_Highlight {
@@ -9376,7 +8530,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Import annotations from JSON file.
+        ///   Looks up a localized string similar to Import Annotations.
         /// </summary>
         public static string PdfViewer_ImportAnnotations {
             get {
@@ -9390,15 +8544,6 @@ namespace BookStore.Resources {
         public static string PdfViewer_ImportFailed {
             get {
                 return ResourceManager.GetString("PdfViewer_ImportFailed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Import annotations from XFDF file.
-        /// </summary>
-        public static string PdfViewer_ImportXFDF {
-            get {
-                return ResourceManager.GetString("PdfViewer_ImportXFDF", resourceCulture);
             }
         }
         
@@ -10393,15 +9538,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bottom.
-        /// </summary>
-        public static string PivotView_Bottom {
-            get {
-                return ResourceManager.GetString("PivotView_Bottom", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Bubble.
         /// </summary>
         public static string PivotView_Bubble {
@@ -10537,7 +9673,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Drag and drop fields to create an expression. And, if you want to edit the existing the calculated fields! You can achieve it by simply selecting the field under &apos;Calculated Members&apos;..
+        ///   Looks up a localized string similar to Drag and drop fields to create an expression. And, if you want to edit the existing the calculated fields! Then you can achieve it by simply selecting the field under &apos;Calculated Members&apos;..
         /// </summary>
         public static string PivotView_CalculatedField_Tooltip {
             get {
@@ -11284,15 +10420,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Grand Total Positions.
-        /// </summary>
-        public static string PivotView_GrandTotalPositions {
-            get {
-                return ResourceManager.GetString("PivotView_GrandTotalPositions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Grand totals.
         /// </summary>
         public static string PivotView_GrandTotals {
@@ -11599,7 +10726,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Multiple Axis.
+        ///   Looks up a localized string similar to Multiple Axes.
         /// </summary>
         public static string PivotView_MultipleAxes {
             get {
@@ -11635,7 +10762,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to save changes to report?.
+        ///   Looks up a localized string similar to Want to save changes to report?.
         /// </summary>
         public static string PivotView_NewReportConfirmMessage {
             get {
@@ -12094,7 +11221,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sample Report.
+        ///   Looks up a localized string similar to Sample report.
         /// </summary>
         public static string PivotView_SampleReport {
             get {
@@ -12481,15 +11608,6 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Top.
-        /// </summary>
-        public static string PivotView_Top {
-            get {
-                return ResourceManager.GetString("PivotView_Top", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Total.
         /// </summary>
         public static string PivotView_Total {
@@ -12603,15 +11721,6 @@ namespace BookStore.Resources {
         public static string PivotView_Yes {
             get {
                 return ResourceManager.GetString("PivotView_Yes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Information.
-        /// </summary>
-        public static string Predefined_Dialog_Title {
-            get {
-                return ResourceManager.GetString("Predefined_Dialog_Title", resourceCulture);
             }
         }
         
@@ -13318,7 +12427,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Circle.
+        ///   Looks up a localized string similar to  Circle .
         /// </summary>
         public static string RichTextEditor_BulletFormatListCircle {
             get {
@@ -13327,7 +12436,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disc.
+        ///   Looks up a localized string similar to  Disc .
         /// </summary>
         public static string RichTextEditor_BulletFormatListDisc {
             get {
@@ -13336,7 +12445,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to None.
+        ///   Looks up a localized string similar to  None .
         /// </summary>
         public static string RichTextEditor_BulletFormatListNone {
             get {
@@ -13345,7 +12454,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Square.
+        ///   Looks up a localized string similar to  Square .
         /// </summary>
         public static string RichTextEditor_BulletFormatListSquare {
             get {
@@ -13552,7 +12661,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Arial.
+        ///   Looks up a localized string similar to  Arial .
         /// </summary>
         public static string RichTextEditor_FontNameArial {
             get {
@@ -13561,7 +12670,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Georgia.
+        ///   Looks up a localized string similar to  Georgia .
         /// </summary>
         public static string RichTextEditor_FontNameGeorgia {
             get {
@@ -13570,7 +12679,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Impact.
+        ///   Looks up a localized string similar to  Impact .
         /// </summary>
         public static string RichTextEditor_FontNameImpact {
             get {
@@ -13579,7 +12688,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Segoe UI.
+        ///   Looks up a localized string similar to  Segoe UI .
         /// </summary>
         public static string RichTextEditor_FontNameSegoeUI {
             get {
@@ -13588,7 +12697,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tahoma.
+        ///   Looks up a localized string similar to  Tahoma .
         /// </summary>
         public static string RichTextEditor_FontNameTahoma {
             get {
@@ -13597,7 +12706,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Times New Roman.
+        ///   Looks up a localized string similar to  Times New Roman .
         /// </summary>
         public static string RichTextEditor_FontNameTimesNewRoman {
             get {
@@ -13606,7 +12715,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Verdana.
+        ///   Looks up a localized string similar to  Verdana .
         /// </summary>
         public static string RichTextEditor_FontNameVerdana {
             get {
@@ -13633,7 +12742,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Code.
+        ///   Looks up a localized string similar to  Code .
         /// </summary>
         public static string RichTextEditor_FormatsDropDownCode {
             get {
@@ -13642,7 +12751,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Heading 1.
+        ///   Looks up a localized string similar to  Heading 1 .
         /// </summary>
         public static string RichTextEditor_FormatsDropDownHeading1 {
             get {
@@ -13651,7 +12760,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Heading 2.
+        ///   Looks up a localized string similar to  Heading 2 .
         /// </summary>
         public static string RichTextEditor_FormatsDropDownHeading2 {
             get {
@@ -13660,7 +12769,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Heading 3.
+        ///   Looks up a localized string similar to  Heading 3 .
         /// </summary>
         public static string RichTextEditor_FormatsDropDownHeading3 {
             get {
@@ -13669,7 +12778,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Heading 4.
+        ///   Looks up a localized string similar to  Heading 4 .
         /// </summary>
         public static string RichTextEditor_FormatsDropDownHeading4 {
             get {
@@ -13678,7 +12787,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Heading 5.
+        ///   Looks up a localized string similar to  Heading 5 .
         /// </summary>
         public static string RichTextEditor_FormatsDropDownHeading5 {
             get {
@@ -13687,7 +12796,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Heading  6.
+        ///   Looks up a localized string similar to  Heading  6 .
         /// </summary>
         public static string RichTextEditor_FormatsDropDownHeading6 {
             get {
@@ -13696,7 +12805,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Paragraph.
+        ///   Looks up a localized string similar to  Paragraph .
         /// </summary>
         public static string RichTextEditor_FormatsDropDownParagraph {
             get {
@@ -13705,7 +12814,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quotation.
+        ///   Looks up a localized string similar to  Quotation .
         /// </summary>
         public static string RichTextEditor_FormatsDropDownQuotation {
             get {
@@ -14074,7 +13183,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lower Alpha.
+        ///   Looks up a localized string similar to  Lower Alpha .
         /// </summary>
         public static string RichTextEditor_NumberFormatListLowerAlpha {
             get {
@@ -14083,7 +13192,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lower Greek.
+        ///   Looks up a localized string similar to  Lower Greek .
         /// </summary>
         public static string RichTextEditor_NumberFormatListLowerGreek {
             get {
@@ -14092,7 +13201,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lower Roman.
+        ///   Looks up a localized string similar to  Lower Roman .
         /// </summary>
         public static string RichTextEditor_NumberFormatListLowerRoman {
             get {
@@ -14101,7 +13210,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to None.
+        ///   Looks up a localized string similar to  None .
         /// </summary>
         public static string RichTextEditor_NumberFormatListNone {
             get {
@@ -14110,7 +13219,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number.
+        ///   Looks up a localized string similar to  Number .
         /// </summary>
         public static string RichTextEditor_NumberFormatListNumber {
             get {
@@ -14119,7 +13228,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upper Alpha.
+        ///   Looks up a localized string similar to  Upper Alpha .
         /// </summary>
         public static string RichTextEditor_NumberFormatListUpperAlpha {
             get {
@@ -14128,7 +13237,7 @@ namespace BookStore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upper Roman.
+        ///   Looks up a localized string similar to  Upper Roman .
         /// </summary>
         public static string RichTextEditor_NumberFormatListUpperRoman {
             get {
