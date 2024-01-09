@@ -20,6 +20,10 @@
     "Update": "Güncelleme",
     "BookDeletionConfirmationMessage": "KitapSilmeOnayMesajı",
     "Add": "Eklemek",
-    "Edit": "Düzenlemek"
+    "Edit": "Düzenlemek",
+    "Select Book Type": "Kitap Türünü Seç",
+    "Translation": "Çeviri",
+    "Original Language": "Orijinal",
+    "Translator": "Çevirmen"
   }
 }

@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Syncfusion.Blazor;
 
-namespace BookStore
+namespace BookStore.Blazor.Shared.Common
 {
     public class SyncfusionLocalizer : ISyncfusionStringLocalizer
     {
         // To get the locale key from mapped resources file
         public string GetText(string key)
         {
-            return this.ResourceManager.GetString(key);
+            return ResourceManager.GetString(key);
         }
 
         // To access the resource file and get the exact value for locale key
@@ -22,7 +22,7 @@ namespace BookStore
             get
             {
                 // Replace the ApplicationNamespace with your application name.
-                return BookStore.Resources.SfResources.ResourceManager;
+                return Resources.SfResources.ResourceManager;
             }
         }
     }

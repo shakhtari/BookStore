@@ -23,22 +23,36 @@ namespace BookStore.Books
                     Id = item.Id,
                     Name = item.Name,
                     ReleaseDate = item.ReleaseDate,
-                    Price = item.Price
+                    Price = item.Price,
+                    IsTranslated = item.IsTranslated,
+                    Translator = item.Translator,
+                    Publication = item.Publication
                 }).ToList();
         }
         public async Task<BookDto> CreateAsync(CreateUpdateBookDto bookDto)
         {
-            var todoItem = await _bookRepository.InsertAsync(
-                new Book { Name = bookDto.Name, ReleaseDate = bookDto.ReleaseDate, Price = bookDto.Price }
-            );
-
-            return new BookDto
+            var todoItem = await _bookRepository.InsertAsync(new Book
             {
                 Name = bookDto.Name,
                 ReleaseDate = bookDto.ReleaseDate,
-                Price = bookDto.Price
+                Price = bookDto.Price,
+                IsTranslated = bookDto.IsTranslated,
+                Translator = bookDto.Translator,
+                Publication = bookDto.Publication
+            });
+
+            return new BookDto
+            {
+                Id=Guid.NewGuid(),
+                Name = bookDto.Name,
+                ReleaseDate = bookDto.ReleaseDate,
+                Price = bookDto.Price,
+                IsTranslated = bookDto.IsTranslated,
+                Translator = bookDto.Translator,
+                Publication = bookDto.Publication
 
             };
+
         }
         public async Task<BookDto> UpdateAsync(Guid id, CreateUpdateBookDto input)
         {
@@ -47,6 +61,9 @@ namespace BookStore.Books
             book.Name = input.Name;
             book.Price = input.Price;
             book.ReleaseDate = input.ReleaseDate;
+            book.IsTranslated = input.IsTranslated;
+            book.Translator = input.Translator;
+            book.Publication= input.Publication;
 
             book = await Task.Run(() => _bookRepository.UpdateAsync(book));
 
@@ -55,7 +72,10 @@ namespace BookStore.Books
                 Id = book.Id,
                 Name = book.Name,
                 ReleaseDate = book.ReleaseDate,
-                Price = book.Price
+                Price = book.Price,
+                IsTranslated = book.IsTranslated,
+                Translator = input.Translator,
+                Publication= input.Publication
 
             };
         }

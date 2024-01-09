@@ -195,7 +195,7 @@
   <data name="DropDownList_NoRecordsTemplate" xml:space="preserve">
     <value>Kayıt bulunamadı</value>
   </data>
-   <data name="DropDownTree_NoRecords" xml:space="preserve">
+  <data name="DropDownTree_NoRecords" xml:space="preserve">
     <value>Kayıt bulunamadı</value>
   </data>
   <data name="DropDownTree_RequestFailed" xml:space="preserve">
@@ -433,7 +433,7 @@
     <value>Azalan</value>
   </data>
   <data name="FileManager_None" xml:space="preserve">
-     <value>Hiçbiri</value>
+    <value>Hiçbiri</value>
   </data>
   <data name="FileManager_ViewLargeIcons" xml:space="preserve">
     <value>Büyük ikonlar</value>
@@ -5167,185 +5167,185 @@
     <value>Sonraki ile devam et</value>
   </data>
   <data name="DocumentEditor_ScreenTip" xml:space="preserve">
-       <value>Ekran İpucu metni</value>
-</data>
+    <value>Ekran İpucu metni</value>
+  </data>
   <data name="DocumentEditor_KeepSource" xml:space="preserve">
-       <value>Kaynak biçimlendirmesini koruyun</value>
-</data>
+    <value>Kaynak biçimlendirmesini koruyun</value>
+  </data>
   <data name="DocumentEditor_DestinationFormat" xml:space="preserve">
-       <value>Hedef biçimlendirmeyi eşleştir</value>
-</data>
+    <value>Hedef biçimlendirmeyi eşleştir</value>
+  </data>
   <data name="DocumentEditor_CommentsOnly" xml:space="preserve">
-       <value>Bu bölgeye yalnızca yorum ekleyebilirsiniz.</value>
-</data>
+    <value>Bu bölgeye yalnızca yorum ekleyebilirsiniz.</value>
+  </data>
   <data name="DocumentEditor_RowRange" xml:space="preserve">
-       <value>Satır sayısı 1 ile 32767 arasında olmalıdır</value>
-</data>
+    <value>Satır sayısı 1 ile 32767 arasında olmalıdır</value>
+  </data>
   <data name="DocumentEditor_ColumnRange" xml:space="preserve">
-       <value>Sütun sayısı 1 ile 63 arasında olmalıdır</value>
-</data>
+    <value>Sütun sayısı 1 ile 63 arasında olmalıdır</value>
+  </data>
   <data name="DocumentEditor_Information" xml:space="preserve">
-       <value>Bilgi</value>
-</data>
+    <value>Bilgi</value>
+  </data>
   <data name="DocumentEditor_Dot" xml:space="preserve">
-       <value>Nokta</value>
-</data>
+    <value>Nokta</value>
+  </data>
   <data name="DocumentEditor_DashSmallGap" xml:space="preserve">
-       <value>Dash Küçük Boşluk</value>
-</data>
+    <value>Dash Küçük Boşluk</value>
+  </data>
   <data name="DocumentEditor_DashDot" xml:space="preserve">
-       <value>Çizgi nokta</value>
-</data>
+    <value>Çizgi nokta</value>
+  </data>
   <data name="DocumentEditor_ThinThickSmallGap" xml:space="preserve">
-       <value>İnce Kalın Küçük Boşluk</value>
-</data>
+    <value>İnce Kalın Küçük Boşluk</value>
+  </data>
   <data name="DocumentEditor_ThickThinSmallGap" xml:space="preserve">
-       <value>Kalın İnce Küçük Boşluk</value>
-</data>
+    <value>Kalın İnce Küçük Boşluk</value>
+  </data>
   <data name="DocumentEditor_ThickThinMediumGap" xml:space="preserve">
-       <value>Kalın İnce Orta Boşluk</value>
-</data>
+    <value>Kalın İnce Orta Boşluk</value>
+  </data>
   <data name="DocumentEditor_ThickThinLargeGap" xml:space="preserve">
-       <value>Kalın İnce Büyük Boşluk</value>
-</data>
+    <value>Kalın İnce Büyük Boşluk</value>
+  </data>
   <data name="DocumentEditor_SingleWavy" xml:space="preserve">
-       <value>Tek Dalgalı</value>
-</data>
+    <value>Tek Dalgalı</value>
+  </data>
   <data name="DocumentEditor_DoubleWavy" xml:space="preserve">
-       <value>Çift Dalgalı</value>
-</data>
+    <value>Çift Dalgalı</value>
+  </data>
   <data name="DocumentEditor_Inset" xml:space="preserve">
-       <value>iç metin</value>
-</data>
+    <value>iç metin</value>
+  </data>
   <data name="DocumentEditor_DashLargeGap" xml:space="preserve">
-       <value>Dash Büyük Boşluk</value>
-</data>
+    <value>Dash Büyük Boşluk</value>
+  </data>
   <data name="DocumentEditor_DashDotDot" xml:space="preserve">
-       <value>Çizgi Nokta Nokta</value>
-</data>
+    <value>Çizgi Nokta Nokta</value>
+  </data>
   <data name="DocumentEditor_Triple" xml:space="preserve">
-       <value>Üçlü</value>
-</data>
+    <value>Üçlü</value>
+  </data>
   <data name="DocumentEditor_ThinThickThinSmallGap" xml:space="preserve">
-       <value>İnce Kalın İnce Küçük Boşluk</value>
-</data>
+    <value>İnce Kalın İnce Küçük Boşluk</value>
+  </data>
   <data name="DocumentEditor_ThinThickThinMediumGap" xml:space="preserve">
-       <value>İnce Kalın İnce Orta Boşluk</value>
-</data>
+    <value>İnce Kalın İnce Orta Boşluk</value>
+  </data>
   <data name="DocumentEditor_ThinThickThinLargeGap" xml:space="preserve">
-       <value>İnce Kalın İnce Büyük Boşluk</value>
-</data>
+    <value>İnce Kalın İnce Büyük Boşluk</value>
+  </data>
   <data name="DocumentEditor_DashDotStroked" xml:space="preserve">
-       <value>Çizgi Nokta Vuruşlu</value>
-</data>
+    <value>Çizgi Nokta Vuruşlu</value>
+  </data>
   <data name="DocumentEditor_Engrave3D" xml:space="preserve">
-       <value>Gravür3D</value>
-</data>
+    <value>Gravür3D</value>
+  </data>
   <data name="DocumentEditor_Thick" xml:space="preserve">
-       <value>Kalın</value>
-</data>
+    <value>Kalın</value>
+  </data>
   <data name="DocumentEditor_Outset" xml:space="preserve">
-       <value>Başlangıç</value>
-</data>
+    <value>Başlangıç</value>
+  </data>
   <data name="DocumentEditor_Emboss3D" xml:space="preserve">
-       <value>Kabartma3D</value>
-</data>
+    <value>Kabartma3D</value>
+  </data>
   <data name="DocumentEditor_ThinThickLargeGap" xml:space="preserve">
-       <value>İnce Kalın Büyük Boşluk</value>
-</data>
+    <value>İnce Kalın Büyük Boşluk</value>
+  </data>
   <data name="DocumentEditor_ThinThickMediumGap" xml:space="preserve">
-       <value>İnce Kalın Orta Boşluk</value>
-</data>
+    <value>İnce Kalın Orta Boşluk</value>
+  </data>
   <data name="DocumentEditor_RegularText" xml:space="preserve">
-       <value>normal metin</value>
-</data>
+    <value>normal metin</value>
+  </data>
   <data name="DocumentEditor_Date" xml:space="preserve">
-       <value>Tarih</value>
-</data>
+    <value>Tarih</value>
+  </data>
   <data name="DocumentEditor_Uppercase" xml:space="preserve">
-       <value>büyük harf</value>
-</data>
+    <value>büyük harf</value>
+  </data>
   <data name="DocumentEditor_Lowercase" xml:space="preserve">
-       <value>küçük harf</value>
-</data>
+    <value>küçük harf</value>
+  </data>
   <data name="DocumentEditor_FirstCapital" xml:space="preserve">
-       <value>İlk Sermaye</value>
-</data>
+    <value>İlk Sermaye</value>
+  </data>
   <data name="DocumentEditor_Titlecase" xml:space="preserve">
-       <value>başlık</value>
-</data>
+    <value>başlık</value>
+  </data>
   <data name="DocumentEditor_MoveFrom" xml:space="preserve">
-       <value>Dan taşınmak</value>
-</data>
+    <value>Dan taşınmak</value>
+  </data>
   <data name="DocumentEditor_MoveTo" xml:space="preserve">
-       <value>Taşınmak</value>
-</data>
+    <value>Taşınmak</value>
+  </data>
   <data name="DocumentEditor_Px" xml:space="preserve">
-       <value>piksel</value>
-</data>
+    <value>piksel</value>
+  </data>
   <data name="DocumentEditor_ReadOnlyProtection" xml:space="preserve">
-       <value>Bu bölgede düzenleme yapabilirsiniz.</value>
-</data>
+    <value>Bu bölgede düzenleme yapabilirsiniz.</value>
+  </data>
   <data name="DocumentEditor_SectionBreakNextPage" xml:space="preserve">
-<value>Bölüm Sonu (Sonraki Sayfa)</value>
-</data>
+    <value>Bölüm Sonu (Sonraki Sayfa)</value>
+  </data>
   <data name="DocumentEditor_PageBreak" xml:space="preserve">
-<value>Sayfa sonu</value>
-</data>
+    <value>Sayfa sonu</value>
+  </data>
   <data name="DocumentEditor_ColumnBreak" xml:space="preserve">
-<value>Sütun Arası</value>
-</data>
+    <value>Sütun Arası</value>
+  </data>
   <data name="DocumentEditor_One" xml:space="preserve">
-<value>Bir</value>
-</data>
+    <value>Bir</value>
+  </data>
   <data name="DocumentEditor_Two" xml:space="preserve">
-<value>İki</value>
-</data>
+    <value>İki</value>
+  </data>
   <data name="DocumentEditor_Three" xml:space="preserve">
-<value>Üç</value>
-</data>
+    <value>Üç</value>
+  </data>
   <data name="DocumentEditor_Presets" xml:space="preserve">
-<value>ön ayarlar</value>
-</data>
+    <value>ön ayarlar</value>
+  </data>
   <data name="DocumentEditor_Columns" xml:space="preserve">
-<value>Sütunlar</value>
-</data>
+    <value>Sütunlar</value>
+  </data>
   <data name="DocumentEditor_SplitToColumns" xml:space="preserve">
-<value>Metninizi iki veya daha fazla sütuna ayırın</value>
-</data>
+    <value>Metninizi iki veya daha fazla sütuna ayırın</value>
+  </data>
   <data name="DocumentEditor_LineBetweenColumn" xml:space="preserve">
-<value>Sütun arasındaki çizgi</value>
-</data>
+    <value>Sütun arasındaki çizgi</value>
+  </data>
   <data name="DocumentEditor_WidthAndSpacing" xml:space="preserve">
-<value>Genişlik ve Aralık</value>
-</data>
+    <value>Genişlik ve Aralık</value>
+  </data>
   <data name="DocumentEditor_EqualColumnWidth" xml:space="preserve">
-<value>Eşit sütun genişliği</value>
-</data>
+    <value>Eşit sütun genişliği</value>
+  </data>
   <data name="DocumentEditor_Column" xml:space="preserve">
-<value>Kolon</value>
-</data>
+    <value>Kolon</value>
+  </data>
   <data name="DocumentEditor_SectionBreakContinuous" xml:space="preserve">
-<value>Bölüm Arası (Sürekli)</value>
-</data>
+    <value>Bölüm Arası (Sürekli)</value>
+  </data>
   <data name="DocumentEditor_PasteContentDialog" xml:space="preserve">
-  <value>Tarayıcının güvenlik politikası nedeniyle, sistem panosundan yapıştırma işlemi kısıtlanmıştır. Alternatif olarak klavye kısayolunu kullanın</value>
-</data>
+    <value>Tarayıcının güvenlik politikası nedeniyle, sistem panosundan yapıştırma işlemi kısıtlanmıştır. Alternatif olarak klavye kısayolunu kullanın</value>
+  </data>
   <data name="DocumentEditor_PasteCheckBoxContentDialog" xml:space="preserve">
-  <value>tekrar gösterme</value>
-</data>
+    <value>tekrar gösterme</value>
+  </data>
   <data name="DocumentEditorContainer_Columns" xml:space="preserve">
-<value>Sütunlar</value>
-</data>
+    <value>Sütunlar</value>
+  </data>
   <data name="DocumentEditorContainer_ShowHiddenMarks" xml:space="preserve">
-<value>Boşluk, sekme, paragraf işaretleri ve sonlar gibi gizli karakterleri gösterin.(Ctrl + *)</value>
-</data>
+    <value>Boşluk, sekme, paragraf işaretleri ve sonlar gibi gizli karakterleri gösterin.(Ctrl + *)</value>
+  </data>
   <data name="DocumentEditorContainer_RegularTooltip" xml:space="preserve">
-       <value>Düzenli</value>
-</data>
+    <value>Düzenli</value>
+  </data>
   <data name="DocumentEditorContainer_BoldItalicTooltip" xml:space="preserve">
-       <value>Kalın italik</value>
-</data>
+    <value>Kalın italik</value>
+  </data>
   <data name="DocumentEditorContainer_New" xml:space="preserve">
     <value>Yeni</value>
   </data>
@@ -5816,7 +5816,7 @@
   </data>
   <data name="DocumentEditorContainer_Trackedchanges" xml:space="preserve">
     <value>Izlenen değişiklikler</value>
-   </data>
+  </data>
   <data name="DocumentEditorContainer_RemovedIgnoreExceptions" xml:space="preserve">
     <value>Bu değişikliği belge korumasında yaparsanız, Word bu belgedeki tüm istisnaları yok sayar.</value>
   </data>
@@ -5968,22 +5968,22 @@
     <value>Bölüm</value>
   </data>
   <data name="DocumentEditor_OddPageHeader" xml:space="preserve">
-  <value>Garip Sayfa Başlığı</value>
+    <value>Garip Sayfa Başlığı</value>
   </data>
   <data name="DocumentEditor_OddPageFooter" xml:space="preserve">
-  <value>Tek Sayfa Altbilgisi</value>
+    <value>Tek Sayfa Altbilgisi</value>
   </data>
   <data name="DocumentEditor_EvenPageHeader" xml:space="preserve">
-  <value>Eşit Sayfa Başlığı</value>
+    <value>Eşit Sayfa Başlığı</value>
   </data>
   <data name="DocumentEditor_EvenPageFooter" xml:space="preserve">
-  <value>Çift Sayfa Altbilgisi</value>
+    <value>Çift Sayfa Altbilgisi</value>
   </data>
   <data name="DocumentEditor_FirstPageHeader" xml:space="preserve">
-  <value>İlk Sayfa Başlığı</value>
+    <value>İlk Sayfa Başlığı</value>
   </data>
   <data name="DocumentEditor_FirstPageFooter" xml:space="preserve">
-  <value>İlk Sayfa Altbilgisi</value>
+    <value>İlk Sayfa Altbilgisi</value>
   </data>
   <data name="DocumentEditorContainer_AlternateText" xml:space="preserve">
     <value>Alternatif metin</value>
@@ -6013,83 +6013,83 @@
     <value>Resminizi buraya bırakın veya</value>
   </data>
   <data name="DocumentEditorContainer_TabStopPosition" xml:space="preserve">
-<value>Sekme durağı konumu</value>
-</data>
-<data name="DocumentEditorContainer_DefaultTabStops" xml:space="preserve">
-<value>Varsayılan sekme durakları</value>
-</data>
-<data name="DocumentEditorContainer_TabStopsCleared" xml:space="preserve">
-<value>Temizlenecek sekme durakları</value>
-</data>
-<data name="DocumentEditorContainer_Tabs" xml:space="preserve">
-<value>Sekmeler</value>
-</data>
-<data name="DocumentEditor_Set" xml:space="preserve">
-<value>Ayarlamak</value>
-</data>
-<data name="DocumentEditor_Clear" xml:space="preserve">
-<value>Temizlemek</value>
-</data>
-<data name="DocumentEditor_ClearAll" xml:space="preserve">
-<value>Hepsini temizle</value>
-</data>
-<data name="DocumentEditor_Decimal" xml:space="preserve">
-<value>Ondalık</value>
-</data>
-<data name="DocumentEditor_Bar" xml:space="preserve">
-<value>Çubuk</value>
-</data>
-<data name="DocumentEditorContainer_Alignment" xml:space="preserve">
-<value>Hizalama</value>
-</data>
-<data name="DocumentEditorContainer_Leader" xml:space="preserve">
-<value>Önder</value>
-</data>
-<data name="DocumentEditorContainer_All" xml:space="preserve">
-<value>Tüm</value>
-</data>
-<data name="DocumentEditor_BottomMargin" xml:space="preserve">
-<value>Alt Marj</value>
-</data>
-<data name="DocumentEditor_FirstLineIndent" xml:space="preserve">
-<value>İlk Satır Girintisi</value>
-</data>
-<data name="DocumentEditor_HangingIndent" xml:space="preserve">
-<value>Asılı girinti</value>
-</data>
-<data name="DocumentEditor_LeftIndent" xml:space="preserve">
-<value>Sol Girinti</value>
-</data>
-<data name="DocumentEditor_LeftMargin" xml:space="preserve">
-<value>Sol Kenar Boşluğu</value>
-</data>
-<data name="DocumentEditor_MoveTableColumn" xml:space="preserve">
-<value>Tablo Sütununu Taşı</value>
-</data>
-<data name="DocumentEditor_RightIndent" xml:space="preserve">
-<value>Sağ Girinti</value>
-</data>
-<data name="DocumentEditor_RightMargin" xml:space="preserve">
-<value>Sağ Kenar Boşluğu</value>
-</data>
-<data name="DocumentEditor_TopMargin" xml:space="preserve">
-<value>Üst boşluk</value>
-</data>
-<data name="DocumentEditor_LeftTab" xml:space="preserve">
-<value>Sol Sekme</value>
-</data>
-<data name="DocumentEditor_CenterTab" xml:space="preserve">
-<value>Orta Sekme</value>
-</data>
-<data name="DocumentEditor_RightTab" xml:space="preserve">
-<value>Sağ Sekme</value>
-</data>
-<data name="DocumentEditor_DecimalTab" xml:space="preserve">
-<value>Ondalık Sekmesi</value>
-</data>
-<data name="DocumentEditor_BarTab" xml:space="preserve">
-<value>Çubuk Sekmesi</value>
-</data>
+    <value>Sekme durağı konumu</value>
+  </data>
+  <data name="DocumentEditorContainer_DefaultTabStops" xml:space="preserve">
+    <value>Varsayılan sekme durakları</value>
+  </data>
+  <data name="DocumentEditorContainer_TabStopsCleared" xml:space="preserve">
+    <value>Temizlenecek sekme durakları</value>
+  </data>
+  <data name="DocumentEditorContainer_Tabs" xml:space="preserve">
+    <value>Sekmeler</value>
+  </data>
+  <data name="DocumentEditor_Set" xml:space="preserve">
+    <value>Ayarlamak</value>
+  </data>
+  <data name="DocumentEditor_Clear" xml:space="preserve">
+    <value>Temizlemek</value>
+  </data>
+  <data name="DocumentEditor_ClearAll" xml:space="preserve">
+    <value>Hepsini temizle</value>
+  </data>
+  <data name="DocumentEditor_Decimal" xml:space="preserve">
+    <value>Ondalık</value>
+  </data>
+  <data name="DocumentEditor_Bar" xml:space="preserve">
+    <value>Çubuk</value>
+  </data>
+  <data name="DocumentEditorContainer_Alignment" xml:space="preserve">
+    <value>Hizalama</value>
+  </data>
+  <data name="DocumentEditorContainer_Leader" xml:space="preserve">
+    <value>Önder</value>
+  </data>
+  <data name="DocumentEditorContainer_All" xml:space="preserve">
+    <value>Tüm</value>
+  </data>
+  <data name="DocumentEditor_BottomMargin" xml:space="preserve">
+    <value>Alt Marj</value>
+  </data>
+  <data name="DocumentEditor_FirstLineIndent" xml:space="preserve">
+    <value>İlk Satır Girintisi</value>
+  </data>
+  <data name="DocumentEditor_HangingIndent" xml:space="preserve">
+    <value>Asılı girinti</value>
+  </data>
+  <data name="DocumentEditor_LeftIndent" xml:space="preserve">
+    <value>Sol Girinti</value>
+  </data>
+  <data name="DocumentEditor_LeftMargin" xml:space="preserve">
+    <value>Sol Kenar Boşluğu</value>
+  </data>
+  <data name="DocumentEditor_MoveTableColumn" xml:space="preserve">
+    <value>Tablo Sütununu Taşı</value>
+  </data>
+  <data name="DocumentEditor_RightIndent" xml:space="preserve">
+    <value>Sağ Girinti</value>
+  </data>
+  <data name="DocumentEditor_RightMargin" xml:space="preserve">
+    <value>Sağ Kenar Boşluğu</value>
+  </data>
+  <data name="DocumentEditor_TopMargin" xml:space="preserve">
+    <value>Üst boşluk</value>
+  </data>
+  <data name="DocumentEditor_LeftTab" xml:space="preserve">
+    <value>Sol Sekme</value>
+  </data>
+  <data name="DocumentEditor_CenterTab" xml:space="preserve">
+    <value>Orta Sekme</value>
+  </data>
+  <data name="DocumentEditor_RightTab" xml:space="preserve">
+    <value>Sağ Sekme</value>
+  </data>
+  <data name="DocumentEditor_DecimalTab" xml:space="preserve">
+    <value>Ondalık Sekmesi</value>
+  </data>
+  <data name="DocumentEditor_BarTab" xml:space="preserve">
+    <value>Çubuk Sekmesi</value>
+  </data>
   <data name="ImageEditor_OkBtnTooltip" xml:space="preserve">
     <value>Uygulamak</value>
   </data>
@@ -6107,5 +6107,17 @@
   </data>
   <data name="ImageEditor_StraightenTooltip" xml:space="preserve">
     <value>Düzelt</value>
+  </data>
+  <data name="Original" xml:space="preserve">
+    <value>Orijinal</value>
+  </data>
+  <data name="Select Book Type" xml:space="preserve">
+    <value>Kitap Türünü Seç</value>
+  </data>
+  <data name="Translation" xml:space="preserve">
+    <value>Çeviri</value>
+  </data>
+  <data name="Translator" xml:space="preserve">
+    <value>Çevirmen</value>
   </data>
 </root>
