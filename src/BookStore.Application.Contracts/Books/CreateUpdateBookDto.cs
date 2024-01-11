@@ -13,7 +13,7 @@ namespace BookStore.Books
 
       
         public float Price { get; set; }
-        public bool IsTranslated { get; set; }
+        public string BookType { get; set; }
         public string Translator { get; set; }
         public int Publication { get; set; }
     }

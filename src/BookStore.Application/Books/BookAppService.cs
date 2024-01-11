@@ -24,7 +24,7 @@ namespace BookStore.Books
                     Name = item.Name,
                     ReleaseDate = item.ReleaseDate,
                     Price = item.Price,
-                    IsTranslated = item.IsTranslated,
+                    BookType = item.BookType,
                     Translator = item.Translator,
                     Publication = item.Publication
                 }).ToList();
@@ -36,7 +36,7 @@ namespace BookStore.Books
                 Name = bookDto.Name,
                 ReleaseDate = bookDto.ReleaseDate,
                 Price = bookDto.Price,
-                IsTranslated = bookDto.IsTranslated,
+                BookType = bookDto.BookType,
                 Translator = bookDto.Translator,
                 Publication = bookDto.Publication
             });
@@ -47,7 +47,7 @@ namespace BookStore.Books
                 Name = bookDto.Name,
                 ReleaseDate = bookDto.ReleaseDate,
                 Price = bookDto.Price,
-                IsTranslated = bookDto.IsTranslated,
+                BookType = bookDto.BookType,
                 Translator = bookDto.Translator,
                 Publication = bookDto.Publication
 
@@ -61,7 +61,7 @@ namespace BookStore.Books
             book.Name = input.Name;
             book.Price = input.Price;
             book.ReleaseDate = input.ReleaseDate;
-            book.IsTranslated = input.IsTranslated;
+            book.BookType = input.BookType;
             book.Translator = input.Translator;
             book.Publication= input.Publication;
 
@@ -73,7 +73,7 @@ namespace BookStore.Books
                 Name = book.Name,
                 ReleaseDate = book.ReleaseDate,
                 Price = book.Price,
-                IsTranslated = book.IsTranslated,
+                BookType = book.BookType,
                 Translator = input.Translator,
                 Publication= input.Publication
 

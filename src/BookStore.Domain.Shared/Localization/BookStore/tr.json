@@ -24,6 +24,12 @@
     "Select Book Type": "Kitap Türünü Seç",
     "Translation": "Çeviri",
     "Original Language": "Orijinal",
-    "Translator": "Çevirmen"
+    "Translator": "Çevirmen",
+    "OK": "TAMAM",
+    "Confirmation Message": "Onay mesajı",
+    "Are you sure about deleting this book?": "Bu kitabı silme konusunda emin misiniz?",
+    "BookType": "Kitap Türü",
+    "Publication": "Yayın"
+  
   }
 }
