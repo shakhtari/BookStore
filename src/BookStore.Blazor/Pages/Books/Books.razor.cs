@@ -241,26 +241,7 @@ namespace BookStore.Blazor.Pages.Books
                 //BookAppService.DeleteAsync(args.Data.Id);
             }
         }
-        //private RenderFragment dynamicComponent { get; set; }
-        //private void RenderComponent(ChangeEventArgs<string, BookType> args)
-        //{
-        //    if (args.Value == "1")
-        //    {
-        //        dynamicComponent = CreateComponent();
-        //    }
-        //    else
-        //    {
-        //        dynamicComponent = null;
-        //    }
-        //}
-
-        //RenderFragment CreateComponent() => builder =>
-        //{
-        //    builder.OpenComponent(0, typeof(SfTextBox));
-        //    builder.AddAttribute(1, "bind-value", "@book.Translator");
-        //    builder.AddAttribute(2, "Placeholder", Ml["Translator"]);
-        //    builder.CloseComponent();
-        //};
+      
 
         public class BookType
         {
