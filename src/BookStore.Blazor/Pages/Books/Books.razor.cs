@@ -28,6 +28,7 @@ namespace BookStore.Blazor.Pages.Books
         private CreateUpdateBookDto NewBookDto { get; set; }
         private CreateUpdateBookDto EditingBookDto { get; set; }
         private Guid EditingBookId { get; set; }
+        private Guid DeletingBookId { get; set; }
         private bool Loading { get; set; }
         private bool NewDialogOpen { get; set; }
         private bool EditingDialogOpen { get; set; }
@@ -42,11 +43,12 @@ namespace BookStore.Blazor.Pages.Books
             EditingBookDto = new CreateUpdateBookDto();
             PubList = new List<PublicationDto>();
             _localizer = localizer;
-
-           TypeLists = new List<BookType>
+            //TypeLists.AddLast(_localizer["Original Language"]);
+            //TypeLists.AddLast(_localizer["Translation"]);
+            TypeLists = new List<BookType>
     {
-    new BookType() { ID=0 , TypeName=_localizer["Original Language"]},
-    new BookType() { ID=1 , TypeName=_localizer["Translation"]}
+    new BookType() { TypeName=_localizer["Original Language"]},
+    new BookType() {TypeName=_localizer["Translation"]}
     };
         }
 
@@ -165,7 +167,20 @@ namespace BookStore.Blazor.Pages.Books
 
 
 
+        private bool IsVisible { get; set; } = false;
+            private string ClickStatus { get; set; }
 
+
+        private void CancelClick()
+        {
+            GetBooksAsync();
+            this.IsVisible = false;
+        }
+        private void OkClick()
+        {
+            BookAppService.DeleteAsync(DeletingBookId);
+            this.IsVisible = false;
+        }
         public void ActionBeginHandler(ActionEventArgs<BookDto> args)
         {
             if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Add) || args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.BeginEdit))
@@ -185,7 +200,10 @@ namespace BookStore.Blazor.Pages.Books
                         Id = args.RowData.Id,
                         Name = args.RowData.Name,
                         Price = args.RowData.Price,
-                        ReleaseDate = args.RowData.ReleaseDate
+                        ReleaseDate = args.RowData.ReleaseDate,
+                        Translator=args.RowData.Translator,
+                        Publication=args.RowData.Publication,
+                        BookType=args.RowData.BookType
                     };
                 }
             }
@@ -197,6 +215,9 @@ namespace BookStore.Blazor.Pages.Books
                     NewBookDto.Name = args.Data.Name;
                     NewBookDto.Price = args.Data.Price;
                     NewBookDto.ReleaseDate = args.Data.ReleaseDate;
+                    NewBookDto.Translator = args.Data.Translator;
+                    NewBookDto.BookType = args.Data.BookType;
+                    NewBookDto.Publication = args.Data.Publication;
 
                     BookAppService.CreateAsync(NewBookDto);
                 }
@@ -206,40 +227,43 @@ namespace BookStore.Blazor.Pages.Books
                     EditingBookDto.Name = args.Data.Name;
                     EditingBookDto.Price = args.Data.Price;
                     EditingBookDto.ReleaseDate = args.Data.ReleaseDate;
+                    EditingBookDto.Translator= args.Data.Translator;
+                    EditingBookDto.Publication = args.Data.Publication;
+                    EditingBookDto.BookType = args.Data.BookType;
                     EditingBookId = args.Data.Id;
                     BookAppService.UpdateAsync(EditingBookId, EditingBookDto);
                 }
             }
             if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Delete))
             {
-
-                BookAppService.DeleteAsync(args.Data.Id);
+                this.IsVisible = true;
+                DeletingBookId = args.Data.Id;
+                //BookAppService.DeleteAsync(args.Data.Id);
             }
         }
-        private RenderFragment dynamicComponent { get; set; }
-        private void RenderComponent(ChangeEventArgs<string, BookType> args)
-        {
-            if (args.Value == "1")
-            {
-                dynamicComponent = CreateComponent();
-            }
-            else
-            {
-                dynamicComponent = null;
-            }
-        }
+        //private RenderFragment dynamicComponent { get; set; }
+        //private void RenderComponent(ChangeEventArgs<string, BookType> args)
+        //{
+        //    if (args.Value == "1")
+        //    {
+        //        dynamicComponent = CreateComponent();
+        //    }
+        //    else
+        //    {
+        //        dynamicComponent = null;
+        //    }
+        //}
 
-        RenderFragment CreateComponent() => builder =>
-        {
-            builder.OpenComponent(0, typeof(SfTextBox));
-            builder.AddAttribute(1, "bind-value", "@book.Translator");
-            builder.AddAttribute(2, "Placeholder", Ml["Translator"]);
-            builder.CloseComponent();
-        };
+        //RenderFragment CreateComponent() => builder =>
+        //{
+        //    builder.OpenComponent(0, typeof(SfTextBox));
+        //    builder.AddAttribute(1, "bind-value", "@book.Translator");
+        //    builder.AddAttribute(2, "Placeholder", Ml["Translator"]);
+        //    builder.CloseComponent();
+        //};
 
         public class BookType
         {
-            public int ID { get; set; }
             public string TypeName { get; set; }
         }
 

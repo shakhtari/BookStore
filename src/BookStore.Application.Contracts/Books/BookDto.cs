@@ -11,7 +11,7 @@ namespace BookStore.Books
         public string Name { get; set; }
         public float Price { get; set; }
         public DateTime ReleaseDate { get; set; }
-        public bool IsTranslated { get; set; }
+        public string BookType { get; set; }
         public string Translator { get; set; }
         public int Publication { get; set; }
     }
