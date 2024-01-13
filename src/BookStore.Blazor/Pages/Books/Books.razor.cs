@@ -4,13 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using BookStore.Books;
-using System.Globalization;
-using Syncfusion.Blazor;
-using Syncfusion.Blazor.FileManager;
 using Syncfusion.Blazor.Grids;
+using IdentityServer4.Models;
+using Syncfusion.Blazor.Notifications;
+using BookStore.Publications;
+using Syncfusion.Blazor.Inputs;
+using System.Runtime.CompilerServices;
+using Syncfusion.Blazor.DropDowns;
 using BookStore.Localization;
 using Microsoft.Extensions.Localization;
-using Syncfusion.Blazor.Navigations;
+
 
 namespace BookStore.Blazor.Pages.Books
 {
@@ -21,35 +24,34 @@ namespace BookStore.Blazor.Pages.Books
         private IBookAppService BookAppService { get; set; }
 
         private IReadOnlyList<BookDto> BookList { get; set; }
-        private SfGrid<BookDto> Grid;
+        private IReadOnlyList<PublicationDto> PubList { get; set; }
         private CreateUpdateBookDto NewBookDto { get; set; }
         private CreateUpdateBookDto EditingBookDto { get; set; }
         private Guid EditingBookId { get; set; }
+        private Guid DeletingBookId { get; set; }
         private bool Loading { get; set; }
         private bool NewDialogOpen { get; set; }
         private bool EditingDialogOpen { get; set; }
         private readonly IStringLocalizer<BookStoreResource> _localizer;
-        private List<Object> ToolbarItems;
-        public IEditorSettings DateEditParams = new DateEditCellParams { 
-        Params=new Syncfusion.Blazor.Calendars.DatePickerModel() { EnableRtl=true , ShowClearButton=false}
-        };
-
+        SfGrid<BookDto> Grid { get; set; }
+        public List<BookType> TypeLists;
 
         public Books(IStringLocalizer<BookStoreResource> localizer)
         {
             BookList = new List<BookDto>();
             NewBookDto = new CreateUpdateBookDto();
             EditingBookDto = new CreateUpdateBookDto();
+            PubList = new List<PublicationDto>();
             _localizer = localizer;
-            ToolbarItems = new List<object>() {
-            new ItemModel(){Text=_localizer["Add"],PrefixIcon="e-add",Id="Grid_add"},
-            new ItemModel(){Text=_localizer["Edit"],PrefixIcon="e-edit",Id="Grid_edit"},
-            new ItemModel(){Text=_localizer["Delete"],PrefixIcon="e-delete",Id="Grid_delete"},
-            new ItemModel(){Text=_localizer["Update"],PrefixIcon="e-update",Id="Grid_update"},
-            new ItemModel(){Text=_localizer["Cancel"],PrefixIcon="e-cancel",Id="Grid_cancel"}
-            };
+            //TypeLists.AddLast(_localizer["Original Language"]);
+            //TypeLists.AddLast(_localizer["Translation"]);
+            TypeLists = new List<BookType>
+    {
+    new BookType() { TypeName=_localizer["Original Language"]},
+    new BookType() {TypeName=_localizer["Translation"]}
+    };
         }
-        
+
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
@@ -78,73 +80,177 @@ namespace BookStore.Blazor.Pages.Books
             }
         }
 
+        //private async Task GetPubsAsync()
+        //{
+        //    try
+        //    {
+        //        Loading = true;
+
+        //        await InvokeAsync(() => StateHasChanged());
+
+        //        PubList = await PubAppService.GetListAsync();
+        //    }
+        //    finally
+        //    {
+        //        Loading = false;
+
+        //        await InvokeAsync(() => StateHasChanged());
+        //    }
+        //}
+
         private Task OpenCreateBookModalAsync()
         {
             NewDialogOpen = true;
-            this.StateHasChanged();
             NewBookDto = new CreateUpdateBookDto();
 
             return Task.CompletedTask;
         }
 
-
-        public class SyncfusionLocalizer : ISyncfusionStringLocalizer
+        private async Task CreateBookAsync()
         {
-            // To get the locale key from mapped resources file
-            public string GetText(string key)
+            try
             {
-                return this.ResourceManager.GetString(key);
+                await BookAppService.CreateAsync(NewBookDto);
+
+                await GetBooksAsync();
             }
-
-            // To access the resource file and get the exact value for locale key
-
-            public System.Resources.ResourceManager ResourceManager
+            finally
             {
-                get
-                {
-                    // Replace the ApplicationNamespace with your application name.
-                    return BookStore.Resources.SfResources.ResourceManager;
-                }
+                NewDialogOpen = false;
             }
         }
-        public void ActionBeginHandler(ActionEventArgs<BookDto> Args)
+
+        private Task OpenEditingBookModalAsync(BookDto book)
         {
-            if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
+            EditingDialogOpen = true;
+            EditingBookId = book.Id;
+            EditingBookDto = new CreateUpdateBookDto
             {
-                if (Args.Action == "Add")
+                Name = book.Name,
+                Price = book.Price,
+                ReleaseDate = book.ReleaseDate
+            };
+
+            return Task.CompletedTask;
+        }
+
+        private async Task UpdateBookAsync()
+        {
+            try
+            {
+                await BookAppService.UpdateAsync(EditingBookId, EditingBookDto);
+            }
+            finally
+            {
+                EditingDialogOpen = false;
+
+                await GetBooksAsync();
+            }
+        }
+
+        private async Task DeleteBookAsync(BookDto book)
+        {
+            var confirmMessage = Ml["BookDeletionConfirmationMessage", book.Name];
+            //if (!await Message.Confirm(confirmMessage))
+            //{
+            //    return;
+            //}
+
+            await BookAppService.DeleteAsync(book.Id);
+            await GetBooksAsync();
+        }
+
+        private bool Check = false;
+        private bool isTranslated = false;
+
+        private DialogSettings DialogParams = new DialogSettings { MinHeight = "400px", Width = "450px" };
+
+
+
+        private bool IsVisible { get; set; } = false;
+            private string ClickStatus { get; set; }
+
+
+        private void CancelClick()
+        {
+            GetBooksAsync();
+            this.IsVisible = false;
+        }
+        private void OkClick()
+        {
+            BookAppService.DeleteAsync(DeletingBookId);
+            this.IsVisible = false;
+        }
+        public void ActionBeginHandler(ActionEventArgs<BookDto> args)
+        {
+            if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Add) || args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.BeginEdit))
+            {
+                //Handles Add Operation
+                if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Add))
                 {
-                    NewBookDto = new CreateUpdateBookDto()
+                    Check = true;
+
+                }
+                //Handles Edit Operation
+                if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.BeginEdit))
+                {
+                    EditingBookId = args.RowData.Id;
+                    EditingBookDto = new CreateUpdateBookDto()
                     {
-                        Name = Args.Data.Name,
-                        Price = Args.Data.Price,
-                        ReleaseDate = Args.Data.ReleaseDate,
+                        Id = args.RowData.Id,
+                        Name = args.RowData.Name,
+                        Price = args.RowData.Price,
+                        ReleaseDate = args.RowData.ReleaseDate,
+                        Translator=args.RowData.Translator,
+                        Publication=args.RowData.Publication,
+                        BookType=args.RowData.BookType
                     };
+                }
+            }
+            if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
+            {
+                if (Check)
+                {
+                    NewBookDto = new CreateUpdateBookDto();
+                    NewBookDto.Name = args.Data.Name;
+                    NewBookDto.Price = args.Data.Price;
+                    NewBookDto.ReleaseDate = args.Data.ReleaseDate;
+                    NewBookDto.Translator = args.Data.Translator;
+                    NewBookDto.BookType = args.Data.BookType;
+                    NewBookDto.Publication = args.Data.Publication;
+
                     BookAppService.CreateAsync(NewBookDto);
                 }
-                else
+                if (!Check)
                 {
-                    EditingBookId = Args.Data.Id;
-                    EditingBookDto = new CreateUpdateBookDto
-                    {
-                        Name = Args.Data.Name,
-                        Price = Args.Data.Price,
-                        ReleaseDate = Args.Data.ReleaseDate,
-                    };
-                    BookAppService.UpdateAsync(Args.Data.Id, EditingBookDto);
+                    EditingBookDto.Id = args.Data.Id;
+                    EditingBookDto.Name = args.Data.Name;
+                    EditingBookDto.Price = args.Data.Price;
+                    EditingBookDto.ReleaseDate = args.Data.ReleaseDate;
+                    EditingBookDto.Translator= args.Data.Translator;
+                    EditingBookDto.Publication = args.Data.Publication;
+                    EditingBookDto.BookType = args.Data.BookType;
+                    EditingBookId = args.Data.Id;
+                    BookAppService.UpdateAsync(EditingBookId, EditingBookDto);
                 }
             }
-            if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Delete))
+            if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Delete))
             {
-                BookAppService.DeleteAsync(Args.Data.Id);
+                this.IsVisible = true;
+                DeletingBookId = args.Data.Id;
+                //BookAppService.DeleteAsync(args.Data.Id);
             }
         }
-        public async Task ActionCompleteHandler(ActionEventArgs<BookDto> Args)
+      
+
+        public class BookType
         {
-            if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
-            {
-                BookList = await BookAppService.GetListAsync();
-            }
+            public string TypeName { get; set; }
         }
+
+
+
+
     }
 }
 

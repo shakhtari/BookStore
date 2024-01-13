@@ -6,6 +6,7 @@
 @using Polly
 @using Syncfusion.Blazor.Grids
 @using Syncfusion.Blazor.Calendars
+@using Syncfusion.Blazor.Buttons
 @inject IStringLocalizer<BookStoreResource> Ml
 
 <h3>"@Ml["Books"]"</h3>
@@ -17,22 +18,98 @@
 }
 else
 {
+    <Syncfusion.Blazor.Grids.SfGrid DataSource="@BookList" AllowPaging="true" Toolbar="@(new string[] {"Add", "Edit" ,"Delete","Update","Cancel" })">
+        <GridEvents OnActionBegin="ActionBeginHandler" TValue="BookDto"></GridEvents>
+        <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog">
+            <Template>
+                @{
+                    var book = (context as BookDto);
+                    <div>
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label class="e-float-text e-label-top">@Ml["Book Name"]</label>
+                                <SfTextBox @bind-Value="@book.Name" Placeholder="@Ml["Name"]"  />
+                            </div>
+                        </div>
 
-    <Syncfusion.Blazor.Grids.SfGrid ID="Grid" @ref="Grid" DataSource="@BookList" AllowPaging="true" Toolbar="@ToolbarItems">
-        <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Normal"></GridEditSettings>
-        <GridPageSettings PageSizes="true" PageSize="10"></GridPageSettings>
-        <GridEvents OnActionBegin="ActionBeginHandler" OnActionComplete="ActionCompleteHandler" TValue="BookDto"></GridEvents>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="e-float-text e-label-top">@Ml["Price"]</label>
+                                <SfNumericTextBox @bind-Value="@book.Price"></SfNumericTextBox>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="e-float-text e-label-top">@Ml["ReleaseDate"]</label>
+                                <SfDatePicker @bind-Value="@book.ReleaseDate"></SfDatePicker>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label class="e-float-text e-label-top">@Ml["BookType"]</label>
+                                <SfDropDownList TValue="string" TItem="BookType" @bind-Value="book.BookType" Placeholder="@Ml["Select Book Type"]" DataSource="@TypeLists">
+                                    <DropDownListFieldSettings Text="TypeName"></DropDownListFieldSettings>
+                                    @{
+                                        if (book.BookType == "Translation" || book.BookType == "Çeviri")
+                                        {
+                                             <div class="form-group col-md-12"><br />
+                                            <label class="e-float-text e-label-top">@Ml["Translator"]</label>
+                                            <SfTextBox @bind-Value="book.Translator" Placeholder="@Ml["Translator"]"></SfTextBox>
+                                            </div>
+                                        }
+                                    }
+                                    
+                                </SfDropDownList>
+                                
+                            </div>
+
+                        </div>
+                       
+                    </div>
+                  
+                }
+                
+            </Template>
+        </GridEditSettings>
+
         <GridColumns>
             <GridColumn Field="@nameof(BookDto.Id)" HeaderText="ID" IsPrimaryKey="true" AllowAdding="false" AllowEditing="false"></GridColumn>
             <GridColumn Field="@nameof(BookDto.Name)" HeaderText="@Ml["Name"]" />
             <GridColumn Field="@nameof(BookDto.Price)" HeaderText="@Ml["Price"]" />
-            <GridColumn Field="@nameof(BookDto.ReleaseDate)" HeaderText="@Ml["ReleaseDate"]" EditType="EditType.DatePickerEdit" Type="ColumnType.Date" Format="d" DefaultValue="@(DateTime.Now)"/>
-         </GridColumns>
+            <GridColumn Field="@nameof(BookDto.ReleaseDate)" HeaderText="@Ml["ReleaseDate"]" EditType="EditType.DatePickerEdit" Type="ColumnType.Date" Format="d" DefaultValue="@(DateTime.Now)" />
+            <GridColumn Field="@nameof(BookDto.Translator)" HeaderText="@Ml["Translator"]" />
+            <GridColumn Field="@nameof(BookDto.BookType)" HeaderText="@Ml["BookType"]" />
+            <GridColumn Field="@nameof(BookDto.Publication)" HeaderText="@Ml["Publication"]" />
+        </GridColumns>
     </Syncfusion.Blazor.Grids.SfGrid>
 
+    <SfDialog Width="250px" ShowCloseIcon="true" IsModal="true" @bind-Visible="@IsVisible">
+        <DialogTemplates>
+            <Header> @Ml["Confirmation Message"] </Header>
+            <Content> @Ml["Are you sure about deleting this book?"] </Content>
+        </DialogTemplates>
+        <DialogButtons>
+            <DialogButton Content="@Ml["OK"]" IsPrimary="true" OnClick="@OkClick" />
+            <DialogButton Content="@Ml["Cancel"]" OnClick="@CancelClick" />
+        </DialogButtons>
+    </SfDialog>
+
 }
 
-@code{
+@code {
+
+    public DateTime? DateValue { get; set; } = DateTime.Today;
     
-    public DateTime? dateValue{get;set;} = DateTime.Today;
 }
+
+<style>
+    .form-group.col-md-6 {
+        width: 200px;
+    }
+
+    label.e-float-text {
+        position: relative;
+        padding-left: 0;
+        top: 10%;
+    }
+</style>

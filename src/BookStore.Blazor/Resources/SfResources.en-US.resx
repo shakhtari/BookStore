@@ -168,34 +168,10 @@
   <data name="DateTimePicker_Today" xml:space="preserve">
     <value>Today</value>
   </data>
-  <data name="Date_Day" xml:space="preserve">
-    <value>Day</value>
-  </data>
-  <data name="Date_Month" xml:space="preserve">
-    <value>Month</value>
-  </data>
-   <data name="Date_Year" xml:space="preserve">
-    <value>Year</value>
-  </data>
-   <data name="Time_Hour" xml:space="preserve">
-    <value>Hour</value>
-  </data>
-   <data name="Time_Minute" xml:space="preserve">
-    <value>Minute</value>
-  </data>
-   <data name="Time_Second" xml:space="preserve">
-    <value>Second</value>
-  </data>
-   <data name="Date_DayOfWeek" xml:space="preserve">
-    <value>DayOfWeek</value>
-  </data>
   <data name="DropDownList_ActionFailureTemplate" xml:space="preserve">
     <value>Request failed</value>
   </data>
   <data name="DropDownList_NoRecordsTemplate" xml:space="preserve">
-    <value>No records found</value>
-  </data>
-  <data name="Mention_NoRecordsTemplate" xml:space="preserve">
     <value>No records found</value>
   </data>
   <data name="MultiSelect_ActionFailureTemplate" xml:space="preserve">
@@ -252,13 +228,10 @@
   <data name="Uploader_InvalidFileType" xml:space="preserve">
     <value>File type is not allowed</value>
   </data>
-  <data name="Uploader_InvalidFileName" xml:space="preserve">
-    <value>File name is not allowed</value>
-  </data>
   <data name="Uploader_InvalidMaxFileSize" xml:space="preserve">
     <value>File size is too large</value>
   </data>
-  <data name="Uploader_InvalidMinFileSize" xml:space="preserve">
+  <data name="Uploader_invalidMinFileSize" xml:space="preserve">
     <value>File size is too small</value>
   </data>
   <data name="Uploader_Pause" xml:space="preserve">
@@ -654,27 +627,6 @@
   <data name="Tab_CloseButtonTitle" xml:space="preserve">
     <value>Close</value>
   </data>
-  <data name="Carousel_PreviousSlide" xml:space="preserve">
-    <value>Previous Slide</value>
-  </data>
-  <data name="Carousel_NextSlide" xml:space="preserve">
-    <value>Next Slide</value>
-  </data>
-  <data name="Carousel_Slide" xml:space="preserve">
-    <value>Slide</value>
-  </data>
-  <data name="Carousel_Of" xml:space="preserve">
-    <value>of</value>
-  </data>
-  <data name="Carousel_PlaySlide" xml:space="preserve">
-    <value>Stop auto animation</value>
-  </data>
-  <data name="Carousel_PauseSlide" xml:space="preserve">
-    <value>Start auto animation</value>
-  </data>
-  <data name="Carousel_SlideShow" xml:space="preserve">
-    <value>Slide show</value>
-  </data>
   <data name="DocumentEditor_Table" xml:space="preserve">
     <value>Table</value>
   </data>
@@ -856,7 +808,7 @@
     <value>Show page numbers</value>
   </data>
   <data name="DocumentEditor_RightAlignPageNumbers" xml:space="preserve">
-    <value>Right align page numbers.</value>
+    <value>Right align page numbers</value>
   </data>
   <data name="DocumentEditor_Nothing" xml:space="preserve">
     <value>Nothing</value>
@@ -1447,7 +1399,7 @@
     <value>Your permissions</value>
   </data>
   <data name="DocumentEditor_ProtectedDocument" xml:space="preserve">
-    <value>This document is protected from unintentional editing.</value>
+    <value>This document is protected from unintentional editing.You may edit in this region.</value>
   </data>
   <data name="DocumentEditor_YouMayFormatTextOnlyWithCertainStyles" xml:space="preserve">
     <value>You may format text only with certain styles.</value>
@@ -1587,16 +1539,16 @@
   <data name="DocumentEditor_FieldSettings" xml:space="preserve">
     <value>Field settings</value>
   </data>
-  <data name="DocumentEditor_Tooltip" xml:space="preserve">
+   <data name="DocumentEditor_Tooltip" xml:space="preserve">
     <value>Tooltip</value>
   </data>
-  <data name="DocumentEditor_DropDownEnabled" xml:space="preserve">
+   <data name="DocumentEditor_DropDownEnabled" xml:space="preserve">
     <value>Drop-down enabled</value>
   </data>
-  <data name="DocumentEditor_CheckBoxFormField" xml:space="preserve">
+   <data name="DocumentEditor_CheckBoxFormField" xml:space="preserve">
     <value>Check Box Form Field</value>
   </data>
-  <data name="DocumentEditor_CheckBoxSize" xml:space="preserve">
+   <data name="DocumentEditor_CheckBoxSize" xml:space="preserve">
     <value>Check box size</value>
   </data>
   <data name="DocumentEditor_Auto" xml:space="preserve">
@@ -1605,7 +1557,7 @@
   <data name="DocumentEditor_DefaultValue" xml:space="preserve">
     <value>Default value</value>
   </data>
-  <data name="DocumentEditor_NotChecked" xml:space="preserve">
+   <data name="DocumentEditor_NotChecked" xml:space="preserve">
     <value>Not checked</value>
   </data>
   <data name="DocumentEditor_Checked" xml:space="preserve">
@@ -1623,34 +1575,34 @@
   <data name="DocumentEditor_DefaultText" xml:space="preserve">
     <value>Default text</value>
   </data>
-  <data name="DocumentEditor_MaximumLength" xml:space="preserve">
+   <data name="DocumentEditor_MaximumLength" xml:space="preserve">
     <value>Maximum length</value>
   </data>
-  <data name="DocumentEditor_TextFormat" xml:space="preserve">
+   <data name="DocumentEditor_TextFormat" xml:space="preserve">
     <value>Text format</value>
   </data>
-  <data name="DocumentEditor_FillInEnabled" xml:space="preserve">
+   <data name="DocumentEditor_FillInEnabled" xml:space="preserve">
     <value>Fill-in enabled</value>
   </data>
   <data name="DocumentEditor_DefaultNumber" xml:space="preserve">
     <value>Default number</value>
   </data>
-  <data name="DocumentEditor_DefaultDate" xml:space="preserve">
+   <data name="DocumentEditor_DefaultDate" xml:space="preserve">
     <value>Default date</value>
   </data>
-  <data name="DocumentEditor_DateFormat" xml:space="preserve">
+   <data name="DocumentEditor_DateFormat" xml:space="preserve">
     <value>Date format</value>
   </data>
-  <data name="DocumentEditor_MergeTrack" xml:space="preserve">
+ <data name="DocumentEditor_MergeTrack" xml:space="preserve">
     <value>This action wont be marked as change. Do you want to continue?</value>
   </data>
-  <data name="DocumentEditor_UnTrack" xml:space="preserve">
+<data name="DocumentEditor_UnTrack" xml:space="preserve">
     <value>Cannot be tracked</value>
   </data>
   <data name="DocumentEditor_Accept" xml:space="preserve">
     <value>Accept</value>
   </data>
-  <data name="DocumentEditor_Reject" xml:space="preserve">
+ <data name="DocumentEditor_Reject" xml:space="preserve">
     <value>Reject</value>
   </data>
   <data name="DocumentEditor_PreviousChanges" xml:space="preserve">
@@ -1671,16 +1623,16 @@
   <data name="DocumentEditor_AcceptAll" xml:space="preserve">
     <value>Accept all</value>
   </data>
-  <data name="DocumentEditor_RejectAll" xml:space="preserve">
+   <data name="DocumentEditor_RejectAll" xml:space="preserve">
     <value>Reject all</value>
   </data>
-  <data name="DocumentEditor_NoChanges" xml:space="preserve">
+<data name="DocumentEditor_NoChanges" xml:space="preserve">
     <value>No Changes</value>
   </data>
   <data name="DocumentEditor_AcceptChanges" xml:space="preserve">
     <value>Accept Changes</value>
   </data>
-  <data name="DocumentEditor_RejectChanges" xml:space="preserve">
+   <data name="DocumentEditor_RejectChanges" xml:space="preserve">
     <value>Reject Changes</value>
   </data>
   <data name="DocumentEditor_User" xml:space="preserve">
@@ -1693,7 +1645,7 @@
     <value>Unprotect Document</value>
   </data>
   <data name="DocumentEditor_FormFieldsOnly" xml:space="preserve">
-    <value>You may only fill in forms in this region.</value>
+    <value>This document is protected from unintentional editing. You may only fill in forms in this region.</value>
   </data>
   <data name="DocumentEditor_IndentsAndSpacing" xml:space="preserve">
     <value>Indents and Spacing</value>
@@ -1713,186 +1665,6 @@
   <data name="DocumentEditor_KeepLinesTogether" xml:space="preserve">
     <value>Keep lines together</value>
   </data>
-  <data name="DocumentEditor_ScreenTip" xml:space="preserve">
-       <value>ScreenTip text</value>
-</data>
-  <data name="DocumentEditor_KeepSource" xml:space="preserve">
-       <value>Keep source formatting</value>
-</data>
-  <data name="DocumentEditor_DestinationFormat" xml:space="preserve">
-       <value>Match destination formatting</value>
-</data>
-  <data name="DocumentEditor_CommentsOnly" xml:space="preserve">
-       <value>You may only insert comments into this region.</value>
-</data>
-  <data name="DocumentEditor_RowRange" xml:space="preserve">
-       <value>Number of rows must be between 1 and 32767.</value>
-</data>
-  <data name="DocumentEditor_ColumnRange" xml:space="preserve">
-       <value>Number of columns must be between 1 and 63.</value>
-</data>
-  <data name="DocumentEditor_Information" xml:space="preserve">
-       <value>Information</value>
-</data>
-  <data name="DocumentEditor_Dot" xml:space="preserve">
-       <value>Dot</value>
-</data>
-  <data name="DocumentEditor_DashSmallGap" xml:space="preserve">
-       <value>DashSmallGap</value>
-</data>
-  <data name="DocumentEditor_DashDot" xml:space="preserve">
-       <value>DashDot</value>
-</data>
-  <data name="DocumentEditor_ThinThickSmallGap" xml:space="preserve">
-       <value>ThinThickSmallGap</value>
-</data>
-  <data name="DocumentEditor_ThickThinSmallGap" xml:space="preserve">
-       <value>ThickThinSmallGap</value>
-</data>
-  <data name="DocumentEditor_ThickThinMediumGap" xml:space="preserve">
-       <value>ThickThinMediumGap</value>
-</data>
-  <data name="DocumentEditor_ThickThinLargeGap" xml:space="preserve">
-       <value>ThickThinLargeGap</value>
-</data>
-  <data name="DocumentEditor_SingleWavy" xml:space="preserve">
-       <value>SingleWavy</value>
-</data>
-  <data name="DocumentEditor_DoubleWavy" xml:space="preserve">
-       <value>DoubleWavy</value>
-</data>
-  <data name="DocumentEditor_Inset" xml:space="preserve">
-       <value>Inset</value>
-</data>
-  <data name="DocumentEditor_DashLargeGap" xml:space="preserve">
-       <value>DashLargeGap</value>
-</data>
-  <data name="DocumentEditor_DashDotDot" xml:space="preserve">
-       <value>DashDotDot</value>
-</data>
-  <data name="DocumentEditor_Triple" xml:space="preserve">
-       <value>Triple</value>
-</data>
-  <data name="DocumentEditor_ThinThickThinSmallGap" xml:space="preserve">
-       <value>ThinThickThinSmallGap</value>
-</data>
-  <data name="DocumentEditor_ThinThickThinMediumGap" xml:space="preserve">
-       <value>ThinThickThinMediumGap</value>
-</data>
-  <data name="DocumentEditor_ThinThickThinLargeGap" xml:space="preserve">
-       <value>ThinThickThinLargeGap</value>
-</data>
-  <data name="DocumentEditor_DashDotStroked" xml:space="preserve">
-       <value>DashDotStroked</value>
-</data>
-  <data name="DocumentEditor_Engrave3D" xml:space="preserve">
-       <value>Engrave3D</value>
-</data>
-  <data name="DocumentEditor_Thick" xml:space="preserve">
-       <value>Thick</value>
-</data>
-  <data name="DocumentEditor_Outset" xml:space="preserve">
-       <value>Outset</value>
-</data>
-  <data name="DocumentEditor_Emboss3D" xml:space="preserve">
-       <value>Emboss3D</value>
-</data>
-  <data name="DocumentEditor_ThinThickLargeGap" xml:space="preserve">
-       <value>ThinThickLargeGap</value>
-</data>
-  <data name="DocumentEditor_ThinThickMediumGap" xml:space="preserve">
-       <value>ThinThickMediumGap</value>
-</data>
-  <data name="DocumentEditor_RegularText" xml:space="preserve">
-       <value>Regular text</value>
-</data>
-  <data name="DocumentEditor_Date" xml:space="preserve">
-       <value>Date</value>
-</data>
-  <data name="DocumentEditor_Uppercase" xml:space="preserve">
-       <value>Uppercase</value>
-</data>
-  <data name="DocumentEditor_Lowercase" xml:space="preserve">
-       <value>Lowercase</value>
-</data>
-  <data name="DocumentEditor_FirstCapital" xml:space="preserve">
-       <value>FirstCapital</value>
-</data>
-  <data name="DocumentEditor_Titlecase" xml:space="preserve">
-       <value>Titlecase</value>
-</data>
-  <data name="DocumentEditor_MoveFrom" xml:space="preserve">
-       <value>Move From</value>
-</data>
-  <data name="DocumentEditor_MoveTo" xml:space="preserve">
-       <value>Move To</value>
-</data>
-  <data name="DocumentEditor_Px" xml:space="preserve">
-       <value>px</value>
-</data>
-  <data name="DocumentEditor_ReadOnlyProtection" xml:space="preserve">
-       <value>You may edit in this region.</value>
-</data>
-<data name="DocumentEditor_SectionBreakNextPage" xml:space="preserve">
-<value>Section Break (Next Page)</value>
-</data>
-<data name="DocumentEditor_PageBreak" xml:space="preserve">
-<value>Page Break</value>
-</data>
-<data name="DocumentEditor_ColumnBreak" xml:space="preserve">
-<value>Column Break</value>
-</data>
-<data name="DocumentEditor_One" xml:space="preserve">
-<value>One</value>
-</data>
-<data name="DocumentEditor_Two" xml:space="preserve">
-<value>Two</value>
-</data>
-<data name="DocumentEditor_Three" xml:space="preserve">
-<value>Three</value>
-</data>
-<data name="DocumentEditor_Presets" xml:space="preserve">
-<value>Presets</value>
-</data>
-<data name="DocumentEditor_Columns" xml:space="preserve">
-<value>Columns</value>
-</data>
-<data name="DocumentEditor_SplitToColumns" xml:space="preserve">
-<value>Split your text into two or more columns</value>
-</data>
-<data name="DocumentEditor_LineBetweenColumn" xml:space="preserve">
-<value>Line between column</value>
-</data>
-<data name="DocumentEditor_WidthAndSpacing" xml:space="preserve">
-<value>Width and Spacing</value>
-</data>
-<data name="DocumentEditor_EqualColumnWidth" xml:space="preserve">
-<value>Equal column width</value>
-</data>
-<data name="DocumentEditor_Column" xml:space="preserve">
-<value>Column</value>
-</data>
-<data name="DocumentEditor_SectionBreakContinuous" xml:space="preserve">
-<value>Section Break (Continuous)</value>
-</data>
-<data name="DocumentEditor_PasteContentDialog" xml:space="preserve">
-  <value>Due to browser’s security policy, paste from system clipboard is restricted. Alternatively use the keyboard shortcut</value>
-</data>
-<data name="DocumentEditor_PasteCheckBoxContentDialog" xml:space="preserve">
-  <value>Don't show again</value>
-</data>
-<data name="DocumentEditorContainer_Columns" xml:space="preserve">
-<value>Columns</value>
-</data>
-<data name="DocumentEditorContainer_ShowHiddenMarks" xml:space="preserve">
-<value>Show the hidden characters like spaces, tab, paragraph marks, and breaks.(Ctrl + *)</value>
-</data>
-  <data name="DocumentEditorContainer_RegularTooltip" xml:space="preserve">
-       <value>Regular</value>
-</data>
-  <data name="DocumentEditorContainer_BoldItalicTooltip" xml:space="preserve">
-       <value>BoldItaic</value>
-</data>
   <data name="DocumentEditorContainer_New" xml:space="preserve">
     <value>New</value>
   </data>
@@ -1958,6 +1730,12 @@
   </data>
   <data name="DocumentEditorContainer_ByURL" xml:space="preserve">
     <value>By URL</value>
+  </data>
+  <data name="DocumentEditorContainer_PageBreak" xml:space="preserve">
+    <value>Page Break</value>
+  </data>
+  <data name="DocumentEditorContainer_SectionBreak" xml:space="preserve">
+    <value>Section Break</value>
   </data>
   <data name="DocumentEditorContainer_HeaderAndFooter" xml:space="preserve">
     <value>Header and Footer</value>
@@ -2122,7 +1900,7 @@
     <value>Show page numbers in table of contents.</value>
   </data>
   <data name="DocumentEditorContainer_RightAlignPageNumbers" xml:space="preserve">
-    <value>Right align page numbers.</value>
+    <value>Right align page numbers</value>
   </data>
   <data name="DocumentEditorContainer_RightAlignPageNumbersInTableOfContents" xml:space="preserve">
     <value>Right align page numbers in table of contents.</value>
@@ -2245,7 +2023,7 @@
     <value>Insert inline picture from a file.</value>
   </data>
   <data name="DocumentEditorContainer_InsertATableIntoTheDocument" xml:space="preserve">
-    <value>Insert a table into the document.</value>
+    <value>Insert a table into the document</value>
   </data>
   <data name="DocumentEditorContainer_CreateHyperlink" xml:space="preserve">
     <value>Create a link in your document for quick access to web pages and files (Ctrl+K).</value>
@@ -2317,12 +2095,12 @@
     <value>Update Fields</value>
   </data>
   <data name="DocumentEditorContainer_UpdateCrossReferenceFields" xml:space="preserve">
-    <value>Update cross reference fields.</value>
+    <value>Update cross reference fields</value>
   </data>
   <data name="DocumentEditorContainer_Track_changes" xml:space="preserve">
-    <value>Keep track of the changes made in the document.</value>
+    <value>Keep track of the changes made in the document</value>
   </data>
-  <data name="DocumentEditorContainer_TrackChanges" xml:space="preserve">
+   <data name="DocumentEditorContainer_TrackChanges" xml:space="preserve">
     <value>Track Changes</value>
   </data>
   <data name="DocumentEditorContainer_ZoomLevel" xml:space="preserve">
@@ -2344,7 +2122,7 @@
     <value>Information</value>
   </data>
   <data name="DocumentEditorContainer_AllCaps" xml:space="preserve">
-    <value>All caps</value>
+    <value>AllCaps</value>
   </data>
   <data name="DocumentEditorContainer_Insert_Footnote" xml:space="preserve">
     <value>Insert Footnote</value>
@@ -2461,7 +2239,7 @@
     <value>Example: [Measures].[Order Quantity] + ([Measures].[Order Quantity] * 0.10)</value>
   </data>
   <data name="PivotView_CalculatedField_Tooltip" xml:space="preserve">
-    <value>Drag and drop fields to create an expression. And, if you want to edit the existing the calculated fields! You can achieve it by simply selecting the field under 'Calculated Members'.</value>
+    <value>Drag and drop fields to create an expression. And, if you want to edit the existing the calculated fields! Then you can achieve it by simply selecting the field under 'Calculated Members'.</value>
   </data>
   <data name="PivotView_Cancel" xml:space="preserve">
     <value>Cancel</value>
@@ -2573,6 +2351,9 @@
   </data>
   <data name="PivotView_DoNotShowGrandTotals" xml:space="preserve">
     <value>Do not show grand totals</value>
+  </data>
+  <data name="PivotView_DoNotShowSubtotals" xml:space="preserve">
+    <value>Do not show sub totals</value>
   </data>
   <data name="PivotView_Drag" xml:space="preserve">
     <value>Drag</value>
@@ -2779,7 +2560,7 @@
     <value>Create a new report</value>
   </data>
   <data name="PivotView_NewReportConfirmMessage" xml:space="preserve">
-    <value>Do you want to save changes to this report?</value>
+    <value>Want to save changes to report?</value>
   </data>
   <data name="PivotView_NoFormatMessage" xml:space="preserve">
     <value>No format found!!!</value>
@@ -2905,7 +2686,7 @@
     <value>Running Totals</value>
   </data>
   <data name="PivotView_SampleReport" xml:space="preserve">
-    <value>Sample Report</value>
+    <value>Sample report</value>
   </data>
   <data name="PivotView_SampleStDev" xml:space="preserve">
     <value>Sample StDev</value>
@@ -2937,6 +2718,9 @@
   <data name="PivotView_ShowColumnGrandTotalsOnly" xml:space="preserve">
     <value>Show grand totals columns only</value>
   </data>
+  <data name="PivotView_ShowColumnSubtotalsOnly" xml:space="preserve">
+    <value>Show sub totals columns only</value>
+  </data>
   <data name="PivotView_ShowFieldList" xml:space="preserve">
     <value>Show field list</value>
   </data>
@@ -2945,6 +2729,12 @@
   </data>
   <data name="PivotView_ShowRowGrandTotalsOnly" xml:space="preserve">
     <value>Show grand totals rows only</value>
+  </data>
+  <data name="PivotView_ShowRowSubtotalsOnly" xml:space="preserve">
+    <value>Show sub totals rows only</value>
+  </data>
+  <data name="PivotView_ShowSubtotals" xml:space="preserve">
+    <value>Show sub totals</value>
   </data>
   <data name="PivotView_ShowTable" xml:space="preserve">
     <value>Show table</value>
@@ -3141,23 +2931,14 @@
   <data name="PivotView_Stacked" xml:space="preserve">
     <value>Stacked</value>
   </data>
+  <data name="PivotView_Grouped" xml:space="preserve">
+    <value>Grouped</value>
+  </data>
   <data name="PivotView_MultipleAxisMode" xml:space="preserve">
     <value>Multiple Axis Mode</value>
   </data>
   <data name="PivotView_Median" xml:space="preserve">
     <value>Median</value>
-  </data>
-  <data name="PivotView_Bottom" xml:space="preserve">
-    <value>Bottom</value>
-  </data>
-  <data name="PivotView_GrandTotalPositions" xml:space="preserve">
-    <value>Grand totals position</value>
-  </data>
-  <data name="PivotView_Top" xml:space="preserve">
-    <value>Top</value>
-  </data>
-  <data name="Maps_ImageNotFound" xml:space="preserve">
-    <value>Image Not Found</value>
   </data>
   <data name="Maps_Pan" xml:space="preserve">
     <value>Pan</value>
@@ -3201,15 +2982,6 @@
   <data name="ColorPicker_ModeSwitcher" xml:space="preserve">
     <value>Switch Mode</value>
   </data>
-  <data name="ColorPicker_FormatSwitcher" xml:space="preserve">
-    <value>Toggle format</value>
-  </data>
-  <data name="ColorPicker" xml:space="preserve">
-    <value>ColorPicker</value>
-  </data>
-  <data name="SplitButton" xml:space="preserve">
-    <value>SplitButton</value>
-  </data>
   <data name="ListBox_ActionFailureTemplate" xml:space="preserve">
     <value>Request failed</value>
   </data>
@@ -3239,9 +3011,6 @@
   </data>
   <data name="ListBox_UnSelectAllText" xml:space="preserve">
     <value>Unselect All</value>
-  </data>
-  <data name="ListBox_FilterLabel" xml:space="preserve">
-    <value>Search List Item</value>
   </data>
   <data name="QueryBuilder_AddCondition" xml:space="preserve">
     <value>Add Condition</value>
@@ -3324,15 +3093,6 @@
   <data name="QueryBuilder_SelectValue" xml:space="preserve">
     <value>Enter Value</value>
   </data>
-  <data name="QueryBuilder_PlaceholderValue" xml:space="preserve">
-    <value>Select Value</value>
-  </data>
-  <data name="QueryBuilder_PlaceholderDateRangeValue" xml:space="preserve">
-    <value>Choose a Range</value>
-  </data>
-  <data name="QueryBuilder_PlaceholderDateValue" xml:space="preserve">
-    <value>Select a date</value>
-  </data>
   <data name="QueryBuilder_StartsWith" xml:space="preserve">
     <value>Starts With</value>
   </data>
@@ -3397,9 +3157,6 @@
     <value>Ungroup</value>
   </data>
   <data name="Dialog_Close" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="Message_Close" xml:space="preserve">
     <value>Close</value>
   </data>
   <data name="Toast_Close" xml:space="preserve">
@@ -3469,85 +3226,85 @@
     <value>No</value>
   </data>
   <data name="RichTextEditor_NumberFormatListNone" xml:space="preserve">
-    <value>None</value>
+    <value> None </value>
   </data>
   <data name="RichTextEditor_NumberFormatListNumber" xml:space="preserve">
-    <value>Number</value>
+    <value> Number </value>
   </data>
   <data name="RichTextEditor_NumberFormatListUpperAlpha" xml:space="preserve">
-    <value>Upper Alpha</value>
+    <value> Upper Alpha </value>
   </data>
   <data name="RichTextEditor_NumberFormatListLowerAlpha" xml:space="preserve">
-    <value>Lower Alpha</value>
+    <value> Lower Alpha </value>
   </data>
   <data name="RichTextEditor_NumberFormatListUpperRoman" xml:space="preserve">
-    <value>Upper Roman</value>
+    <value> Upper Roman </value>
   </data>
   <data name="RichTextEditor_NumberFormatListLowerRoman" xml:space="preserve">
-    <value>Lower Roman</value>
+    <value> Lower Roman </value>
   </data>
   <data name="RichTextEditor_NumberFormatListLowerGreek" xml:space="preserve">
-    <value>Lower Greek</value>
+    <value> Lower Greek </value>
   </data>
   <data name="RichTextEditor_BulletFormatListNone" xml:space="preserve">
-    <value>None</value>
+    <value> None </value>
   </data>
   <data name="RichTextEditor_BulletFormatListCircle" xml:space="preserve">
-    <value>Circle</value>
+    <value> Circle </value>
   </data>
   <data name="RichTextEditor_BulletFormatListSquare" xml:space="preserve">
-    <value>Square</value>
+    <value> Square </value>
   </data>
   <data name="RichTextEditor_BulletFormatListDisc" xml:space="preserve">
-    <value>Disc</value>
+    <value> Disc </value>
   </data>
   <data name="RichTextEditor_FormatsDropDownParagraph" xml:space="preserve">
-    <value>Paragraph</value>
+    <value> Paragraph </value>
   </data>
   <data name="RichTextEditor_FormatsDropDownCode" xml:space="preserve">
-    <value>Code</value>
+    <value> Code </value>
   </data>
   <data name="RichTextEditor_FormatsDropDownQuotation" xml:space="preserve">
-    <value>Quotation</value>
+    <value> Quotation </value>
   </data>
   <data name="RichTextEditor_FormatsDropDownHeading1" xml:space="preserve">
-    <value>Heading 1</value>
+    <value> Heading 1 </value>
   </data>
   <data name="RichTextEditor_FormatsDropDownHeading2" xml:space="preserve">
-    <value>Heading 2</value>
+    <value> Heading 2 </value>
   </data>
   <data name="RichTextEditor_FormatsDropDownHeading3" xml:space="preserve">
-    <value>Heading 3</value>
+    <value> Heading 3 </value>
   </data>
   <data name="RichTextEditor_FormatsDropDownHeading4" xml:space="preserve">
-    <value>Heading 4</value>
+    <value> Heading 4 </value>
   </data>
   <data name="RichTextEditor_FormatsDropDownHeading5" xml:space="preserve">
-    <value>Heading 5</value>
+    <value> Heading 5 </value>
   </data>
   <data name="RichTextEditor_FormatsDropDownHeading6" xml:space="preserve">
-    <value>Heading  6</value>
+    <value> Heading  6 </value>
   </data>
   <data name="RichTextEditor_FontNameSegoeUI" xml:space="preserve">
-    <value>Segoe UI</value>
+    <value> Segoe UI </value>
   </data>
   <data name="RichTextEditor_FontNameArial" xml:space="preserve">
-    <value>Arial</value>
+    <value> Arial </value>
   </data>
   <data name="RichTextEditor_FontNameGeorgia" xml:space="preserve">
-    <value>Georgia</value>
+    <value> Georgia </value>
   </data>
   <data name="RichTextEditor_FontNameImpact" xml:space="preserve">
-    <value>Impact</value>
+    <value> Impact </value>
   </data>
   <data name="RichTextEditor_FontNameTahoma" xml:space="preserve">
-    <value>Tahoma</value>
+    <value> Tahoma </value>
   </data>
   <data name="RichTextEditor_FontNameTimesNewRoman" xml:space="preserve">
-    <value>Times New Roman</value>
+    <value> Times New Roman </value>
   </data>
   <data name="RichTextEditor_FontNameVerdana" xml:space="preserve">
-    <value>Verdana</value>
+    <value> Verdana </value>
   </data>
   <data name="RichTextEditor_Alignments" xml:space="preserve">
     <value>Alignments</value>
@@ -3930,32 +3687,6 @@
   <data name="RichTextEditor_PasteDialogCancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
-
-  <data name="RichTextEditor_Audio_Replace" xml:space="preserve">
-    <value>Replace</value>
-  </data>
-  <data name="RichTextEditor_Audio_Remove" xml:space="preserve">
-    <value>Remove</value>
-  </data>
-   <data name="RichTextEditor_Audio_Display" xml:space="preserve">
-    <value>Display</value>
-  </data>
-  <data name="RichTextEditor_Video_Replace" xml:space="preserve">
-    <value>Replace</value>
-  </data>
-  <data name="RichTextEditor_Video_Align" xml:space="preserve">
-    <value>Align</value>
-  </data>
-  <data name="RichTextEditor_Video_Remove" xml:space="preserve">
-    <value>Remove</value>
-  </data>
-  <data name="RichTextEditor_Video_Display" xml:space="preserve">
-    <value>Display</value>
-  </data>
-  <data name="RichTextEditor_Video_Dimension" xml:space="preserve">
-    <value>Dimension</value>
-  </data>
-  
   <data name="PdfViewer" xml:space="preserve">
     <value>PDF Viewer</value>
   </data>
@@ -4098,7 +3829,7 @@
     <value>Underline</value>
   </data>
   <data name="PdfViewer_StrikethroughContext" xml:space="preserve">
-    <value>Strikethrough</value>
+    <value>Strike through</value>
   </data>
   <data name="PdfViewer_Servererror" xml:space="preserve">
     <value>Web-service is not listening. PDF Viewer depends on web-service for all its features. Please start the web service to continue.</value>
@@ -4460,20 +4191,8 @@
   <data name="PdfViewer_SubmitForm" xml:space="preserve">
     <value>Submit Form</value>
   </data>
-  <data name="PdfViewer_Of" xml:space="preserve">
-    <value>of</value>
-  </data>
   <data name="PdfViewer_Required_ServiceUrl_Error_Message" xml:space="preserve">
-    <value>This PDF Viewer requires Server-side processing to render the PDF files through the web service. You must configure the ServiceURL to proceed with PDF Viewer</value>
-  </data>
-  <data name="PdfViewer_Close" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="PdfViewer_HandwrittenSignatureDialogHeaderText" xml:space="preserve">
-    <value>Add signature</value>
-  </data>
-  <data name="PdfViewer_DrawInk" xml:space="preserve">
-    <value>Draw ink</value>
+    <value>This PDF Viewer requires Server-side processing to render the PDF files through the web service. You must configure the ServiceURL to proceed with PDF Viewer.</value>
   </data>
   <data name="FileManager_NewFolder" xml:space="preserve">
     <value>New folder</value>
@@ -4985,60 +4704,6 @@
   <data name="Gantt_ZoomToFit" xml:space="preserve">
     <value>Zoom To Fit</value>
   </data>
-  <data name="Gantt_AutoFit" xml:space="preserve">
-    <value>AutoFit Column</value>
-  </data>
-  <data name="Gantt_AutoFitAll" xml:space="preserve">
-    <value>AutoFit All Columns</value>
-  </data>
-  <data name="Gantt_SortAscending" xml:space="preserve">
-    <value>Sort Ascending</value>
-  </data>
-  <data name="Gantt_SortDescending" xml:space="preserve">
-    <value>Sort Descending</value>
-  </data>
-  <data name="Gantt_TaskMode" xml:space="preserve">
-    <value>Task Mode</value>
-  </data>
-  <data name="Gantt_TaskMode_Auto" xml:space="preserve">
-    <value>Auto</value>
-  </data>
-  <data name="Gantt_TaskMode_Manual" xml:space="preserve">
-    <value>Manual</value>
-  </data>
-  <data name="Gantt_SubTaskStartDate" xml:space="preserve">
-    <value>SubTasks Start Date</value>
-  </data>
-  <data name="Gantt_SubTaskEndDate" xml:space="preserve">
-    <value>SubTasks End Date</value>
-  </data>
-  <data name="Gantt_AutoDuration" xml:space="preserve">
-    <value>Duration</value>
-  </data>
-  <data name="Gantt_Work" xml:space="preserve">
-    <value>Work</value>
-  </data>
-  <data name="Gantt_H" xml:space="preserve">
-    <value>H</value>
-  </data>
-  <data name="Gantt_D" xml:space="preserve">
-    <value>D</value>
-  </data>
-  <data name="Gantt_M" xml:space="preserve">
-    <value>M</value>
-  </data>
-  <data name="Gantt_Min" xml:space="preserve">
-    <value>Min</value>
-  </data>
-  <data name="Gantt_CustomColumn" xml:space="preserve">
-    <value>Custom Columns</value>
-  </data>
-  <data name="Gantt_TaskType" xml:space="preserve">
-    <value>Task Type</value>
-  </data>
-  <data name="Gantt_CriticalPath" xml:space="preserve">
-    <value>Critical Path</value>
-  </data>
   <data name="Grid_EmptyRecord" xml:space="preserve">
     <value>No records to display</value>
   </data>
@@ -5127,7 +4792,7 @@
     <value>Cancel</value>
   </data>
   <data name="Grid_EditFormTitle" xml:space="preserve">
-    <value>Details of</value>
+    <value>Details of </value>
   </data>
   <data name="Grid_AddFormTitle" xml:space="preserve">
     <value>Add New Record</value>
@@ -5291,102 +4956,6 @@
   <data name="Grid_ShowRowsWhere" xml:space="preserve">
     <value>Show rows where:</value>
   </data>
-  <data name="Grid_RowSelectionCheckBoxARIA" xml:space="preserve">
-    <value>Row checkbox</value>
-  </data>
-  <data name="Grid_FilterMenuIconARIA" xml:space="preserve">
-    <value>Filter Icon</value>
-  </data>
-  <data name="Grid_ColumnMenuIconARIA" xml:space="preserve">
-    <value>Column Menu Icon</value>
-  </data>
-  <data name="Grid_GroupButtonARIA" xml:space="preserve">
-    <value>Group Button</value>
-  </data>
-  <data name="Grid_UnGroupButtonARIA" xml:space="preserve">
-    <value>Ungroup Button</value>
-  </data>
-  <data name="Grid_ColumnHeaderARIA" xml:space="preserve">
-    <value>Column Header</value>
-  </data>
-  <data name="Grid_FilterCheckboxARIA" xml:space="preserve">
-    <value>Filter checkbox</value>
-  </data>
-  <data name="Grid_HeaderSelectionCheckBoxARIA" xml:space="preserve">
-    <value>Header checkbox</value>
-  </data>
-  <data name="Grid_Sort" xml:space="preserve">
-    <value>Sort</value>
-  </data>
-  <data name="Grid_Ascending" xml:space="preserve">
-    <value>Ascending</value>
-  </data>
-  <data name="Grid_Descending" xml:space="preserve">
-    <value>Descending</value>
-  </data>
-  <data name="Grid_None" xml:space="preserve">
-    <value>None</value>
-  </data>
-  <data name="Grid_TemplateColumnARIA" xml:space="preserve">
-    <value>is template cell!</value>
-  </data>
-  <data name="Grid_SortDescription" xml:space="preserve">
-    <value>Press Enter to Sort!</value>
-  </data>
-  <data name="Grid_FilterDescription" xml:space="preserve">
-    <value>Press Alt Down to open filter Menu!</value>
-  </data>
-  <data name="Grid_ColumnMenuDescription" xml:space="preserve">
-    <value>Press Alt Down to open Column Menu!</value>
-  </data>
-  <data name="Grid_GroupDescription" xml:space="preserve">
-    <value>Press Ctrl space to group!</value>
-  </data>
-  <data name="Grid_GroupCaption" xml:space="preserve">
-    <value>is group caption cell!</value>
-  </data>
-  <data name="Grid_ColumnHeaderUndefinedARIA" xml:space="preserve">
-    <value>column header undefined!</value>
-  </data>
-  <data name="Grid_CommandColumnARIA" xml:space="preserve">
-    <value>Is Command Column!</value>
-  </data>
-  <data name="Grid_GroupedSortIcon" xml:space="preserve">
-    <value>sort the grouped column!</value>
-  </data>
-  <data name="Grid_EmptyColumnHeaderUndefinedARIA" xml:space="preserve">
-    <value>empty Column Header undefined!</value>
-  </data>
-  <data name="Grid_Close" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="Grid_FilterOperator" xml:space="preserve">
-    <value>Filter Operator!</value>
-  </data>
-  <data name="Grid_FilterValue" xml:space="preserve">
-    <value>Filter Value!</value>
-  </data>
-  <data name="Pager_Page" xml:space="preserve">
-    <value>Page</value>
-  </data>
-  <data name="Pager_Pages" xml:space="preserve">
-    <value>Pages</value>
-  </data>
-  <data name="Pager_Of" xml:space="preserve">
-    <value>of</value>
-  </data>
-  <data name="Pager_ExternalMessage" xml:space="preserve">
-    <value>Pager external message!</value>
-  </data>
-  <data name="Pager_ShowPages" xml:space="preserve">
-    <value>pages</value>
-  </data>
-  <data name="Pager_PagerDropDownARIA" xml:space="preserve">
-    <value>Pager dropdown!</value>
-  </data>
-  <data name="Pager_GotoPageARIA" xml:space="preserve">
-    <value>Goto Page</value>
-  </data>
   <data name="Pager_CurrentPageInfo" xml:space="preserve">
     <value>{0} of {1} pages</value>
   </data>
@@ -5419,149 +4988,5 @@
   </data>
   <data name="Pager_All" xml:space="preserve">
     <value>All</value>
-  </data>
-  <data name="Pager_Items" xml:space="preserve">
-    <value>items</value>
-  </data>
-  <data name="DocumentEditorContainer_FillingInForms" xml:space="preserve">
-    <value>Filling in forms</value>
-  </data>
-  <data name="DocumentEditorContainer_Trackedchanges" xml:space="preserve">
-    <value>Tracked changes</value>
-  </data>
-  <data name="DocumentEditorContainer_RemovedIgnoreExceptions" xml:space="preserve">
-    <value>If you make this change in document protection, Word will ignore all the exceptions in this document.</value>
-  </data>
-  <data name="DocumentEditor_RevisionsOnly" xml:space="preserve">
-    <value>You may edit in this region, but all change will be tracked</value>
-  </data>
-  <data name="DocumentEditor_UnsupportedFormat" xml:space="preserve">
-  	<value>The file format you have selected isn't supported. Please choose valid format.</value>
-  </data>
-  <data name="DocumentEditor_InvalidFile" xml:space="preserve">
-    <value>There was a problem in opening this document</value>
-  </data>
-  <data name="DocumentEditorContainer_RemovedIgnore" xml:space="preserve">
-    <value>Do you want to remove the ignored exceptions?</value>
-  </data>
-  <data name="DocumentEditorContainer_Yes" xml:space="preserve">
-    <value>Yes</value>
-  </data>
-  <data name="DocumentEditorContainer_No" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="DocumentEditorContainer_ShowPropertiesPane" xml:space="preserve">
-    <value>Show properties pane</value>
-  </data>
-  <data name="DocumentEditorContainer_HidePropertiesPane" xml:space="preserve">
-    <value>Hide properties pane</value>
-  </data>
-  <data name="DocumentEditorContainer_SectionBreakContinuous" xml:space="preserve">
-    <value>Continuous</value>
-  </data>
-  <data name="DocumentEditorContainer_ColumnBreak" xml:space="preserve">
-    <value>Column</value>
-  </data>
-  <data name="DocumentEditorContainer_PageBreak" xml:space="preserve">
-    <value>Page</value>
-  </data>
-  <data name="DocumentEditorContainer_SectionBreak" xml:space="preserve">
-    <value>Next Page</value>
-  </data>
-  <data name="DocumentEditorContainer_PageBreaks" xml:space="preserve">
-    <value>Page Breaks</value>
-  </data>
-  <data name="DocumentEditorContainer_SectionBreaks" xml:space="preserve">
-    <value>Section Breaks</value>
-  </data>
-  <data name="Gantt_Touch_DialogTextOnClickingConnectorPoint" xml:space="preserve">
-    <value>Choose the another task</value>
-  </data>
-  <data name="Gantt_Touch_DialogTextOnSelectingTaskbar" xml:space="preserve">
-    <value>Select the connector position</value>
-  </data>
-  <data name="Gantt_Touch_LeftButton" xml:space="preserve">
-    <value>Left</value>
-  </data>
-  <data name="Gantt_Touch_RightButton" xml:space="preserve">
-    <value>Right</value>
-  </data>
-  <data name="PdfViewer_ExportXFDF" xml:space="preserve">
-    <value>Export annotation to XFDF file</value>
-  </data>
-  <data name="PdfViewer_ImportXFDF" xml:space="preserve">
-    <value>Import annotations from XFDF file</value>
-  </data>
-  <data name="Predefined_Dialog_Title" xml:space="preserve">
-    <value>Information</value>
-  </data>
-  <data name="PivotView_StackedLine" xml:space="preserve">
-    <value>Stacked Line</value>
-  </data>
-  <data name="PivotView_StackedLine100" xml:space="preserve">
-    <value>100% Stacked Line</value>
-  </data>
-  <data name="PivotView_None" xml:space="preserve">
-    <value>None</value>
-  </data>
-  <data name="Skeleton_Label" xml:space="preserve">
-    <value>Loading...</value>
-  </data>
-  <data name="Dialog_OK" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="Dialog_Cancel" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="PivotView_DoNotShowSubtotals" xml:space="preserve">
-    <value>Do not show subtotals</value>
-  </data>
-  <data name="PivotView_ShowColumnSubtotalsOnly" xml:space="preserve">
-    <value>Show subtotals columns only</value>
-  </data>
-  <data name="PivotView_ShowRowSubtotalsOnly" xml:space="preserve">
-    <value>Show subtotals rows only</value>
-  </data>
-  <data name="PivotView_ShowSubtotals" xml:space="preserve">
-    <value>Show subtotals</value>
-  </data>
-  <data name="PivotView_SubtotalsPosition" xml:space="preserve">
-    <value>Subtotals position</value>
-  </data>
-  <data name="PivotView_Single" xml:space="preserve">
-    <value>Single</value>
-  </data>
-  <data name="PivotView_Auto" xml:space="preserve">
-    <value>Auto</value>
-  </data>
-  <data name="PivotView_RowPager" xml:space="preserve">
-    <value>Row pager</value>
-  </data>
-  <data name="PivotView_RowsPerPage" xml:space="preserve">
-    <value>Rows per page</value>
-  </data>
-  <data name="PivotView_ColumnPager" xml:space="preserve">
-  <value>Column pager</value>
-</data>
-<data name="PivotView_ColumnsPerPage" xml:space="preserve">
-  <value>Columns per page</value>
-</data>
-<data name="PivotView_GoToFirstPage" xml:space="preserve">
-  <value>Go to first page</value>
-</data>
-<data name="PivotView_GoToLastPage" xml:space="preserve">
-  <value>Go to last page</value>
-</data>
-<data name="PivotView_GoToNextPage" xml:space="preserve">
-  <value>Go to next page</value>
-</data>
-<data name="PivotView_GoToPreviousPage" xml:space="preserve">
-  <value>Go to previous page</value>
-</data>
-  <data name="Grid_ChooseTime" xml:space="preserve">
-    <value>Choose a Time</value>
-  </data>
-  <data name="Grid_TimeFilter" xml:space="preserve">
-    <value>Time Filters</value>
   </data>
 </root>
