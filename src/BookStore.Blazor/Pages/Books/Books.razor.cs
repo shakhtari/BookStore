@@ -30,10 +30,7 @@ namespace BookStore.Blazor.Pages.Books
         private Guid EditingBookId { get; set; }
         private Guid DeletingBookId { get; set; }
         private bool Loading { get; set; }
-        private bool NewDialogOpen { get; set; }
-        private bool EditingDialogOpen { get; set; }
         private readonly IStringLocalizer<BookStoreResource> _localizer;
-        SfGrid<BookDto> Grid { get; set; }
         public List<BookType> TypeLists;
 
         public Books(IStringLocalizer<BookStoreResource> localizer)
@@ -43,13 +40,11 @@ namespace BookStore.Blazor.Pages.Books
             EditingBookDto = new CreateUpdateBookDto();
             PubList = new List<PublicationDto>();
             _localizer = localizer;
-            //TypeLists.AddLast(_localizer["Original Language"]);
-            //TypeLists.AddLast(_localizer["Translation"]);
             TypeLists = new List<BookType>
-    {
-    new BookType() { TypeName=_localizer["Original Language"]},
-    new BookType() {TypeName=_localizer["Translation"]}
-    };
+              {
+                new BookType() { TypeName=_localizer["Original Language"]},
+                new BookType() {TypeName=_localizer["Translation"]}
+              };
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -98,79 +93,10 @@ namespace BookStore.Blazor.Pages.Books
         //    }
         //}
 
-        private Task OpenCreateBookModalAsync()
-        {
-            NewDialogOpen = true;
-            NewBookDto = new CreateUpdateBookDto();
-
-            return Task.CompletedTask;
-        }
-
-        private async Task CreateBookAsync()
-        {
-            try
-            {
-                await BookAppService.CreateAsync(NewBookDto);
-
-                await GetBooksAsync();
-            }
-            finally
-            {
-                NewDialogOpen = false;
-            }
-        }
-
-        private Task OpenEditingBookModalAsync(BookDto book)
-        {
-            EditingDialogOpen = true;
-            EditingBookId = book.Id;
-            EditingBookDto = new CreateUpdateBookDto
-            {
-                Name = book.Name,
-                Price = book.Price,
-                ReleaseDate = book.ReleaseDate
-            };
-
-            return Task.CompletedTask;
-        }
-
-        private async Task UpdateBookAsync()
-        {
-            try
-            {
-                await BookAppService.UpdateAsync(EditingBookId, EditingBookDto);
-            }
-            finally
-            {
-                EditingDialogOpen = false;
-
-                await GetBooksAsync();
-            }
-        }
-
-        private async Task DeleteBookAsync(BookDto book)
-        {
-            var confirmMessage = Ml["BookDeletionConfirmationMessage", book.Name];
-            //if (!await Message.Confirm(confirmMessage))
-            //{
-            //    return;
-            //}
-
-            await BookAppService.DeleteAsync(book.Id);
-            await GetBooksAsync();
-        }
-
         private bool Check = false;
-        private bool isTranslated = false;
-
-        private DialogSettings DialogParams = new DialogSettings { MinHeight = "400px", Width = "450px" };
-
-
-
         private bool IsVisible { get; set; } = false;
-            private string ClickStatus { get; set; }
-
-
+        SfGrid<BookDto> Grid;
+        private BookDto book { get; set; }
         private void CancelClick()
         {
             GetBooksAsync();
@@ -201,9 +127,9 @@ namespace BookStore.Blazor.Pages.Books
                         Name = args.RowData.Name,
                         Price = args.RowData.Price,
                         ReleaseDate = args.RowData.ReleaseDate,
-                        Translator=args.RowData.Translator,
-                        Publication=args.RowData.Publication,
-                        BookType=args.RowData.BookType
+                        Translator = args.RowData.Translator,
+                        Publication = args.RowData.Publication,
+                        BookType = args.RowData.BookType
                     };
                 }
             }
@@ -227,29 +153,38 @@ namespace BookStore.Blazor.Pages.Books
                     EditingBookDto.Name = args.Data.Name;
                     EditingBookDto.Price = args.Data.Price;
                     EditingBookDto.ReleaseDate = args.Data.ReleaseDate;
-                    EditingBookDto.Translator= args.Data.Translator;
+                    if (args.Data.BookType == "Translation" || args.Data.BookType == "Çeviri")
+                    {
+                        EditingBookDto.Translator = args.Data.Translator;
+                    }
+                    else
+                    {
+                        EditingBookDto.Translator = null;
+                        args.Data.Translator=null;
+                    }
+
                     EditingBookDto.Publication = args.Data.Publication;
                     EditingBookDto.BookType = args.Data.BookType;
                     EditingBookId = args.Data.Id;
                     BookAppService.UpdateAsync(EditingBookId, EditingBookDto);
                 }
+                if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Delete))
+                {
+                    this.IsVisible = true;
+                    DeletingBookId = args.Data.Id;
+                }
             }
-            if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Delete))
-            {
-                this.IsVisible = true;
-                DeletingBookId = args.Data.Id;
-                //BookAppService.DeleteAsync(args.Data.Id);
-            }
-        }
-      
 
+        }
+
+        public void CloseHandler()
+        {
+            Grid.Refresh();
+        }
         public class BookType
         {
             public string TypeName { get; set; }
         }
-
-
-
 
     }
 }
