@@ -18,12 +18,19 @@
 }
 else
 {
-    <Syncfusion.Blazor.Grids.SfGrid @ref="Grid" DataSource="@BookList" AllowPaging="true" Toolbar="@(new string[] {"Add", "Edit" ,"Delete","Update","Cancel" })">
+    <Syncfusion.Blazor.Grids.SfGrid ID="Grid" @ref="Grid" DataSource="@BookList" AllowPaging="true" Toolbar="@(new string[] {"Add", "Edit" ,"Delete","Update","Cancel" })">
         <GridEvents OnActionBegin="ActionBeginHandler" TValue="BookDto"></GridEvents>
-        <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog">
+        <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog" Dialog="DialogParams">
+           <HeaderTemplate>
+                @{
+                    var text = GetHeader((context as BookDto));
+                    <Span>@text</Span>
+                }
+           </HeaderTemplate>
             <Template>
                 @{
                     var book = (context as BookDto);
+
                     <div>
                         <div class="row">
                             <div class="form-group col-md-12">
@@ -58,9 +65,7 @@ else
                                             </div>
                                         }
                                     }
-                                    
                                 </SfDropDownList>
-                                
                             </div>
 
                         </div>
@@ -84,7 +89,6 @@ else
     </Syncfusion.Blazor.Grids.SfGrid>
 
     <SfDialog Width="250px" ShowCloseIcon="true" IsModal="true" @bind-Visible="@IsVisible">
-        <DialogEvents Closed="CloseHandler"></DialogEvents>
         <DialogTemplates>
             <Header> @Ml["Confirmation Message"] </Header>
             <Content> @Ml["Are you sure about deleting this book?"] </Content>
@@ -111,6 +115,9 @@ else
     label.e-float-text {
         position: relative;
         padding-left: 0;
-        top: 10%;
+    }
+
+    div#Grid_dialogEdit_wrapper{
+        max-height:none !important;
     }
 </style>

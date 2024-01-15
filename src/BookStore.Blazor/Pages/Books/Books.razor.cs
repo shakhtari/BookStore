@@ -13,6 +13,7 @@ using System.Runtime.CompilerServices;
 using Syncfusion.Blazor.DropDowns;
 using BookStore.Localization;
 using Microsoft.Extensions.Localization;
+using Blazorise;
 
 
 namespace BookStore.Blazor.Pages.Books
@@ -97,6 +98,7 @@ namespace BookStore.Blazor.Pages.Books
         private bool IsVisible { get; set; } = false;
         SfGrid<BookDto> Grid;
         private BookDto book { get; set; }
+        private DialogSettings DialogParams = new DialogSettings { Height="500px", Width="450px" };
         private void CancelClick()
         {
             GetBooksAsync();
@@ -160,7 +162,7 @@ namespace BookStore.Blazor.Pages.Books
                     else
                     {
                         EditingBookDto.Translator = null;
-                        args.Data.Translator=null;
+                        args.Data.Translator = null;
                     }
 
                     EditingBookDto.Publication = args.Data.Publication;
@@ -168,22 +170,31 @@ namespace BookStore.Blazor.Pages.Books
                     EditingBookId = args.Data.Id;
                     BookAppService.UpdateAsync(EditingBookId, EditingBookDto);
                 }
-                if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Delete))
-                {
-                    this.IsVisible = true;
-                    DeletingBookId = args.Data.Id;
-                }
+            }
+            if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Delete))
+            {
+                this.IsVisible = true;
+                DeletingBookId = args.Data.Id;
             }
 
+
         }
 
-        public void CloseHandler()
-        {
-            Grid.Refresh();
-        }
         public class BookType
         {
             public string TypeName { get; set; }
+        }
+
+        public string GetHeader(BookDto value)
+        {
+            if(value.Name == null)
+            {
+                return Ml["Insert New Book"];
+            }
+            else
+            {
+                return Ml["Edit "] + value.Name;
+            }
         }
 
     }
