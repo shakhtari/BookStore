@@ -14,6 +14,7 @@ using Syncfusion.Blazor.DropDowns;
 using BookStore.Localization;
 using Microsoft.Extensions.Localization;
 using Blazorise;
+using Syncfusion.Blazor.Calendars;
 
 
 namespace BookStore.Blazor.Pages.Books
@@ -25,10 +26,13 @@ namespace BookStore.Blazor.Pages.Books
         private IBookAppService BookAppService { get; set; }
 
         private IReadOnlyList<BookDto> BookList { get; set; }
+        private IReadOnlyList<BookDto> TranslatorBookList { get; set; }
         private IReadOnlyList<PublicationDto> PubList { get; set; }
         private CreateUpdateBookDto NewBookDto { get; set; }
         private CreateUpdateBookDto EditingBookDto { get; set; }
         private Guid EditingBookId { get; set; }
+        private string EditingBookName { get; set; }
+        private string EditingTranslatorName { get; set; }
         private Guid DeletingBookId { get; set; }
         private bool Loading { get; set; }
         private readonly IStringLocalizer<BookStoreResource> _localizer;
@@ -37,14 +41,15 @@ namespace BookStore.Blazor.Pages.Books
         public Books(IStringLocalizer<BookStoreResource> localizer)
         {
             BookList = new List<BookDto>();
+            TranslatorBookList = new List<BookDto>();
             NewBookDto = new CreateUpdateBookDto();
             EditingBookDto = new CreateUpdateBookDto();
             PubList = new List<PublicationDto>();
             _localizer = localizer;
             TypeLists = new List<BookType>
               {
-                new BookType() { TypeName=_localizer["Original Language"]},
-                new BookType() {TypeName=_localizer["Translation"]}
+                new BookType() { ID=0,TypeName=_localizer["Original Language"]},
+                new BookType() {ID=1,TypeName=_localizer["Translation"]}
               };
         }
 
@@ -75,6 +80,24 @@ namespace BookStore.Blazor.Pages.Books
                 await InvokeAsync(() => StateHasChanged());
             }
         }
+        private async Task GetTranslatorBooksList(InputEventArgs args)
+        {
+            TranslatorBookList = null;
+            TranslatorBookList =await BookAppService.GetTranslatorListAsync(args.Value);
+        }
+        private async void RowSelectedHandler(RowSelectEventArgs<BookDto> args)
+        {
+            if (args.Data.BookType == 1)
+            {
+                TranslatorBookList = await BookAppService.GetTranslatorListAsync(args.Data.Translator);
+            }
+            else
+            {
+                TranslatorBookList = null;
+            }
+            
+
+        }
 
         //private async Task GetPubsAsync()
         //{
@@ -97,8 +120,9 @@ namespace BookStore.Blazor.Pages.Books
         private bool Check = false;
         private bool IsVisible { get; set; } = false;
         SfGrid<BookDto> Grid;
+        SfGrid<BookDto> NestedGrid;
         private BookDto book { get; set; }
-        private DialogSettings DialogParams = new DialogSettings { Height="500px", Width="450px" };
+        private DialogSettings DialogParams = new DialogSettings { Height="700px", Width="850px" };
         private void CancelClick()
         {
             GetBooksAsync();
@@ -109,20 +133,24 @@ namespace BookStore.Blazor.Pages.Books
             BookAppService.DeleteAsync(DeletingBookId);
             this.IsVisible = false;
         }
-        public void ActionBeginHandler(ActionEventArgs<BookDto> args)
+        public async void ActionBeginHandler(ActionEventArgs<BookDto> args)
         {
             if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Add) || args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.BeginEdit))
             {
+                
                 //Handles Add Operation
                 if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Add))
                 {
                     Check = true;
-
+                    TranslatorBookList = null;
                 }
+                
                 //Handles Edit Operation
                 if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.BeginEdit))
                 {
                     EditingBookId = args.RowData.Id;
+                    EditingBookName=args.RowData.Name;
+                    EditingTranslatorName = args.RowData.Translator;
                     EditingBookDto = new CreateUpdateBookDto()
                     {
                         Id = args.RowData.Id,
@@ -133,6 +161,7 @@ namespace BookStore.Blazor.Pages.Books
                         Publication = args.RowData.Publication,
                         BookType = args.RowData.BookType
                     };
+                    
                 }
             }
             if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
@@ -155,7 +184,7 @@ namespace BookStore.Blazor.Pages.Books
                     EditingBookDto.Name = args.Data.Name;
                     EditingBookDto.Price = args.Data.Price;
                     EditingBookDto.ReleaseDate = args.Data.ReleaseDate;
-                    if (args.Data.BookType == "Translation" || args.Data.BookType == "Çeviri")
+                    if (args.Data.BookType == 1)
                     {
                         EditingBookDto.Translator = args.Data.Translator;
                     }
@@ -176,12 +205,15 @@ namespace BookStore.Blazor.Pages.Books
                 this.IsVisible = true;
                 DeletingBookId = args.Data.Id;
             }
-
-
+            if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Cancel))
+            {
+                args.Data.Translator = null;
+            }
         }
 
         public class BookType
-        {
+        { 
+            public int ID { get; set; }
             public string TypeName { get; set; }
         }
 
@@ -196,6 +228,7 @@ namespace BookStore.Blazor.Pages.Books
                 return Ml["Edit "] + value.Name;
             }
         }
+
 
     }
 }

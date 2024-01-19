@@ -7,6 +7,7 @@
 @using Syncfusion.Blazor.Grids
 @using Syncfusion.Blazor.Calendars
 @using Syncfusion.Blazor.Buttons
+@using System.ComponentModel.DataAnnotations
 @inject IStringLocalizer<BookStoreResource> Ml
 
 <h3>"@Ml["Books"]"</h3>
@@ -19,9 +20,19 @@
 else
 {
     <Syncfusion.Blazor.Grids.SfGrid ID="Grid" @ref="Grid" DataSource="@BookList" AllowPaging="true" Toolbar="@(new string[] {"Add", "Edit" ,"Delete","Update","Cancel" })">
-        <GridEvents OnActionBegin="ActionBeginHandler" TValue="BookDto"></GridEvents>
+        <GridEvents OnActionBegin="ActionBeginHandler" RowSelected="RowSelectedHandler" TValue="BookDto"></GridEvents>
         <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog" Dialog="DialogParams">
-           <HeaderTemplate>
+           <Validator>
+               
+                @{
+                    ValidatorTemplateContext txt = context as ValidatorTemplateContext;
+                }
+                <BookStore.Blazor.Shared.Common.MyCustomValidator context="@txt"></BookStore.Blazor.Shared.Common.MyCustomValidator>
+
+                <ValidationMessage For="@(() => (txt.Data as BookDto).Name)"></ValidationMessage>
+            </Validator>
+            
+            <HeaderTemplate>
                 @{
                     var text = GetHeader((context as BookDto));
                     <Span>@text</Span>
@@ -30,12 +41,11 @@ else
             <Template>
                 @{
                     var book = (context as BookDto);
-
                     <div>
                         <div class="row">
                             <div class="form-group col-md-12">
                                 <label class="e-float-text e-label-top">@Ml["Book Name"]</label>
-                                <SfTextBox @bind-Value="@book.Name" Placeholder="@Ml["Name"]"  />
+                                <SfTextBox @bind-Value="@book.Name" Placeholder="@Ml["Name"]" />
                             </div>
                         </div>
 
@@ -54,24 +64,38 @@ else
                         <div class="row">
                             <div class="form-group col-md-12">
                                 <label class="e-float-text e-label-top">@Ml["BookType"]</label>
-                                <SfDropDownList TValue="string" TItem="BookType" @bind-Value="book.BookType" Placeholder="@Ml["Select Book Type"]" DataSource="@TypeLists">
-                                    <DropDownListFieldSettings Text="TypeName"></DropDownListFieldSettings>
+                                <SfDropDownList TValue="int" TItem="BookType" @bind-Value="book.BookType" Placeholder="@Ml["Select Book Type"]" DataSource="@TypeLists">
+                                    <DropDownListFieldSettings Value="ID" Text="TypeName"></DropDownListFieldSettings>
                                     @{
-                                        if (book.BookType == "Translation" || book.BookType == "Çeviri")
+                                        if (book.BookType == 1)
                                         {
                                              <div class="form-group col-md-12"><br />
                                             <label class="e-float-text e-label-top">@Ml["Translator"]</label>
-                                            <SfTextBox @bind-Value="book.Translator" Placeholder="@Ml["Translator"]"></SfTextBox>
+                                                <SfTextBox @bind-Value="book.Translator" Placeholder="@Ml["Translator"]" Input="@GetTranslatorBooksList"></SfTextBox>
                                             </div>
+                                            
                                         }
                                     }
                                 </SfDropDownList>
                             </div>
-
+                            <SfGrid ID="NestedGrid" DataSource="@TranslatorBookList">
+                                <GridColumns>
+                                    <GridEvents TValue="BookDto"></GridEvents>
+                                    <GridColumn Field="@nameof(BookDto.Id)" HeaderText="ID" IsPrimaryKey="true" AllowAdding="false" AllowEditing="false" Visible="false"></GridColumn>
+                                    <GridColumn Field="@nameof(BookDto.Name)" HeaderText="@Ml["Name"]" />
+                                    <GridColumn Field="@nameof(BookDto.Price)" HeaderText="@Ml["Price"]" />
+                                    <GridColumn Field="@nameof(BookDto.ReleaseDate)" HeaderText="@Ml["ReleaseDate"]" Type="ColumnType.Date" Format="d" DefaultValue="@(DateTime.Now)" />
+                                    <GridColumn Field="@nameof(BookDto.Translator)" HeaderText="@Ml["Translator"]" />
+                                    <GridColumn Field="@nameof(BookDto.BookType)" HeaderText="@Ml["BookType"]" />
+                                    <GridColumn Field="@nameof(BookDto.Publication)" HeaderText="@Ml["Publication"]" />
+                                </GridColumns>
+                            </SfGrid>
                         </div>
+                        
+                        
                        
                     </div>
-                  
+                    
                 }
                 
             </Template>
@@ -83,7 +107,23 @@ else
             <GridColumn Field="@nameof(BookDto.Price)" HeaderText="@Ml["Price"]" />
             <GridColumn Field="@nameof(BookDto.ReleaseDate)" HeaderText="@Ml["ReleaseDate"]" EditType="EditType.DatePickerEdit" Type="ColumnType.Date" Format="d" DefaultValue="@(DateTime.Now)" />
             <GridColumn Field="@nameof(BookDto.Translator)" HeaderText="@Ml["Translator"]" />
-            <GridColumn Field="@nameof(BookDto.BookType)" HeaderText="@Ml["BookType"]" />
+            <GridColumn Field="@nameof(BookDto.BookType)" HeaderText="@Ml["BookType"]">
+                <Template>
+                    @{
+                        var book = (context as BookDto);
+                        string bookType;
+                        if (book.BookType == 0)
+                        {
+                            bookType = Ml["Original Language"];
+                        }
+                        else
+                        {
+                            bookType = Ml["Translation"];
+                        }
+                        @bookType
+                    }
+                </Template>
+            </GridColumn>
             <GridColumn Field="@nameof(BookDto.Publication)" HeaderText="@Ml["Publication"]" />
         </GridColumns>
     </Syncfusion.Blazor.Grids.SfGrid>

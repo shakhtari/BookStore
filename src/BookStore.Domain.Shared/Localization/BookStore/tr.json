@@ -30,7 +30,12 @@
     "BookType": "Kitap Türü",
     "Publication": "Yayın",
     "Insert": "New",
-    "Insert New Book": "Yeni Kitap Ekle"
+    "Insert New Book": "Yeni Kitap Ekle",
+    "Edit ": "Düzenle ",
+    "Name Field cannot be Empty": "İsim Alanı Boş Bırakılamaz",
+    "Name Field must be unique": "İsim Alanı benzersiz olmalıdır",
+    "Book Type Field cannot be Empty": "Kitap Türü Alanı Boş Bırakılamaz",
+    "Translator Field cannot be Empty": "Çevirmen Alanı Boş Bırakılamaz"
 
   }
 }
