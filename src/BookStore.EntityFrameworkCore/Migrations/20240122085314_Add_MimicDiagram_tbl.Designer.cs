@@ -4,6 +4,7 @@ using BookStore.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -12,9 +13,11 @@ using Volo.Abp.EntityFrameworkCore;
 namespace BookStore.Migrations
 {
     [DbContext(typeof(BookStoreDbContext))]
-    partial class BookStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240122085314_Add_MimicDiagram_tbl")]
+    partial class AddMimicDiagramtbl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -93,7 +96,7 @@ namespace BookStore.Migrations
                     b.ToTable("Books", (string)null);
                 });
 
-            modelBuilder.Entity("BookStore.MimicDiagrams.MimicDiagram", b =>
+            modelBuilder.Entity("BookStore.MimcDiagrams.MimicDiagram", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

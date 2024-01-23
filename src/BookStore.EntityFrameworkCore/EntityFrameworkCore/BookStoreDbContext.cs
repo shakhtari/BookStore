@@ -1,6 +1,9 @@
 ﻿using BookStore.Books;
+using BookStore.MimicDiagrams;
+using BookStore.MimicProfiles;
 using BookStore.Publications;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -55,7 +58,8 @@ public class BookStoreDbContext :
     #endregion
     public DbSet<Book> Books { get; set; }
     public DbSet<Publication> Publications { get; set; }
-
+    public DbSet<MimicProfile> MimicProfiles { get; set; }
+    public DbSet<MimicDiagram> MimicDiagrams { get; set; }
     public BookStoreDbContext(DbContextOptions<BookStoreDbContext> options)
         : base(options)
     {
@@ -90,5 +94,8 @@ public class BookStoreDbContext :
             b.ToTable("Books");
         });
         builder.Entity<Publication>(b => { b.ToTable("Publications"); });
+        builder.Entity<MimicProfile>(b => { b.ToTable("tbl_EM_MimicProfile"); });
+        builder.Entity<MimicDiagram>(b => { b.ToTable("tbl_EM_MimicDiagram").HasKey(e=>e.Id); b.Property(e => e.Id).ValueGeneratedOnAdd(); });
     }
+    
 }

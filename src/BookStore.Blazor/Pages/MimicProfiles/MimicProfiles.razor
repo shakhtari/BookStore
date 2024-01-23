@@ -1,0 +1,85 @@
+﻿@page "/MimicProfiles"
+@using BookStore.MimicProfiles
+@using BookStore.MimicDiagrams
+@using BookStore.Localization
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@using Polly
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Calendars
+@using Syncfusion.Blazor.Buttons
+@using System.ComponentModel.DataAnnotations
+@inject IStringLocalizer<BookStoreResource> Ml
+
+@if (Loading)
+{
+    <span>Loading...</span>
+}
+else
+{
+    <Syncfusion.Blazor.Grids.SfGrid @ref="Grid" DataSource="@MimicProfileList" AllowPaging="true" Toolbar="@(new string[] {"Add", "Edit" ,"Delete","Update","Cancel" })">
+        <GridEvents OnActionBegin="ActionBeginHandler" TValue="MimicProfileDto"></GridEvents>
+        <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog" Dialog="DialogParams">
+            <Validator>
+
+                @{
+                    ValidatorTemplateContext txt = context as ValidatorTemplateContext;
+                }
+                <BookStore.Blazor.Shared.Common.MyCustomValidator context="@txt"></BookStore.Blazor.Shared.Common.MyCustomValidator>
+
+                <ValidationMessage style="color:red" For="@(() => (txt.Data as MimicProfileDto).MimicProfileName)"></ValidationMessage>
+            </Validator>
+            <HeaderTemplate>
+                @{
+                    var text = GetHeader((context as MimicProfileDto));
+                    <Span>@text</Span>
+                }
+            </HeaderTemplate>
+            <Template>
+                @{
+                    var mimicProfile = (context as MimicProfileDto);
+                    <div>
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <SfTextBox @bind-Value="@mimicProfile.MimicProfileName" Placeholder="@Ml["Profile Name"]" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <SfMultiSelect TItem="MimicDiagramDto" TValue="string" @bind-Value="@mimicProfile.MimicProfileDetail" Placeholder="@Ml["Select"]" Mode="VisualMode.CheckBox" DataSource="@MimicDiagramList">
+
+                                    <MultiSelectFieldSettings Value="Id" Text="MimicDiagramName"></MultiSelectFieldSettings>
+                                </SfMultiSelect>
+                            </div>
+                        </div>
+                    </div>
+                   
+                }
+                
+            </Template>
+        </GridEditSettings>
+        <GridColumns>
+            <GridColumn Width="100px"></GridColumn>
+            <GridColumn Field="@nameof(MimicProfileDto.MimicProfileName)" HeaderText="@Ml["Profile Name"]" />
+        </GridColumns>
+
+    </Syncfusion.Blazor.Grids.SfGrid>
+
+    <SfDialog Width="250px" ShowCloseIcon="true" IsModal="true" @bind-Visible="@IsVisible">
+        <DialogTemplates>
+            <Header> @Ml["Confirmation Message"] </Header>
+            <Content> @Ml["Are you sure about deleting this book?"] </Content>
+        </DialogTemplates>
+        <DialogButtons>
+            <DialogButton Content="@Ml["OK"]" IsPrimary="true" OnClick="@OkClick" />
+            <DialogButton Content="@Ml["Cancel"]" OnClick="@CancelClick" />
+        </DialogButtons>
+    </SfDialog>
+
+    @foreach (var SelectedValue in MimicDiagramNames)
+    {
+        <p>MultiSelect value is:<strong>@SelectedValue</strong></p>
+    }
+}

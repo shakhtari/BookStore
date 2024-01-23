@@ -35,7 +35,10 @@
     "Name Field cannot be Empty": "İsim Alanı Boş Bırakılamaz",
     "Name Field must be unique": "İsim Alanı benzersiz olmalıdır",
     "Book Type Field cannot be Empty": "Kitap Türü Alanı Boş Bırakılamaz",
-    "Translator Field cannot be Empty": "Çevirmen Alanı Boş Bırakılamaz"
-
+    "Translator Field cannot be Empty": "Çevirmen Alanı Boş Bırakılamaz",
+    "Profile Name": "Profil Adı",
+    "Profile Authorization": "Profil Yetkileri",
+    "Insert New Profile": "Yeni Profıl Ekle",
+    "Select": "Seç"
   }
 }

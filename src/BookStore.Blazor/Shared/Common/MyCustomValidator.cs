@@ -10,6 +10,7 @@ using System.Runtime;
 using System.Threading.Tasks;
 using BookStore.Localization;
 using Microsoft.Extensions.Localization;
+using BookStore.MimicProfiles;
 
 
 namespace BookStore.Blazor.Shared.Common
@@ -17,12 +18,15 @@ namespace BookStore.Blazor.Shared.Common
     public class MyCustomValidator : ComponentBase
     {
         private readonly IBookAppService _bookAppService;
+        private readonly IMimicProfileAppService _mimicProfileAppService;
         private readonly IStringLocalizer<BookStoreResource> _localizer;
-        public MyCustomValidator(IStringLocalizer<BookStoreResource> localizer ,IBookAppService bookAppService)
+        public MyCustomValidator(IStringLocalizer<BookStoreResource> localizer ,IBookAppService bookAppService,
+            IMimicProfileAppService mimicProfileAppService)
         {
             _localizer = localizer;
             _bookAppService = bookAppService;
-        }
+            _mimicProfileAppService = mimicProfileAppService;
+    }
         [Parameter]
         public ValidatorTemplateContext context { get; set; }
         public ValidationMessageStore messageStore;
@@ -69,6 +73,18 @@ namespace BookStore.Blazor.Shared.Common
                     }
                 }
             }
+            if(identifier.FieldName.Equals("MimicProfileName"))
+            {
+                messageStore.Clear(identifier);
+                if ((context.Data as MimicProfileDto).MimicProfileName == null || (context.Data as MimicProfileDto).MimicProfileName == "")
+                {
+                    messageStore.Add(identifier, _localizer["Name Field cannot be Empty"]);
+                }
+                else if (_mimicProfileAppService.IsNameUnique((context.Data as MimicProfileDto).MimicProfileName, (context.Data as MimicProfileDto).Id).Result)
+                {
+                    messageStore.Add(identifier, _localizer["Name Field must be unique"]);
+                }
+            }
         }
 
         protected void ValidateField(object editContext, FieldChangedEventArgs fieldChangedEventArgs)
@@ -78,9 +94,8 @@ namespace BookStore.Blazor.Shared.Common
 
         private void ValidateRequested(object editContext, ValidationRequestedEventArgs validationEventArgs)
         {
-            HandleValidation(CurrentEditContext.Field("Name"));
-            HandleValidation(CurrentEditContext.Field("ReleaseDate"));
-            HandleValidation(CurrentEditContext.Field("BookType"));
+            
+            HandleValidation(CurrentEditContext.Field("MimicProfileName"));
         }
     }
 }
