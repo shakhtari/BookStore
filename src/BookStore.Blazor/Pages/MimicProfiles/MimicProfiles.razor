@@ -18,8 +18,8 @@
 }
 else
 {
-    <Syncfusion.Blazor.Grids.SfGrid @ref="Grid" DataSource="@MimicProfileList" AllowPaging="true" Toolbar="@(new string[] {"Add", "Edit" ,"Delete","Update","Cancel" })">
-        <GridEvents OnActionBegin="ActionBeginHandler" TValue="MimicProfileDto"></GridEvents>
+    <Syncfusion.Blazor.Grids.SfGrid ID="Grid" @ref="Grid" DataSource="@MimicProfileList" AllowPaging="true" Toolbar="@(new string[] {"Add", "Edit" ,"Delete","Update","Cancel" })">
+        <GridEvents OnActionBegin="ActionBeginHandler" RowUpdated="RowUpdateHandler" RowDeleted="RowUpdateHandler"  TValue="MimicProfileDto"></GridEvents>
         <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog" Dialog="DialogParams">
             <Validator>
 
@@ -46,9 +46,10 @@ else
                             </div>
                         </div>
 
+                        
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <SfMultiSelect TItem="MimicDiagramDto" TValue="string" @bind-Value="@mimicProfile.MimicProfileDetail" Placeholder="@Ml["Select"]" Mode="VisualMode.CheckBox" DataSource="@MimicDiagramList">
+                                <SfMultiSelect @ref="MultiSelectObj" TItem="MimicDiagramDto" @bind-Value="MimicDiagramNames" TValue="string[]" Placeholder="@Ml["Select"]" Mode="VisualMode.CheckBox" DataSource="@MimicDiagramList" ShowDropDownIcon=true HideSelectedItem=false>
 
                                     <MultiSelectFieldSettings Value="Id" Text="MimicDiagramName"></MultiSelectFieldSettings>
                                 </SfMultiSelect>
@@ -78,8 +79,4 @@ else
         </DialogButtons>
     </SfDialog>
 
-    @foreach (var SelectedValue in MimicDiagramNames)
-    {
-        <p>MultiSelect value is:<strong>@SelectedValue</strong></p>
-    }
 }

@@ -11,8 +11,8 @@ namespace BookStore.MimicDiagrams
 {
     public class MimicDiagramAppService : BookStoreAppService, IMimicDiagramAppService
     {
-        private readonly IRepository<MimicDiagram,int> _mimicDiagramRepository;
-        public MimicDiagramAppService(IRepository<MimicDiagram,int> mimicDiagramRepository)
+        private readonly IRepository<MimicDiagram,string> _mimicDiagramRepository;
+        public MimicDiagramAppService(IRepository<MimicDiagram,string> mimicDiagramRepository)
         {
             _mimicDiagramRepository = mimicDiagramRepository;
         }

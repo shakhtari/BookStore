@@ -6,7 +6,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace BookStore.MimicDiagrams
 {
-    public class MimicDiagramDto: EntityDto<int>
+    public class MimicDiagramDto: EntityDto<string>
     {
         public string MimicDiagramName { get; set; }
         public bool MimicDiagramAuthorization { get; set; }

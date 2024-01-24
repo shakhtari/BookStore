@@ -8,7 +8,7 @@ using Volo.Abp.Domain.Entities;
 
 namespace BookStore.MimicDiagrams
 {
-    public class MimicDiagram : Entity<int>
+    public class MimicDiagram : Entity<string>
     {
         public string MimicDiagramName { get; set; }
         public bool MimicDiagramAuthorization { get; set; }
