@@ -17,6 +17,7 @@ using Blazorise;
 using Syncfusion.Blazor.Calendars;
 using BookStore.MimicProfiles;
 using BookStore.MimicDiagrams;
+using Syncfusion.Blazor.Grids.Internal;
 
 namespace BookStore.Blazor.Pages.MimicProfiles
 {
@@ -31,7 +32,7 @@ namespace BookStore.Blazor.Pages.MimicProfiles
         private IReadOnlyList<MimicProfileDto> MimicProfileList { get; set; }
         private IReadOnlyList<MimicDiagramDto> MimicDiagramList { get; set; }
         private List<MimicDiagramDto> mimicDiagramDtos { get; set; }
-        private string[] MimicDiagramNames { get; set; }
+        public string[] MimicDiagramNames { get; set; }
         private int[] MimicDiagramIds { get; set; }
         private bool Loading { get; set; }
         private CreateUpdateMimicProfileDto NewMimicProfileDto { get; set; }
@@ -41,8 +42,7 @@ namespace BookStore.Blazor.Pages.MimicProfiles
         private bool Check = false;
         private bool IsVisible { get; set; } = false;
         private DialogSettings DialogParams = new DialogSettings { Height = "700px", Width = "850px" };
-        SfGrid<MimicProfileDto> Grid { get; set; }
-        SfMultiSelect<string[], MimicDiagramDto> MultiSelectObj;
+        SfGrid<MimicProfileDto> Grid;
         private MimicDiagramDto MimicDiagramDto { get; set; }
         public MimicProfiles()
         {
@@ -59,7 +59,7 @@ namespace BookStore.Blazor.Pages.MimicProfiles
             if (firstRender)
             {
                 await GetMimicProfilesAsync();
-                GetMimicDiagramsAsync();
+                await GetMimicDiagramsAsync();
             }
 
             await base.OnAfterRenderAsync(firstRender);
@@ -83,7 +83,7 @@ namespace BookStore.Blazor.Pages.MimicProfiles
             }
         }
 
-        private async void GetMimicDiagramsAsync()
+        private async Task GetMimicDiagramsAsync()
         {
             MimicDiagramList = await MimicDiagramAppService.GetListAsync();
         }
@@ -115,29 +115,27 @@ namespace BookStore.Blazor.Pages.MimicProfiles
             }
             if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
             {
-                if (Check)
+                if (args.Action.Equals("Add"))
                 {
                     NewMimicProfileDto = new CreateUpdateMimicProfileDto();
                     NewMimicProfileDto.Id = args.Data.Id;
                     NewMimicProfileDto.MimicProfileName = args.Data.MimicProfileName;
-                    //MimicDiagramNames = args.Data.MimicProfileDetail.Split(",");
                     NewMimicProfileDto.MimicProfileDetail = MimicDiagramNames.JoinAsString(" | ");
 
-                    MimicProfileAppService.CreateAsync(NewMimicProfileDto);
-                    Grid.CloseEditAsync();
-                    Grid.Refresh();
+                    await MimicProfileAppService.CreateAsync(NewMimicProfileDto);
+
+                    MimicProfileList = await MimicProfileAppService.GetListAsync();
+                    await Grid.Refresh();
                 }
-                if (!Check)
+                if (args.Action.Equals("Edit"))
                 {
                     EditingMimicProfileDto.Id = args.Data.Id;
                     EditingMimicProfileDto.MimicProfileName = args.Data.MimicProfileName;
-                    //MimicDiagramNames = args.Data.MimicProfileDetail.Split(",");
                     EditingMimicProfileDto.MimicProfileDetail = MimicDiagramNames.JoinAsString(" | ");
 
-                    MimicProfileAppService.UpdateAsync(EditingMimicProfileId, EditingMimicProfileDto);
-                    Grid.CloseEditAsync();
-                    Grid.Refresh();
-                    RowUpdateHandler();
+                    await MimicProfileAppService.UpdateAsync(EditingMimicProfileId, EditingMimicProfileDto);
+                    MimicProfileList = await MimicProfileAppService.GetListAsync();
+                    await Grid.Refresh();
                 }
             }
             if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Delete))
@@ -145,14 +143,6 @@ namespace BookStore.Blazor.Pages.MimicProfiles
                 this.IsVisible = true;
                 DeletingMimicProfileId = args.Data.Id;
             }
-
-        }
-
-        public async void RowUpdateHandler()
-        {
-            await Grid.Refresh();
-            await GetMimicProfilesAsync();
-            Grid.Refresh();
         }
 
         private void CancelClick()
@@ -164,7 +154,7 @@ namespace BookStore.Blazor.Pages.MimicProfiles
         {
             MimicProfileAppService.DeleteAsync(DeletingMimicProfileId);
             this.IsVisible = false;
-            RowUpdateHandler();
+            Grid.Refresh();
         }
         public string GetHeader(MimicProfileDto value)
         {
@@ -177,7 +167,7 @@ namespace BookStore.Blazor.Pages.MimicProfiles
                 return Ml["Edit "] + value.MimicProfileName;
             }
         }
-        
+
 
     }
 }

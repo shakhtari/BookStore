@@ -1,4 +1,5 @@
 ﻿using BookStore.Books;
+using BookStore.Formulas;
 using BookStore.MimicDiagrams;
 using BookStore.MimicProfiles;
 using BookStore.Publications;
@@ -60,6 +61,7 @@ public class BookStoreDbContext :
     public DbSet<Publication> Publications { get; set; }
     public DbSet<MimicProfile> MimicProfiles { get; set; }
     public DbSet<MimicDiagram> MimicDiagrams { get; set; }
+    public DbSet<Formula> Formulas { get; set; }
     public BookStoreDbContext(DbContextOptions<BookStoreDbContext> options)
         : base(options)
     {
@@ -96,6 +98,7 @@ public class BookStoreDbContext :
         builder.Entity<Publication>(b => { b.ToTable("Publications"); });
         builder.Entity<MimicProfile>(b => { b.ToTable("tbl_EM_MimicProfile"); });
         builder.Entity<MimicDiagram>(b => { b.ToTable("tbl_EM_MimicDiagram").HasKey(e=>e.Id); b.Property(e => e.Id).ValueGeneratedOnAdd(); });
+        builder.Entity<Formula>(b => { b.ToTable("tbl_EM_Formulas").HasKey(e => e.Id); b.Property(e => e.Id).ValueGeneratedOnAdd(); });
     }
     
 }

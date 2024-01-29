@@ -22,7 +22,7 @@ else
     <Syncfusion.Blazor.Grids.SfGrid ID="Grid" @ref="Grid" DataSource="@BookList" AllowPaging="true" Toolbar="@(new string[] {"Add", "Edit" ,"Delete","Update","Cancel" })">
         <GridEvents OnActionBegin="ActionBeginHandler" RowSelected="RowSelectedHandler" TValue="BookDto"></GridEvents>
         <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog" Dialog="DialogParams">
-           <Validator>
+           @* <Validator>
                
                 @{
                     ValidatorTemplateContext txt = context as ValidatorTemplateContext;
@@ -30,7 +30,7 @@ else
                 <BookStore.Blazor.Shared.Common.MyCustomValidator context="@txt"></BookStore.Blazor.Shared.Common.MyCustomValidator>
 
                 <ValidationMessage For="@(() => (txt.Data as BookDto).Name)"></ValidationMessage>
-            </Validator>
+            </Validator> *@
             
             <HeaderTemplate>
                 @{

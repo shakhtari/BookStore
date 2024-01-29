@@ -4,6 +4,7 @@ using BookStore.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -12,9 +13,11 @@ using Volo.Abp.EntityFrameworkCore;
 namespace BookStore.Migrations
 {
     [DbContext(typeof(BookStoreDbContext))]
-    partial class BookStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240127114126_Add_FormulaType")]
+    partial class AddFormulaType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,22 +107,22 @@ namespace BookStore.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
-                    b.Property<decimal?>("FormulaInputMaximum")
+                    b.Property<decimal>("FormulaInputMaximum")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal?>("FormulaInputMinimum")
+                    b.Property<decimal>("FormulaInputMinimum")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal?>("FormulaMultiplier")
+                    b.Property<decimal>("FormulaMultiplier")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("FormulaName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal?>("FormulaOutputMaximim")
+                    b.Property<decimal>("FormulaOutputMaximim")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal?>("FormulaOutputMinimum")
+                    b.Property<decimal>("FormulaOutputMinimum")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("FormulaType")

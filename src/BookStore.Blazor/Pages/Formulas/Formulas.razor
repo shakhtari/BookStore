@@ -1,0 +1,167 @@
+﻿@page "/Formulas"
+@using BookStore.MimicProfiles
+@using BookStore.MimicDiagrams
+@using BookStore.Formulas
+@using BookStore.Localization
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@using Polly
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Calendars
+@using Syncfusion.Blazor.Buttons
+@using System.ComponentModel.DataAnnotations
+@inject IStringLocalizer<BookStoreResource> Ml
+
+@if (Loading)
+{
+    <span>Loading...</span>
+}
+else
+{
+    <Syncfusion.Blazor.Grids.SfGrid @ref="Grid" DataSource="@FormulaList" AllowPaging="true" Toolbar="@(new string[] {"Add", "Edit" ,"Delete","Update","Cancel" })">
+        <GridEvents OnActionBegin="ActionBeginHandler" TValue="FormulaDto"></GridEvents>
+        <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog" Dialog="DialogParams">
+            <Validator>
+
+                @{
+                    ValidatorTemplateContext txt = context as ValidatorTemplateContext;
+                }
+                <BookStore.Blazor.Shared.Common.MyCustomValidatorFormula context="@txt"></BookStore.Blazor.Shared.Common.MyCustomValidatorFormula>
+
+                <ValidationMessage style="color:red" For="@(() => (txt.Data as FormulaDto).FormulaName)"></ValidationMessage>
+            </Validator>
+            <HeaderTemplate>
+                @{
+                    var text = GetHeader((context as FormulaDto));
+                    <Span>@text</Span>
+                }
+            </HeaderTemplate>
+            <Template>
+                @{
+                    var formula = (context as FormulaDto);
+                    <div>
+                        <div class="form-row">
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="e-float-text e-label-top">@Ml["Formula Name"]</label>
+                                    <SfTextBox @bind-Value="formula.FormulaName"></SfTextBox>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="e-float-text e-label-top">@Ml["Formula Type"]</label>
+                                <SfDropDownList TValue="BookStore.Enums.FormulaType" TItem="string" DataSource="@EnumValues" @bind-Value="@formula.FormulaType">
+                                   
+                                    @{
+                                        if (formula.FormulaType == Enums.FormulaType.AnalogValue)
+                                        {
+                                            <div>
+                                                <br />
+                                                <div class="form-row">
+
+                                                    <div class="col-md-6">
+
+                                                        <div class="form-group">
+
+                                                            <label class="e-float-text e-label-top">@Ml["Minimum Input"]</label>
+
+                                                            <SfNumericTextBox @bind-Value="formula.FormulaInputMinimum"></SfNumericTextBox>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="col-md-6">
+
+                                                        <div class="form-group">
+
+                                                            <label class="e-float-text e-label-top">@Ml["Maximum Input"]</label>
+
+                                                            <SfNumericTextBox @bind-Value="formula.FormulaInputMaximum"></SfNumericTextBox>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="e-float-text e-label-top">@Ml["Minimum Output"]</label>
+                                                            <SfNumericTextBox @bind-Value="formula.FormulaOutputMinimum"></SfNumericTextBox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="e-float-text e-label-top">@Ml["Maximum Output"]</label>
+                                                            <SfNumericTextBox @bind-Value="formula.FormulaOutputMaximim"></SfNumericTextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="e-float-text e-label-left">@Ml["Formula Multiplier"]</label>
+                                                        <SfNumericTextBox @bind-Value="formula.FormulaMultiplier"></SfNumericTextBox>
+                                                    </div>
+                                                </div>
+                                        }
+                                    }
+                                </SfDropDownList>
+
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </Template>
+        </GridEditSettings>
+        <GridColumns>
+            <GridColumn Width="100px" />
+            <GridColumn Field="@nameof(FormulaDto.Id)" HeaderText="Id" IsPrimaryKey="true" Visible="false" AllowAdding="false" AllowEditing="false" />
+            <GridColumn Field="@nameof(FormulaDto.FormulaName)" HeaderText="@Ml["Formula Name"]" />
+            <GridColumn Field="@nameof(FormulaDto.FormulaType)" HeaderText="@Ml["Formula Type"]" />
+        </GridColumns>
+    </Syncfusion.Blazor.Grids.SfGrid>
+    <SfDialog Width="250px" ShowCloseIcon="true" IsModal="true" @bind-Visible="@IsVisible">
+        <DialogTemplates>
+            <Header> @Ml["Confirmation Message"] </Header>
+            <Content> @Ml["Are you sure about deleting this Formula?"] </Content>
+        </DialogTemplates>
+        <DialogButtons>
+            <DialogButton Content="@Ml["OK"]" IsPrimary="true" OnClick="@OkClick" />
+            <DialogButton Content="@Ml["Cancel"]" OnClick="@CancelClick" />
+        </DialogButtons>
+    </SfDialog>
+}
+
+<style>
+    .col-md-6 {
+        width: 400px;
+    }
+
+    label.e-float-text {
+        position: relative;
+        padding-left: 0;
+    }
+
+    div#Grid_dialogEdit_wrapper {
+        max-height: none !important;
+    }
+
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    
+</style>

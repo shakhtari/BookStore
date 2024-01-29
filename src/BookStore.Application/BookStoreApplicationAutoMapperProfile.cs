@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BookStore.Books;
+using BookStore.Formulas;
 using BookStore.MimicDiagrams;
 using BookStore.MimicProfiles;
 using BookStore.Publications;
@@ -14,5 +15,6 @@ public class BookStoreApplicationAutoMapperProfile : Profile
         CreateMap<Publication,PublicationDto>();
         CreateMap<MimicProfile, MimicProfileDto>();
         CreateMap<MimicDiagram, MimicProfileDto>();
+        CreateMap<Formula, FormulaDto>();
     }
 }

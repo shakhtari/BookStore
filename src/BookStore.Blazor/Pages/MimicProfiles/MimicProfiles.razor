@@ -18,8 +18,8 @@
 }
 else
 {
-    <Syncfusion.Blazor.Grids.SfGrid ID="Grid" @ref="Grid" DataSource="@MimicProfileList" AllowPaging="true" Toolbar="@(new string[] {"Add", "Edit" ,"Delete","Update","Cancel" })">
-        <GridEvents OnActionBegin="ActionBeginHandler" RowUpdated="RowUpdateHandler" RowDeleted="RowUpdateHandler"  TValue="MimicProfileDto"></GridEvents>
+    <Syncfusion.Blazor.Grids.SfGrid @ref="Grid" DataSource="@MimicProfileList" AllowPaging="true" Toolbar="@(new string[] {"Add", "Edit" ,"Delete","Update","Cancel" })">
+        <GridEvents OnActionBegin="ActionBeginHandler" TValue="MimicProfileDto"></GridEvents>
         <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog" Dialog="DialogParams">
             <Validator>
 
@@ -46,37 +46,33 @@ else
                             </div>
                         </div>
 
-                        
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <SfMultiSelect @ref="MultiSelectObj" TItem="MimicDiagramDto" @bind-Value="MimicDiagramNames" TValue="string[]" Placeholder="@Ml["Select"]" Mode="VisualMode.CheckBox" DataSource="@MimicDiagramList" ShowDropDownIcon=true HideSelectedItem=false>
-
+                                <SfMultiSelect TItem="MimicDiagramDto" @bind-Value="MimicDiagramNames" TValue="string[]" Placeholder="@Ml["Select"]" Mode="VisualMode.CheckBox" DataSource="@MimicDiagramList" ShowDropDownIcon=true>
                                     <MultiSelectFieldSettings Value="Id" Text="MimicDiagramName"></MultiSelectFieldSettings>
                                 </SfMultiSelect>
                             </div>
                         </div>
                     </div>
-                   
                 }
-                
             </Template>
         </GridEditSettings>
         <GridColumns>
-            <GridColumn Width="100px"></GridColumn>
+            <GridColumn Width="100px" />
+            <GridColumn Field="@nameof(MimicProfileDto.Id)" HeaderText="Id" IsPrimaryKey="true" Visible="false" AllowAdding="false" AllowEditing="false" />
             <GridColumn Field="@nameof(MimicProfileDto.MimicProfileName)" HeaderText="@Ml["Profile Name"]" />
+            <GridColumn Field="@nameof(MimicProfileDto.MimicProfileDetail)" HeaderText="MimicDetails" />
         </GridColumns>
-
     </Syncfusion.Blazor.Grids.SfGrid>
 
     <SfDialog Width="250px" ShowCloseIcon="true" IsModal="true" @bind-Visible="@IsVisible">
         <DialogTemplates>
             <Header> @Ml["Confirmation Message"] </Header>
-            <Content> @Ml["Are you sure about deleting this book?"] </Content>
+            <Content> @Ml["Are you sure about deleting this Profile?"] </Content>
         </DialogTemplates>
         <DialogButtons>
             <DialogButton Content="@Ml["OK"]" IsPrimary="true" OnClick="@OkClick" />
             <DialogButton Content="@Ml["Cancel"]" OnClick="@CancelClick" />
         </DialogButtons>
     </SfDialog>
-
 }

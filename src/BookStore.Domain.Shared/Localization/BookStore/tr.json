@@ -39,6 +39,17 @@
     "Profile Name": "Profil Adı",
     "Profile Authorization": "Profil Yetkileri",
     "Insert New Profile": "Yeni Profıl Ekle",
-    "Select": "Seç"
+    "Select": "Seç",
+    "Insert New Formula": "Yeni Formül Ekle",
+    "Formula Name": "Formül Adı",
+    "Formula Type": "Formül Tipi",
+    "Minimum Input": "Minimum Giriş",
+    "Maximum Input": "Maksimum Giriş",
+    "Minimum Output": "Minimum Çıkış",
+    "Maximum Output": "Maksimum Çıkış",
+    "Formula Multiplier": "Formül Çarpanı",
+    "Are you sure about deleting this Formula?": "Bu Formülı silme konusunda emin misiniz?",
+    "Are you sure about deleting this Profile?": "Bu Profilı silme konusunda emin misiniz?",
+    "Formula Type Field cannot be Empty": "Formül Tipi Boş Bırakılamaz"
   }
 }
