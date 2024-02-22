@@ -18,7 +18,7 @@ namespace BookStore.Migrations
                     RecordUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     MimicProfileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MimicProfileDetail = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "uniqueidentifier", nullable: false),
                     ExtraProperties = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
                     CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),

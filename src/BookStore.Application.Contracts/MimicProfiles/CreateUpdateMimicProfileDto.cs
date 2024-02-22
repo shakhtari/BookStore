@@ -7,7 +7,7 @@ namespace BookStore.MimicProfiles
 {
     public class CreateUpdateMimicProfileDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public Guid TenantId { get; set; }
         public string MimicProfileName { get; set; }
         public string MimicProfileDetail { get; set; }

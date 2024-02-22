@@ -7,32 +7,39 @@ using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Application.Dtos;
 using BookStore.Books;
+using BookStore.Shared;
+using System.Xml.Linq;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookStore.MimicProfiles
 {
     public class MimicProfileAppService : BookStoreAppService, IMimicProfileAppService
     {
-        private readonly IRepository<MimicProfile , Guid> _mimicProfileRepository;
-        public MimicProfileAppService(IRepository<MimicProfile, Guid> mimicProfileRepository)
+        private readonly IRepository<MimicProfile, int> _mimicProfileRepository;
+        
+        public MimicProfileAppService(IRepository<MimicProfile, int> mimicProfileRepository)
         {
             _mimicProfileRepository = mimicProfileRepository;
         }
         public async Task<MimicProfileDto> CreateAsync(CreateUpdateMimicProfileDto mimicProfileDto)
-        {
-            var todoItem = await _mimicProfileRepository.InsertAsync(new MimicProfile
-            {
-                MimicProfileName = mimicProfileDto.MimicProfileName,
-                MimicProfileDetail = mimicProfileDto.MimicProfileDetail
-            });
-            return new MimicProfileDto
-            {
-                Id = Guid.NewGuid(),
-                MimicProfileName =mimicProfileDto.MimicProfileName,
-                MimicProfileDetail=mimicProfileDto.MimicProfileDetail
-            };
+        { 
+          
+                var mimicProfile = await _mimicProfileRepository.InsertAsync(new MimicProfile
+                {
+                    MimicProfileName = mimicProfileDto.MimicProfileName,
+                    MimicProfileDetail = mimicProfileDto.MimicProfileDetail
+                });
+                return ObjectMapper.Map<MimicProfile, MimicProfileDto>(mimicProfile);
+            
         }
+        public  async Task<bool> GetMimicProfileLookupAsync(LookupRequestWithIdDto input)
+        {
+            var query = (await _mimicProfileRepository.GetQueryableAsync());
 
-        public async Task DeleteAsync(Guid profileId)
+            var lookupData= query.Any(x => x.MimicProfileName == input.Filter && x.Id != input.Id);
+            return lookupData;
+        }
+        public async Task DeleteAsync(int profileId)
         {
             await _mimicProfileRepository.DeleteAsync(profileId);
         }
@@ -49,23 +56,18 @@ namespace BookStore.MimicProfiles
                 }).ToList();
         }
 
-        public async Task<MimicProfileDto> UpdateAsync(Guid profileId, CreateUpdateMimicProfileDto input)
+        public async Task<MimicProfileDto> UpdateAsync(int profileId, CreateUpdateMimicProfileDto input)
         {
-            var mimicProfile = await Task.Run(() => _mimicProfileRepository.GetAsync(profileId));
-            
+            var mimicProfile = await _mimicProfileRepository.GetAsync(profileId);
+
             mimicProfile.MimicProfileName = input.MimicProfileName;
             mimicProfile.MimicProfileDetail = input.MimicProfileDetail;
 
-            mimicProfile = await Task.Run(() => _mimicProfileRepository.UpdateAsync(mimicProfile));
+            mimicProfile = await _mimicProfileRepository.UpdateAsync(mimicProfile);
 
-            return new MimicProfileDto
-            {
-                Id = mimicProfile.Id,
-                MimicProfileName = mimicProfile.MimicProfileName,
-                MimicProfileDetail = mimicProfile.MimicProfileDetail
-            };
+            return ObjectMapper.Map<MimicProfile, MimicProfileDto>(mimicProfile);
         }
-        public Task<bool> IsNameUnique(string name, Guid id)
+        public Task<bool> IsNameUnique(string name, int id)
         {
             var isUnique = _mimicProfileRepository.AnyAsync(x => x.MimicProfileName == name && x.Id != id);
             return isUnique;

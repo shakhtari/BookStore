@@ -5,7 +5,7 @@
 namespace BookStore.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateMimicDiagramIdentity2 : Migration
+    public partial class SetNullable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

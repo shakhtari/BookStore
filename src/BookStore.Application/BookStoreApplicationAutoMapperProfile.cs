@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using BookStore.Books;
+using BookStore.DerivedValues;
+using BookStore.DerivedValueDetails;
 using BookStore.Formulas;
 using BookStore.MimicDiagrams;
 using BookStore.MimicProfiles;
@@ -16,5 +18,7 @@ public class BookStoreApplicationAutoMapperProfile : Profile
         CreateMap<MimicProfile, MimicProfileDto>();
         CreateMap<MimicDiagram, MimicProfileDto>();
         CreateMap<Formula, FormulaDto>();
+        CreateMap<DerivedValue, DerivedValueDto>();
+        CreateMap<DerivedValueDetail, DerivedValueDetailDto>();
     }
 }

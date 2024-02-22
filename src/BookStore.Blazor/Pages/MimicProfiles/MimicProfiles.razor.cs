@@ -18,6 +18,8 @@ using Syncfusion.Blazor.Calendars;
 using BookStore.MimicProfiles;
 using BookStore.MimicDiagrams;
 using Syncfusion.Blazor.Grids.Internal;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace BookStore.Blazor.Pages.MimicProfiles
 {
@@ -27,18 +29,19 @@ namespace BookStore.Blazor.Pages.MimicProfiles
         [Inject]
         private IMimicProfileAppService MimicProfileAppService { get; set; }
         [Inject]
-        private IMimicDiagramAppService MimicDiagramAppService { get; set; }
+        private IMimicDiagramsAppService MimicDiagramAppService { get; set; }
 
         private IReadOnlyList<MimicProfileDto> MimicProfileList { get; set; }
         private IReadOnlyList<MimicDiagramDto> MimicDiagramList { get; set; }
         private List<MimicDiagramDto> mimicDiagramDtos { get; set; }
         public string[] MimicDiagramNames { get; set; }
-        private int[] MimicDiagramIds { get; set; }
+        private List<int> MimicDiagramIds { get; set; }
+        private int[] MimicDiagramResult { get; set; }
         private bool Loading { get; set; }
         private CreateUpdateMimicProfileDto NewMimicProfileDto { get; set; }
         private CreateUpdateMimicProfileDto EditingMimicProfileDto { get; set; }
-        private Guid EditingMimicProfileId { get; set; }
-        private Guid DeletingMimicProfileId { get; set; }
+        private int EditingMimicProfileId { get; set; }
+        private int DeletingMimicProfileId { get; set; }
         private bool Check = false;
         private bool IsVisible { get; set; } = false;
         private DialogSettings DialogParams = new DialogSettings { Height = "700px", Width = "850px" };
@@ -49,7 +52,8 @@ namespace BookStore.Blazor.Pages.MimicProfiles
             MimicProfileList = new List<MimicProfileDto>();
             MimicDiagramList = new List<MimicDiagramDto>();
             MimicDiagramNames = new string[] { };
-            MimicDiagramIds = new int[] { };
+            MimicDiagramIds = new List<int> { };
+            MimicDiagramResult = new int[] { };
             mimicDiagramDtos = new List<MimicDiagramDto>();
             MimicDiagramDto = new MimicDiagramDto();
         }
@@ -85,7 +89,16 @@ namespace BookStore.Blazor.Pages.MimicProfiles
 
         private async Task GetMimicDiagramsAsync()
         {
-            MimicDiagramList = await MimicDiagramAppService.GetListAsync();
+            MimicDiagramList = await MimicDiagramAppService.GetAllAsync();
+        }
+        private List<MimicDiagramDto> DeserializeXmlToList(string xmlString)
+        {
+            var serializer = new XmlSerializer(typeof(List<MimicDiagramDto>));
+
+            using (var reader = new StringReader(xmlString))
+            {
+                return (List<MimicDiagramDto>)serializer.Deserialize(reader);
+            }
         }
 
         public async void ActionBeginHandler(ActionEventArgs<MimicProfileDto> args)
@@ -97,7 +110,7 @@ namespace BookStore.Blazor.Pages.MimicProfiles
                 if (args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Add))
                 {
                     Check = true;
-                    MimicDiagramNames = null;
+                    MimicDiagramResult = null;
                 }
 
                 //Handles Edit Operation
@@ -105,11 +118,17 @@ namespace BookStore.Blazor.Pages.MimicProfiles
                 {
                     EditingMimicProfileId = args.RowData.Id;
                     MimicDiagramNames = args.RowData.MimicProfileDetail.Split(" | ");
+                    foreach (var item in MimicDiagramNames)
+                    {
+                        var temp = int.TryParse(item, out int parsedValue);
+                        MimicDiagramIds.AddFirst(parsedValue);
+                    }
+                    MimicDiagramResult = MimicDiagramIds.ToArray();
                     EditingMimicProfileDto = new CreateUpdateMimicProfileDto()
                     {
                         Id = args.RowData.Id,
                         MimicProfileName = args.RowData.MimicProfileName,
-                        MimicProfileDetail = MimicDiagramNames.JoinAsString(",")
+                        MimicProfileDetail = MimicDiagramResult.JoinAsString(" | ")
                     };
                 }
             }
@@ -120,7 +139,7 @@ namespace BookStore.Blazor.Pages.MimicProfiles
                     NewMimicProfileDto = new CreateUpdateMimicProfileDto();
                     NewMimicProfileDto.Id = args.Data.Id;
                     NewMimicProfileDto.MimicProfileName = args.Data.MimicProfileName;
-                    NewMimicProfileDto.MimicProfileDetail = MimicDiagramNames.JoinAsString(" | ");
+                    NewMimicProfileDto.MimicProfileDetail = MimicDiagramResult.JoinAsString(" | ");
 
                     await MimicProfileAppService.CreateAsync(NewMimicProfileDto);
 
@@ -131,7 +150,7 @@ namespace BookStore.Blazor.Pages.MimicProfiles
                 {
                     EditingMimicProfileDto.Id = args.Data.Id;
                     EditingMimicProfileDto.MimicProfileName = args.Data.MimicProfileName;
-                    EditingMimicProfileDto.MimicProfileDetail = MimicDiagramNames.JoinAsString(" | ");
+                    EditingMimicProfileDto.MimicProfileDetail = MimicDiagramResult.JoinAsString(" | ");
 
                     await MimicProfileAppService.UpdateAsync(EditingMimicProfileId, EditingMimicProfileDto);
                     MimicProfileList = await MimicProfileAppService.GetListAsync();
@@ -160,11 +179,11 @@ namespace BookStore.Blazor.Pages.MimicProfiles
         {
             if (value.MimicProfileName == null)
             {
-                return Ml["Insert New Profile"];
+                return L["Insert New Profile"];
             }
             else
             {
-                return Ml["Edit "] + value.MimicProfileName;
+                return L["Edit "] + value.MimicProfileName;
             }
         }
 

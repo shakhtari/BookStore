@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 using BookStore.Localization;
 using Microsoft.Extensions.Localization;
 using BookStore.MimicProfiles;
+using System.Runtime.Serialization;
+using AutoMapper.Internal.Mappers;
+using BookStore.Shared;
 
 
 namespace BookStore.Blazor.Shared.Common
@@ -39,40 +42,13 @@ namespace BookStore.Blazor.Shared.Common
             CurrentEditContext.OnValidationRequested += ValidateRequested;
             CurrentEditContext.OnFieldChanged += ValidateField;
         }
-        protected void HandleValidation(FieldIdentifier identifier)
+        protected async void HandleValidation(FieldIdentifier identifier)
         {
-
-            if (identifier.FieldName.Equals("Name"))
+            var lookupData = new LookupRequestWithIdDto
             {
-                messageStore.Clear(identifier);
-                if ((context.Data as BookDto).Name == null || (context.Data as BookDto).Name == "")
-                {
-                    messageStore.Add(identifier, _localizer["Name Field cannot be Empty"]);
-                }
-                else if (_bookAppService.IsNameUnique((context.Data as BookDto).Name, (context.Data as BookDto).Id).Result)
-                {
-                    messageStore.Add(identifier, _localizer["Name Field must be unique"]);
-                }
-                else
-                {
-                    messageStore.Clear(identifier);
-                }
-                if((context.Data as BookDto).ReleaseDate == default)
-                {
-                    messageStore.Add(identifier,"Date Field cannot be Empty");
-                }
-                if ((context.Data as BookDto).BookType == null)
-                {
-                    messageStore.Add(identifier,_localizer["Book Type Field cannot be Empty"]);
-                }
-                if((context.Data as BookDto).BookType == 1)
-                {
-                    if((context.Data as BookDto).Translator == null || (context.Data as BookDto).Translator =="")
-                    {   
-                        messageStore.Add(identifier,_localizer["Translator Field cannot be Empty"]);
-                    }
-                }
-            }
+                Filter = (context.Data as MimicProfileDto).MimicProfileName,
+                Id = (context.Data as MimicProfileDto).Id
+            };
             if(identifier.FieldName.Equals("MimicProfileName"))
             {
                 messageStore.Clear(identifier);
@@ -80,7 +56,8 @@ namespace BookStore.Blazor.Shared.Common
                 {
                     messageStore.Add(identifier, _localizer["Name Field cannot be Empty"]);
                 }
-                else if (_mimicProfileAppService.IsNameUnique((context.Data as MimicProfileDto).MimicProfileName, (context.Data as MimicProfileDto).Id).Result)
+                //else if (_mimicProfileAppService.IsNameUnique((context.Data as MimicProfileDto).MimicProfileName, (context.Data as MimicProfileDto).Id).Result)
+                else if(await _mimicProfileAppService.GetMimicProfileLookupAsync(lookupData))
                 {
                     messageStore.Add(identifier, _localizer["Name Field must be unique"]);
                 }

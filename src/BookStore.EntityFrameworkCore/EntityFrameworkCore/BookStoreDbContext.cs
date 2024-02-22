@@ -1,4 +1,6 @@
 ﻿using BookStore.Books;
+using BookStore.DerivedValueDetails;
+using BookStore.DerivedValues;
 using BookStore.Formulas;
 using BookStore.MimicDiagrams;
 using BookStore.MimicProfiles;
@@ -10,6 +12,7 @@ using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.EntityFrameworkCore;
@@ -62,6 +65,8 @@ public class BookStoreDbContext :
     public DbSet<MimicProfile> MimicProfiles { get; set; }
     public DbSet<MimicDiagram> MimicDiagrams { get; set; }
     public DbSet<Formula> Formulas { get; set; }
+    public DbSet<DerivedValue> DerivedValues { get; set; }
+    public DbSet<DerivedValueDetail> DerivedValuesDetail { get; set; }
     public BookStoreDbContext(DbContextOptions<BookStoreDbContext> options)
         : base(options)
     {
@@ -97,8 +102,21 @@ public class BookStoreDbContext :
         });
         builder.Entity<Publication>(b => { b.ToTable("Publications"); });
         builder.Entity<MimicProfile>(b => { b.ToTable("tbl_EM_MimicProfile"); });
-        builder.Entity<MimicDiagram>(b => { b.ToTable("tbl_EM_MimicDiagram").HasKey(e=>e.Id); b.Property(e => e.Id).ValueGeneratedOnAdd(); });
+        builder.Entity<MimicDiagram>(b =>
+        {
+            b.ToTable("tbl_EM_MimicDiagram");
+            b.ConfigureByConvention();
+            b.Property(x => x.TenantId).HasColumnName(nameof(MimicDiagram.TenantId));
+            b.Property(x => x.Active).HasColumnName(nameof(MimicDiagram.Active)).HasDefaultValue(true);
+            b.Property(x => x.MimicDiagramName).HasColumnName(nameof(MimicDiagram.MimicDiagramName)).IsRequired();
+            b.Property(x => x.MimicDiagramDescription).HasColumnName(nameof(MimicDiagram.MimicDiagramDescription)).IsRequired();
+            b.Property(x => x.MimicDiagramXML).HasColumnName(nameof(MimicDiagram.MimicDiagramXML)).IsRequired();
+            b.Property(x => x.MimicDiagramAuthorization).HasColumnName(nameof(MimicDiagram.MimicDiagramAuthorization));
+            b.Property(x => x.CreationTime).HasDefaultValueSql("getdate()");
+        });
         builder.Entity<Formula>(b => { b.ToTable("tbl_EM_Formulas").HasKey(e => e.Id); b.Property(e => e.Id).ValueGeneratedOnAdd(); });
+        builder.Entity<DerivedValue>(b => { b.ToTable("tbl_EM_DerivedValues"); });
+        builder.Entity<DerivedValueDetail>(b => { b.ToTable("tbl_EM_DerivedValueDetails"); });
     }
     
 }

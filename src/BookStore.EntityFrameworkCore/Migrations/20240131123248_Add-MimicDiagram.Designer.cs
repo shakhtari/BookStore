@@ -13,8 +13,8 @@ using Volo.Abp.EntityFrameworkCore;
 namespace BookStore.Migrations
 {
     [DbContext(typeof(BookStoreDbContext))]
-    [Migration("20240122132800_Update_MimicDiagramIdentity2")]
-    partial class UpdateMimicDiagramIdentity2
+    [Migration("20240131123248_Add-MimicDiagram")]
+    partial class AddMimicDiagram
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -96,6 +96,43 @@ namespace BookStore.Migrations
                     b.ToTable("Books", (string)null);
                 });
 
+            modelBuilder.Entity("BookStore.Formulas.Formula", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal?>("FormulaInputMaximum")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("FormulaInputMinimum")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("FormulaMultiplier")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("FormulaName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("FormulaOutputMaximim")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("FormulaOutputMinimum")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("FormulaType")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tbl_EM_Formulas", (string)null);
+                });
+
             modelBuilder.Entity("BookStore.MimicDiagrams.MimicDiagram", b =>
                 {
                     b.Property<int>("Id")
@@ -104,11 +141,76 @@ namespace BookStore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("MimicDiagramAuthorization")
-                        .HasColumnType("bit");
+                    b.Property<bool>("Active")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("Active");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)")
+                        .HasColumnName("ConcurrencyStamp");
+
+                    b.Property<DateTime>("CreationTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreationTime")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<Guid?>("CreatorId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("CreatorId");
+
+                    b.Property<Guid?>("DeleterId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("DeleterId");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("DeletionTime");
+
+                    b.Property<string>("ExtraProperties")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("ExtraProperties");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("IsDeleted");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("LastModificationTime");
+
+                    b.Property<Guid?>("LastModifierId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("LastModifierId");
+
+                    b.Property<bool?>("MimicDiagramAuthorization")
+                        .HasColumnType("bit")
+                        .HasColumnName("MimicDiagramAuthorization");
+
+                    b.Property<string>("MimicDiagramDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("MimicDiagramDescription");
 
                     b.Property<string>("MimicDiagramName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("MimicDiagramName");
+
+                    b.Property<string>("MimicDiagramXML")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("MimicDiagramXML");
+
+                    b.Property<Guid?>("TenantId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("TenantId");
 
                     b.HasKey("Id");
 

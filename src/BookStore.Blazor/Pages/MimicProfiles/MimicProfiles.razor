@@ -10,11 +10,16 @@
 @using Syncfusion.Blazor.Calendars
 @using Syncfusion.Blazor.Buttons
 @using System.ComponentModel.DataAnnotations
-@inject IStringLocalizer<BookStoreResource> Ml
+@inherits BookStoreComponentBase
 
 @if (Loading)
 {
-    <span>Loading...</span>
+    <Row>
+        <Div Flex="Flex.JustifyContent.Center" TextColor="TextColor.Warning">
+            <Div Class="spinner-border me-2"></Div>
+            <Span Style="display:inline-block; vertical-align:super">@L["Loading"]</Span>
+            </Div>
+        </Row>
 }
 else
 {
@@ -26,9 +31,9 @@ else
                 @{
                     ValidatorTemplateContext txt = context as ValidatorTemplateContext;
                 }
-                <BookStore.Blazor.Shared.Common.MyCustomValidator context="@txt"></BookStore.Blazor.Shared.Common.MyCustomValidator>
+                @* <BookStore.Blazor.Shared.Common.MyCustomValidator context="@txt"></BookStore.Blazor.Shared.Common.MyCustomValidator> *@
 
-                <ValidationMessage style="color:red" For="@(() => (txt.Data as MimicProfileDto).MimicProfileName)"></ValidationMessage>
+                @* <ValidationMessage style="color:red" For="@(() => (txt.Data as MimicProfileDto).MimicProfileName)"></ValidationMessage> *@
             </Validator>
             <HeaderTemplate>
                 @{
@@ -42,13 +47,14 @@ else
                     <div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <SfTextBox @bind-Value="@mimicProfile.MimicProfileName" Placeholder="@Ml["Profile Name"]" />
-                            </div>
+                                <SfTextBox @bind-Value="@mimicProfile.MimicProfileName" Placeholder="@L["Profile Name"]" />
+                            
+                                </div>
                         </div>
 
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <SfMultiSelect TItem="MimicDiagramDto" @bind-Value="MimicDiagramNames" TValue="string[]" Placeholder="@Ml["Select"]" Mode="VisualMode.CheckBox" DataSource="@MimicDiagramList" ShowDropDownIcon=true>
+                                <SfMultiSelect TItem="MimicDiagramDto" @bind-Value="MimicDiagramResult" TValue="int[]" Placeholder="@L["Select"]" Mode="VisualMode.CheckBox" DataSource="@MimicDiagramList" ShowDropDownIcon=true>
                                     <MultiSelectFieldSettings Value="Id" Text="MimicDiagramName"></MultiSelectFieldSettings>
                                 </SfMultiSelect>
                             </div>
@@ -60,19 +66,19 @@ else
         <GridColumns>
             <GridColumn Width="100px" />
             <GridColumn Field="@nameof(MimicProfileDto.Id)" HeaderText="Id" IsPrimaryKey="true" Visible="false" AllowAdding="false" AllowEditing="false" />
-            <GridColumn Field="@nameof(MimicProfileDto.MimicProfileName)" HeaderText="@Ml["Profile Name"]" />
+            <GridColumn Field="@nameof(MimicProfileDto.MimicProfileName)" HeaderText="@L["Profile Name"]" />
             <GridColumn Field="@nameof(MimicProfileDto.MimicProfileDetail)" HeaderText="MimicDetails" />
         </GridColumns>
     </Syncfusion.Blazor.Grids.SfGrid>
 
     <SfDialog Width="250px" ShowCloseIcon="true" IsModal="true" @bind-Visible="@IsVisible">
         <DialogTemplates>
-            <Header> @Ml["Confirmation Message"] </Header>
-            <Content> @Ml["Are you sure about deleting this Profile?"] </Content>
+            <Header> @L["Confirmation Message"] </Header>
+            <Content> @L["Are you sure about deleting this Profile?"] </Content>
         </DialogTemplates>
         <DialogButtons>
-            <DialogButton Content="@Ml["OK"]" IsPrimary="true" OnClick="@OkClick" />
-            <DialogButton Content="@Ml["Cancel"]" OnClick="@CancelClick" />
+            <DialogButton Content="@L["OK"]" IsPrimary="true" OnClick="@OkClick" />
+            <DialogButton Content="@L["Cancel"]" OnClick="@CancelClick" />
         </DialogButtons>
     </SfDialog>
 }

@@ -6,7 +6,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace BookStore.MimicProfiles
 {
-    public class MimicProfileDto: AuditedEntityDto<Guid>
+    public class MimicProfileDto: AuditedEntityDto<int>
     {
         public Guid TenantId { get; set; }
         public string MimicProfileName { get; set; }

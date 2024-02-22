@@ -1,0 +1,238 @@
+﻿@page "/derived-values"
+@using BookStore.DerivedValues
+@using BookStore.DerivedValueDetails
+@using BookStore.Localization
+@using BookStore.Shared
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@using Polly
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Calendars
+@using Syncfusion.Blazor.Buttons
+@using System.ComponentModel.DataAnnotations
+@inherits BookStoreComponentBase
+
+@if (Loading)
+{
+    <Row>
+        <Div Flex="Flex.JustifyContent.Center" TextColor="TextColor.Warning">
+            <Div Class="spinner-border me-2"></Div>
+            <Span Style="display:inline-block; vertical-align:super">@L["Loading"]</Span>
+            </Div>
+        </Row>
+}
+else
+{
+    <Syncfusion.Blazor.Grids.SfGrid @ref="Grid" DataSource="@DerivedValuesList" AllowPaging="true" Toolbar="@(new string[] {"Add", "Edit" ,"Delete","Update","Cancel" })">
+        <GridEvents OnActionBegin="ActionBeginHandler" TValue="DerivedValueDto"></GridEvents>
+        <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog" Dialog="DialogParams">
+            <Template>
+                @{
+                    var derivedValue = (context as DerivedValueDto);
+
+                    <div>
+
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <SfCheckBox Label="@L["Is Active?"]" @bind-Checked="derivedValue.Active"></SfCheckBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="e-float-text e-label-top">@L["Description"]</label>
+                                    <Syncfusion.Blazor.Inputs.SfTextBox @bind-Value="derivedValue.DVDescription"></Syncfusion.Blazor.Inputs.SfTextBox>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="e-float-text e-label-top">@L["Threshold Time"]</label>
+                                    <Syncfusion.Blazor.Inputs.SfNumericTextBox @bind-Value="derivedValue.DVThresholdTime" Placeholder="1"></Syncfusion.Blazor.Inputs.SfNumericTextBox>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="e-float-text e-label-top"></label>
+                                    <SfDropDownList TValue="BookStore.Enums.ThresholdTimeUnitTypes" TItem="BookStore.Enums.ThresholdTimeUnitTypes" DataSource="@(Enum.GetValues<BookStore.Enums.ThresholdTimeUnitTypes>().ToList())" @bind-Value="ThresholdTimeUnitSelected">
+                                        <DropDownListTemplates TItem="BookStore.Enums.ThresholdTimeUnitTypes" Context="thresholdTimeUnitTypes">
+                                            <ItemTemplate>@L[$"Enum:ThresholdTimeUnitTypes.{thresholdTimeUnitTypes}"]</ItemTemplate>
+                                            <ValueTemplate>
+                                                @L[$"Enum:ThresholdTimeUnitTypes.{thresholdTimeUnitTypes}"]
+                                            </ValueTemplate>
+                                        </DropDownListTemplates>
+                                    </SfDropDownList>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="e-float-text e-label-top">@L["Record Value"]</label>
+                                    <SfDropDownList TValue="BookStore.Enums.ComminicationType" TItem="BookStore.Enums.ComminicationType" DataSource="@(Enum.GetValues<BookStore.Enums.ComminicationType>().ToList())" @bind-Value="RecordValueSelected">
+                                        <DropDownListTemplates TItem="BookStore.Enums.ComminicationType" Context="comminicationType">
+                                            <ItemTemplate>@L[$"Enum:ComminicationType.{comminicationType}"]</ItemTemplate>
+                                            <ValueTemplate>
+                                                @L[$"Enum:ComminicationType.{comminicationType}"]
+                                            </ValueTemplate>
+                                        </DropDownListTemplates>
+                                    </SfDropDownList>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="e-float-text e-label-top">@L["Selected Item"]</label>
+                                    <SfDropDownList TValue="BookStore.Enums.AlphabetItem" TItem="string" DataSource="@AlphabetItemsEnumValues" @bind-Value="selectedItem"></SfDropDownList>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label class="e-float-text e-label-top"></label>
+                                    <SfButton OnClick="@(()=>AddItemToFormula(context as DerivedValueDto))">@L["Add"]</SfButton>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="e-float-text e-label-top">@L["Selected Operator"]</label>
+                                    <SfDropDownList TValue="string" Placeholder="@L["Select"]" TItem="Operator" Width="300px" @bind-Value="@SelectedOperator" DataSource="@Operators">
+                                        <DropDownListFieldSettings Value="Name"></DropDownListFieldSettings>
+                                    </SfDropDownList>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label class="e-float-text e-label-top"></label>
+                                    <SfButton OnClick="@(()=>AddOperatorToFormula(context as DerivedValueDto))">@L["Add"]</SfButton>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="e-float-text e-label-top">@L["Formula"]</label>
+                                    <Syncfusion.Blazor.Inputs.SfTextBox @bind-Value="derivedValue.DVFormula"></Syncfusion.Blazor.Inputs.SfTextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                        @************ DerivedValueDetailGrid  ***************@
+                            <SfGrid DataSource="DerivedValueDetailsList" @ref="NestedGrid" Toolbar="@(new List<string>() { "Add" })">
+                                <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true"></GridEditSettings>
+                                <GridEvents OnActionBegin="OnActionBeginDerivedValueDetailGrid" TValue="DerivedValueDetailDto"></GridEvents>
+                                <h3>@L["Parameters"]</h3>
+                                <GridColumns>
+                                    <GridColumn HeaderText="@L["Selected Item"]" EditType="EditType.DropDownEdit">
+                                        <EditTemplate Context="AlphabetItems">
+                                            <SfDropDownList TValue="BookStore.Enums.AlphabetItem" TItem="string" DataSource="@AlphabetItemsEnumValues" @bind-Value="selectedItem"></SfDropDownList>
+                                        </EditTemplate>
+                                    </GridColumn>
+                                    <GridColumn Field="@nameof(DerivedValueDetailDto.Id)" IsPrimaryKey="true" Visible="false"></GridColumn>
+                                    <GridColumn Field="@nameof(DerivedValueDetailDto.DVDeviceId)" HeaderText="@L["Device"]" EditType="EditType.DropDownEdit">
+                                        <EditTemplate Context="DVDevice">
+                                            <SfDropDownList TValue="string" TItem="LookupDto<int>" @bind-Value="DVDeviceResult" DataSource="@DVDeviceLookup"></SfDropDownList>
+                                        </EditTemplate>
+                                    </GridColumn>
+                                    <GridColumn Field="@nameof(DerivedValueDetailDto.DVLabelId)" HeaderText="@L["Label"]" EditType="EditType.DropDownEdit"></GridColumn>
+                                    <GridColumn Field="@nameof(DerivedValueDetailDto.DVMathOperator)" HeaderText="@L["Selected Operator"]" EditType="EditType.DropDownEdit">
+                                        <EditTemplate Context="Operator">
+                                            <SfDropDownList TValue="string" Placeholder="@L["Select"]" TItem="Operator" Width="300px" @bind-Value="@SelectedOperator" DataSource="@Operators">
+                                                <DropDownListFieldSettings Value="Code" Text="Name"></DropDownListFieldSettings>
+                                            </SfDropDownList>
+                                        </EditTemplate>
+                                    </GridColumn>
+                                    <GridColumn Field="@nameof(DerivedValueDetailDto.DVConstantValue)" HeaderText="@L["DVConstantValue"]">
+                                        <EditTemplate Context="DVConst">
+                                            <SfTextBox Value="@ConstValue" Enabled=false></SfTextBox>
+                                        </EditTemplate>
+                                    </GridColumn>
+                                    <GridColumn Field="@nameof(DerivedValueDetailDto.DVId)" Visible=false ></GridColumn>
+                                    <GridColumn>
+                                        <GridCommandColumns>
+                                            <GridCommandColumn Type="CommandButtonType.Delete" ButtonOption="@(new CommandButtonOptions() {IconCss="e-icons e-delete", CssClass="e-flat" })"></GridCommandColumn>
+                                            <GridCommandColumn Type="CommandButtonType.Save" ButtonOption="@(new CommandButtonOptions() {IconCss="e-icons e-save", CssClass="e-flat" })"></GridCommandColumn>
+                                        </GridCommandColumns>
+                                    </GridColumn>
+                                </GridColumns>
+                            </SfGrid>
+                        </div>
+
+                    </div>
+               }
+            </Template>
+        </GridEditSettings>
+        <GridColumns>
+            <GridColumn Width="100px" />
+            <GridColumn Field="@nameof(DerivedValueDto.Id)" HeaderText="Id" IsPrimaryKey="true" Visible="false" AllowAdding="false" AllowEditing="false" />
+            <GridColumn Field="@nameof(DerivedValueDto.Active)" HeaderText="@L["Active"]" />
+            <GridColumn Field="@nameof(DerivedValueDto.DVDescription)" HeaderText="@L["Description"]" />
+            <GridColumn Field="@nameof(DerivedValueDto.DVRecordValue)" HeaderText="@L["Record Value"]">
+                <Template>
+                    @{
+                        var dv = (context as DerivedValueDto);
+                        var enumValue = dv.DVRecordValue;
+                        var enumName = Enum.GetName(typeof(BookStore.Enums.ComminicationType), enumValue);
+                    }
+                    @L[$"Enum:ComminicationType.{enumName}"]
+                </Template>
+            </GridColumn>
+            <GridColumn Field="@nameof(DerivedValueDto.DVThresholdTime)" HeaderText="@L["Threshold Time"]">
+                <Template>
+                    @{
+                        var dv = (context as DerivedValueDto);
+                        var enumValue = dv.DVThresholdTimeUnit;
+                        var tTime = dv.DVThresholdTime.ToString();
+                        var enumName = Enum.GetName(typeof(BookStore.Enums.ThresholdTimeUnitTypes), enumValue);
+                    }
+                    @tTime @L[$"Enum:ThresholdTimeUnitTypes.{enumName}"]
+                </Template>
+            </GridColumn>
+            <GridColumn Field="@nameof(DerivedValueDto.DVThresholdTimeUnit)" Visible="false" />
+            <GridColumn Field="@nameof(DerivedValueDto.DVFormula)" Visible="false" />
+        </GridColumns>
+    </Syncfusion.Blazor.Grids.SfGrid>
+
+    <Syncfusion.Blazor.Popups.SfDialog Width="250px" ShowCloseIcon="true" IsModal="true" @bind-Visible="@IsVisible">
+        <Syncfusion.Blazor.Popups.DialogTemplates>
+            <Header> @L["ConfirmationMessage"] </Header>
+            <Content> @L["DeleteConfirmationMessage"] </Content>
+        </Syncfusion.Blazor.Popups.DialogTemplates>
+        <Syncfusion.Blazor.Popups.DialogButtons>
+            <Syncfusion.Blazor.Popups.DialogButton Content="@L["OK"]" IsPrimary="true" OnClick="@OkClick" />
+            <Syncfusion.Blazor.Popups.DialogButton Content="@L["Cancel"]" OnClick="@CancelClick" />
+        </Syncfusion.Blazor.Popups.DialogButtons>
+    </Syncfusion.Blazor.Popups.SfDialog>
+}
+<style>
+    .col-md-6 {
+        width: 400px;
+    }
+
+    label.e-float-text {
+        position: relative;
+        padding-left: 0;
+    }
+
+    div#Grid_dialogEdit_wrapper {
+        max-height: none !important;
+    }
+
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+</style>

@@ -8,7 +8,7 @@ using Volo.Abp.Domain.Entities.Auditing;
 
 namespace BookStore.MimicProfiles
 {
-    public class MimicProfile : FullAuditedAggregateRoot<Guid>
+    public class MimicProfile : FullAuditedAggregateRoot<int>
     {
         public Guid TenantId { get; set; }
         public string MimicProfileName { get; set; }
